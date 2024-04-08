@@ -16,7 +16,7 @@ export class UsersService {
     });
   }
 
-  async users(params: {
+  async findAll(params: {
     skip?: number;
     take?: number;
     cursor?: Prisma.UserWhereUniqueInput;
@@ -33,13 +33,13 @@ export class UsersService {
     });
   }
 
-  async createUser(data: CreateUserDto): Promise<User> {
+  async create(data: CreateUserDto): Promise<User> {
     return this.prisma.user.create({
       data,
     });
   }
 
-  async updateUser(params: {
+  async update(params: {
     where: Prisma.UserWhereUniqueInput;
     data: UpdateUserDto;
   }): Promise<User> {
@@ -50,7 +50,7 @@ export class UsersService {
     });
   }
 
-  async deleteUser(where: Prisma.UserWhereUniqueInput): Promise<User> {
+  async delete(where: Prisma.UserWhereUniqueInput): Promise<User> {
     return this.prisma.user.delete({
       where,
     });

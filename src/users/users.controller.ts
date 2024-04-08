@@ -17,12 +17,12 @@ export class UsersController {
 
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.createUser(createUserDto);
+    return this.usersService.create(createUserDto);
   }
 
   @Get()
   async findAll() {
-    return this.usersService.users({});
+    return this.usersService.findAll({});
   }
 
   @Get(':id')
@@ -32,7 +32,7 @@ export class UsersController {
 
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.updateUser({
+    return this.usersService.update({
       where: { id: Number(id) },
       data: updateUserDto,
     });
@@ -40,6 +40,6 @@ export class UsersController {
 
   @Delete(':id')
   async remove(@Param('id') id: string) {
-    return this.usersService.deleteUser({ id: Number(id) });
+    return this.usersService.delete({ id: Number(id) });
   }
 }
