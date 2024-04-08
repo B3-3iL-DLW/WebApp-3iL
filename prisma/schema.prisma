@@ -13,3 +13,61 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model EventHours {
+  id      Int     @id @default(autoincrement())
+  startAt String
+  endAt   String
+  Event   Event[]
+}
+
+model Event {
+  id            Int         @id @default(autoincrement())
+  creneau       Int
+  activite      String
+  couleur       String
+  horaires      EventHours  @relation(fields: [horairesId], references: [id])
+  horairesId    Int
+  salle         String
+  visio         Boolean
+  repas         Boolean
+  dayScheduleId Int
+  DaySchedule   DaySchedule @relation(fields: [dayScheduleId], references: [id])
+}
+
+model DaySchedule {
+  id             Int           @id @default(autoincrement())
+  date           DateTime
+  jour           Int
+  weekSchedule   WeekSchedule? @relation(fields: [weekScheduleId], references: [id])
+  weekScheduleId Int?
+  events         Event[]
+}
+
+model WeekSchedule {
+  id   Int           @id @default(autoincrement())
+  code String
+  days DaySchedule[]
+}
+
+model ClassGroup {
+  id    Int    @id @default(autoincrement())
+  file  String
+  name  String
+  users User[]
+}
+
+model User {
+  id           Int         @id @default(autoincrement())
+  email        String      @unique
+  password     String
+  firstname    String
+  lastname     String
+  role         Role        @default(STUDENT)
+  classGroup   ClassGroup? @relation(fields: [classGroupId], references: [id])
+  classGroupId Int?
+}
+
+enum Role {
+  STUDENT
+  ADMIN
+}
