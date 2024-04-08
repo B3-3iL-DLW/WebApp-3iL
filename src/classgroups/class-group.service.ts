@@ -5,8 +5,7 @@ import { ClassGroup } from '@prisma/client';
 
 @Injectable()
 export class ClassGroupService {
-  constructor(private prisma: PrismaService) {
-  }
+  constructor(private prisma: PrismaService) {}
 
   async create(createClassgroupDto: CreateClassgroupDto) {
     return this.prisma.classGroup.create({
