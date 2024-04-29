@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CreateClassgroupDto } from './dto/create-classgroup.dto';
-import { PrismaService } from '../prisma/prisma.service';
+import { PrismaService } from '../../prisma/prisma.service';
 import { ClassGroup } from '@prisma/client';
 
 @Injectable()

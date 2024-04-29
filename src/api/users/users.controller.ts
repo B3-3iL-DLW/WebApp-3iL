@@ -11,7 +11,7 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
-@Controller('users')
+@Controller('api/users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
@@ -27,7 +27,7 @@ export class UsersController {
 
   @Get(':id')
   async findOne(@Param('id') id: string) {
-    return this.usersService.user({ id: Number(id) });
+    return this.usersService.findOne({ id: Number(id) });
   }
 
   @Patch(':id')
@@ -39,7 +39,7 @@ export class UsersController {
   }
 
   @Delete(':id')
-  async remove(@Param('id') id: string) {
+  async delete(@Param('id') id: string) {
     return this.usersService.delete({ id: Number(id) });
   }
 }

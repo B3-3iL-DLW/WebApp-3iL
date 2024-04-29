@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ApiService } from '../api.service';
-import { ClassGroupService } from '../../classgroups/class-group.service';
+import { ClassGroupService } from '../classgroups/class-group.service';
 import { Cron } from '@nestjs/schedule';
 
 @Injectable()
