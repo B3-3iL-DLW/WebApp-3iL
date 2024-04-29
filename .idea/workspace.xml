@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="452182f3-f735-40ff-800b-70244497b2e3" name="Changes" comment=":rotating_light: fix">
+    <list default="true" id="b4d2e8b8-aee7-4124-a8f5-a72909faa43c" name="Changes" comment=":building_construction: frontend react project">
+      <change afterPath="$PROJECT_DIR$/.idea/backend-3il.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/front_dev.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/e/2ea1628f7b6407219d2ac0c82271761acb6a11f4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/e/2ea1628f7b6407219d2ac0c82271761acb6a11f4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/next.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/postcss.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/public/next.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/public/vercel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/src/app/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/src/app/globals.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/src/app/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/src/app/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/tailwind.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -12,85 +37,62 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FormatOnSaveOptions">
-    <option name="myRunOnSave" value="false" />
-    <option name="myAllFileTypesSelected" value="true" />
-    <option name="mySelectedFileTypes">
-      <set />
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feat/setup-front" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;julesartd&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "julesartd"
   }
-}</component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="master" />
-      </list>
-    </option>
-  </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/julesartd/backend-3il.git&quot;,
-    &quot;accountId&quot;: &quot;25f61140-290a-4f10-b589-0f8f69044136&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/julesartd/backend-3il.git",
+    "accountId": "25f61140-290a-4f10-b589-0f8f69044136"
   }
-}</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="2eoEnbpILsHLq5R1XSJasq0nB4G" />
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2fm6LYs0gbYmyRwRVKNptv3XYTh" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Node.js.Unnamed.executor&quot;: &quot;Debug&quot;,
-    &quot;Node.js.npm start.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.package-lock.json.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jules/Documents/dev/backend-3il/src/main.ts&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.start:dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\jules\\Documents\\dev\\backend-3il\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\jules\\Documents\\dev\\backend-3il\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "feat/setup-react",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
+    "npm.front-dev.executor": "Run",
+    "ts.external.directory.path": "C:\\Users\\jules\\Documents\\dev\\backend-3il\\backend-nest\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\jules\Documents\dev\backend-3il\src\api\auth" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jules\Documents\dev\backend-3il\backend-nest" />
-      <recent name="C:\Users\jules\Documents\dev\backend-3il\src\api\classgroups" />
-      <recent name="C:\Users\jules\Documents\dev\backend-3il\src\api" />
-      <recent name="C:\Users\jules\Documents\dev\backend-3il\src\api\users" />
-    </key>
+}]]></component>
+  <component name="RunManager" selected="npm.front-dev">
+    <list>
+      <item itemvalue="npm.start:dev" />
+      <item itemvalue="npm.front-dev" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.front-dev" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -102,119 +104,21 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="452182f3-f735-40ff-800b-70244497b2e3" name="Changes" comment="" />
-      <created>1712562698943</created>
+      <changelist id="b4d2e8b8-aee7-4124-a8f5-a72909faa43c" name="Changes" comment="" />
+      <created>1714393851007</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712562698943</updated>
-      <workItem from="1712562700360" duration="376000" />
-      <workItem from="1712563099720" duration="6712000" />
-      <workItem from="1712576074818" duration="15751000" />
-      <workItem from="1712592347797" duration="699000" />
-      <workItem from="1714372411829" duration="75000" />
-      <workItem from="1714372506674" duration="8192000" />
-      <workItem from="1714381213443" duration="6253000" />
-      <workItem from="1714393546106" duration="26000" />
+      <updated>1714393851007</updated>
+      <workItem from="1714393853129" duration="1076000" />
     </task>
-    <task id="LOCAL-00001" summary=":rotating_light: default fixes linter">
-      <option name="closed" value="true" />
-      <created>1712563551968</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1712563551968</updated>
-    </task>
-    <task id="LOCAL-00002" summary=":card_file_box: : schema prisma">
-      <option name="closed" value="true" />
-      <created>1712569801998</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1712569801998</updated>
-    </task>
-    <task id="LOCAL-00003" summary=":construction:: users crud">
-      <option name="closed" value="true" />
-      <created>1712579031797</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1712579031797</updated>
-    </task>
-    <task id="LOCAL-00004" summary=":construction:: users crud pt2">
-      <option name="closed" value="true" />
-      <created>1712583721185</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1712583721185</updated>
-    </task>
-    <task id="LOCAL-00005" summary=":recycle:: refactor user">
-      <option name="closed" value="true" />
-      <created>1712585272603</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1712585272603</updated>
-    </task>
-    <task id="LOCAL-00006" summary=":rotating_light:: linter warns">
-      <option name="closed" value="true" />
-      <created>1712593056259</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1712593056259</updated>
-    </task>
-    <task id="LOCAL-00007" summary=":recycle: : api scope">
-      <option name="closed" value="true" />
-      <created>1714375354891</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1714375354891</updated>
-    </task>
-    <task id="LOCAL-00008" summary=":truck: : api routes to update class">
-      <option name="closed" value="true" />
-      <created>1714376999982</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1714376999982</updated>
-    </task>
-    <task id="LOCAL-00009" summary=":passport_control: : add auth to use api">
-      <option name="closed" value="true" />
-      <created>1714381880155</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1714381880155</updated>
-    </task>
-    <task id="LOCAL-00010" summary=":wrench: add run file">
-      <option name="closed" value="true" />
-      <created>1714390446051</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1714390446051</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=":rotating_light: default fixes linter" />
-    <MESSAGE value=":card_file_box: : schema prisma" />
-    <MESSAGE value=":construction:: users crud" />
-    <MESSAGE value=":construction:: users crud pt2" />
-    <MESSAGE value=":recycle:: refactor user" />
-    <MESSAGE value="Merge pull request #2 from B3-3iL-DLW/classgroups&#10;&#10;✨: Classes route" />
-    <MESSAGE value=":rotating_light:: linter warns" />
-    <MESSAGE value=":recycle: : api scope" />
-    <MESSAGE value=":truck: : api routes to update class" />
-    <MESSAGE value=":passport_control: : add auth to use api" />
-    <MESSAGE value=":wrench: add run file" />
-    <MESSAGE value=":rotating_light: fix" />
-    <option name="LAST_COMMIT_MESSAGE" value=":rotating_light: fix" />
+    <MESSAGE value=":see_no_evil: gitignore" />
+    <MESSAGE value=":building_construction: frontend react project" />
+    <option name="LAST_COMMIT_MESSAGE" value=":building_construction: frontend react project" />
   </component>
 </project>
