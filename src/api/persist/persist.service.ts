@@ -14,6 +14,7 @@ export class PersistService {
   persistClasses() {
     this.apiService.getClasses().subscribe((response) => {
       response.data.forEach((item) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { id, ...data } = item; // ignore id from response
         this.classGroupService
           .upsert({
