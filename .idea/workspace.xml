@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4d2e8b8-aee7-4124-a8f5-a72909faa43c" name="Changes" comment="fix">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/3/0308482acd9aa2db856207fa4442f24289ceeba9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/e/1ed0a01b9c7e7dbd26f4832955360fb85ab59c70" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/3/0308482acd9aa2db856207fa4442f24289ceeba9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/e/1ed0a01b9c7e7dbd26f4832955360fb85ab59c70" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-react/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-react/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1714393851007</updated>
       <workItem from="1714393853129" duration="5482000" />
-      <workItem from="1714399477832" duration="137000" />
+      <workItem from="1714399477832" duration="392000" />
     </task>
     <task id="LOCAL-00001" summary=":building_construction: frontend react project">
       <option name="closed" value="true" />
@@ -137,7 +131,23 @@
       <option name="project" value="LOCAL" />
       <updated>1714399455568</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix">
+      <option name="closed" value="true" />
+      <created>1714399628033</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714399628033</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix">
+      <option name="closed" value="true" />
+      <created>1714399796740</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714399796740</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
