@@ -1,0 +1,73 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model EventHours {
+  id      Int     @id @default(autoincrement())
+  startAt String
+  endAt   String
+  Event   Event[]
+}
+
+model Event {
+  id            Int         @id @default(autoincrement())
+  creneau       Int
+  activite      String
+  couleur       String
+  horaires      EventHours  @relation(fields: [horairesId], references: [id])
+  horairesId    Int
+  salle         String
+  visio         Boolean
+  repas         Boolean
+  dayScheduleId Int
+  DaySchedule   DaySchedule @relation(fields: [dayScheduleId], references: [id])
+}
+
+model DaySchedule {
+  id             Int           @id @default(autoincrement())
+  date           DateTime
+  jour           Int
+  weekSchedule   WeekSchedule? @relation(fields: [weekScheduleId], references: [id])
+  weekScheduleId Int?
+  events         Event[]
+}
+
+model WeekSchedule {
+  id   Int           @id @default(autoincrement())
+  code String
+  days DaySchedule[]
+}
+
+model ClassGroup {
+  id    Int    @id @default(autoincrement())
+  file  String @unique
+  name  String @unique
+  users User[]
+}
+
+model User {
+  id           Int         @id @default(autoincrement())
+  email        String      @unique
+  password     String
+  firstname    String
+  lastname     String
+  role         Role        @default(STUDENT)
+  classGroup   ClassGroup? @relation(fields: [classGroupId], references: [id])
+  classGroupId Int?
+}
+
+enum Role {
+  STUDENT
+  ADMIN
+}

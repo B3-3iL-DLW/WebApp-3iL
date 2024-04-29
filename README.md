@@ -30,6 +30,9 @@
 
 ```bash
 $ npm install
+
+$ prisma push 
+$ npm run seed
 ```
 
 ## Running the app
