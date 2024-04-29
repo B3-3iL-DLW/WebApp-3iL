@@ -44,16 +44,19 @@ model DaySchedule {
 }
 
 model WeekSchedule {
-  id   Int           @id @default(autoincrement())
-  code String
-  days DaySchedule[]
+  id           Int           @id @default(autoincrement())
+  code         String
+  days         DaySchedule[]
+  classGroup   ClassGroup    @relation(fields: [classGroupId], references: [id])
+  classGroupId Int
 }
 
 model ClassGroup {
-  id    Int    @id @default(autoincrement())
-  file  String @unique
-  name  String @unique
-  users User[]
+  id           Int            @id @default(autoincrement())
+  file         String         @unique
+  name         String         @unique
+  users        User[]
+  WeekSchedule WeekSchedule[]
 }
 
 model User {
