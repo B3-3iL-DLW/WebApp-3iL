@@ -5,32 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4d2e8b8-aee7-4124-a8f5-a72909faa43c" name="Changes" comment=":building_construction: frontend react project">
-      <change afterPath="$PROJECT_DIR$/.idea/backend-3il.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/front_dev.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/e/2ea1628f7b6407219d2ac0c82271761acb6a11f4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/e/2ea1628f7b6407219d2ac0c82271761acb6a11f4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/.eslintrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/next.config.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/postcss.config.mjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/public/next.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/public/vercel.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/src/app/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/src/app/globals.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/src/app/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/src/app/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/tailwind.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend-react/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/src/app/authMiddleware.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/src/app/login/components/LoginForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/src/app/login/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend-react/src/app/login/services/loginService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-nest/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-nest/.run/start_dev.run.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/.run/start_dev.run.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-nest/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-react/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-react/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-react/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-react/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-react/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-react/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-react/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-react/src/app/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,11 +67,18 @@
     "nodejs_package_manager_path": "npm",
     "npm.dev.executor": "Run",
     "npm.front-dev.executor": "Run",
+    "npm.start:dev.executor": "Run",
     "ts.external.directory.path": "C:\\Users\\jules\\Documents\\dev\\backend-3il\\backend-nest\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="npm.front-dev">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jules\Documents\dev\backend-3il\frontend-react\src\app\login" />
+      <recent name="C:\Users\jules\Documents\dev\backend-3il\frontend-react" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.start:dev">
     <list>
       <item itemvalue="npm.start:dev" />
       <item itemvalue="npm.front-dev" />
@@ -109,8 +104,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714393851007</updated>
-      <workItem from="1714393853129" duration="1076000" />
+      <workItem from="1714393853129" duration="5341000" />
     </task>
+    <task id="LOCAL-00001" summary=":building_construction: frontend react project">
+      <option name="closed" value="true" />
+      <created>1714394961548</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714394961548</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
