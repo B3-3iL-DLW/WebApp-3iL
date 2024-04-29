@@ -75,8 +75,8 @@
   </component>
   <component name="RunManager" selected="npm.start:dev">
     <list>
-      <item itemvalue="npm.front-dev" />
       <item itemvalue="npm.start:dev" />
+      <item itemvalue="npm.front-dev" />
     </list>
   </component>
   <component name="SharedIndexes">
