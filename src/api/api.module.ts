@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { ApiService } from './api.service';
 import { PersistService } from './persist/persist.service';
 import { HttpModule } from '@nestjs/axios';
-import { ClassGroupsModule } from '../classgroups/classGroupsModule';
-import { ClassGroupService } from '../classgroups/class-group.service';
+import { ClassGroupsModule } from './classgroups/classGroupsModule';
+import { ClassGroupService } from './classgroups/class-group.service';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Module({
