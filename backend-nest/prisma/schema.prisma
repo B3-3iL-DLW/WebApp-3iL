@@ -44,19 +44,27 @@ model DaySchedule {
 }
 
 model WeekSchedule {
-  id           Int           @id @default(autoincrement())
+  id          Int           @id @default(autoincrement())
+  code        String
+  days        DaySchedule[]
+  Timetable   Timetable?    @relation(fields: [timetableId], references: [id])
+  timetableId Int?
+}
+
+model Timetable {
+  id           Int            @id @default(autoincrement())
   code         String
-  days         DaySchedule[]
-  classGroup   ClassGroup    @relation(fields: [classGroupId], references: [id])
+  weeks        WeekSchedule[]
+  classGroup   ClassGroup     @relation(fields: [classGroupId], references: [id])
   classGroupId Int
 }
 
 model ClassGroup {
-  id           Int            @id @default(autoincrement())
-  file         String         @unique
-  name         String         @unique
-  users        User[]
-  WeekSchedule WeekSchedule[]
+  id        Int         @id @default(autoincrement())
+  file      String      @unique
+  name      String      @unique
+  users     User[]
+  Timetable Timetable[]
 }
 
 model User {

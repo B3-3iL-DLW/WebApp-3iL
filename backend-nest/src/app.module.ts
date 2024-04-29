@@ -7,6 +7,7 @@ import { ClassgroupsModule } from './api/classgroups/classgroups.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ApiModule } from './api/api.module';
 import { AuthModule } from './api/auth/auth.module';
+import { TimetableModule } from './api/timetable/timetable.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { AuthModule } from './api/auth/auth.module';
     ScheduleModule.forRoot(),
     ApiModule,
     AuthModule,
+    TimetableModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService],
