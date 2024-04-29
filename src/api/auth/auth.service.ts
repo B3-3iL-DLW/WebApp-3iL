@@ -12,7 +12,7 @@ export class AuthService {
   async signIn(email: string, pass: string): Promise<{ access_token: string }> {
     const user = await this.usersService.findOneByEmail(email);
     if (user?.password !== pass) {
-      throw new UnauthorizedException();
+      throw new UnauthorizedException('Invalid credentials');
     }
     const payload = { sub: user.id, email: user.email };
     return {
