@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { ApiService } from '../api.service';
-import { ClassGroupService } from '../classgroups/class-group.service';
+import { ClassgroupsService } from '../classgroups/classgroups.service';
 import { Cron } from '@nestjs/schedule';
 
 @Injectable()
 export class PersistService {
   constructor(
     private readonly apiService: ApiService,
-    private readonly classGroupService: ClassGroupService,
+    private readonly classGroupService: ClassgroupsService,
   ) {}
 
   @Cron('*/2 * * * *')

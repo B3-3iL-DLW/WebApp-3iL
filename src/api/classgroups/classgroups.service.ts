@@ -4,7 +4,7 @@ import { PrismaService } from '../../prisma/prisma.service';
 import { ClassGroup } from '@prisma/client';
 
 @Injectable()
-export class ClassGroupService {
+export class ClassgroupsService {
   constructor(private prisma: PrismaService) {}
 
   async create(createClassgroupDto: CreateClassgroupDto) {
