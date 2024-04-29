@@ -55,4 +55,11 @@ export class UsersService {
       where,
     });
   }
+
+  async updateClassGroup(userId: number, classGroupId: number): Promise<User> {
+    return this.prisma.user.update({
+      where: { id: userId },
+      data: { classGroupId },
+    });
+  }
 }

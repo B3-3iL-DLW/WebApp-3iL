@@ -42,4 +42,15 @@ export class UsersController {
   async delete(@Param('id') id: string) {
     return this.usersService.delete({ id: Number(id) });
   }
+
+  @Patch(':id/classgroup/:classGroupId')
+  async updateClassGroup(
+    @Param('id') userId: string,
+    @Param('classGroupId') classGroupId: string,
+  ) {
+    return this.usersService.updateClassGroup(
+      Number(userId),
+      Number(classGroupId),
+    );
+  }
 }
