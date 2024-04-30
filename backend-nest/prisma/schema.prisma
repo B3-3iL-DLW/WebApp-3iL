@@ -8,39 +8,41 @@ datasource db {
 }
 
 model classgroup {
-  file String @unique(map: "ClassGroup_file_key")
-  name String @unique(map: "ClassGroup_name_key")
-  id   Int    @id @default(autoincrement())
+  file  String  @unique(map: "ClassGroup_file_key")
+  name  String  @unique(map: "ClassGroup_name_key")
+  id    Int     @id @default(autoincrement())
+  event event[]
+  user  user[]
 }
 
 model event {
-  id           Int      @id @default(autoincrement())
+  id           Int        @id @default(autoincrement())
   creneau      Int
-  semaine      String
-  dateJour     DateTime
   activite     String
   couleur      String
   salle        String
   visio        Boolean
   repas        Boolean
   eval         Boolean
-  startAt      String
+  classGroup   classgroup @relation(fields: [classGroupId], references: [id])
+  classGroupId Int        @map("classGroupId")
+  dateJour     DateTime
   endAt        String
-  classGroupId Int
+  semaine      String
+  startAt      String
 
-  @@index([classGroupId], map: "Event_classGroupId_fkey")
+  @@unique([classGroupId, activite, semaine, dateJour, creneau], map: "Event_classGroupId_activite_semaine_dateJour_key")
 }
 
 model user {
-  id           Int       @id @default(autoincrement())
-  email        String    @unique(map: "User_email_key")
+  id           Int         @id @default(autoincrement())
+  email        String      @unique(map: "User_email_key")
   password     String
   firstname    String
   lastname     String
-  role         user_role @default(STUDENT)
-  classGroupId Int?
-
-  @@index([classGroupId], map: "User_classGroupId_fkey")
+  role         user_role   @default(STUDENT)
+  classGroup   classgroup? @relation(fields: [classGroupId], references: [id])
+  classGroupId Int?        @map("classGroupId")
 }
 
 enum user_role {
