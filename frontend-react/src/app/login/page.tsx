@@ -9,7 +9,6 @@ import {Credentials, InvalidCredentialsError, login} from './services/loginServi
 import Toast from '../../app/components/toasts';
 
 const LoginPage = () => {
-    const [loginState, setIsLoggedIn] = useState<boolean>(false);
     const [showToast, setShowToast] = useState<boolean>(false);
     const [toastMessage, setToastMessage] = useState<string>('');
     const [toastType, setToastType] = useState<'success' | 'error'>('success');
@@ -21,13 +20,11 @@ const LoginPage = () => {
 
             document.cookie = `jwt=${token}; path=/`;
 
-            setIsLoggedIn(true);
             setToastMessage('Connexion réussie !');
             setToastType('success');
             setShowToast(true);
             setConnectionError(false); // Pas d'erreur de connexion
         } catch (err) {
-            setIsLoggedIn(false);
             setToastMessage('Échec de la connexion');
             setToastType('error');
             setShowToast(true);
