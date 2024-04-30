@@ -1,4 +1,4 @@
-import { PrismaClient, Role } from '@prisma/client';
+import { PrismaClient, user_role } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
@@ -11,7 +11,7 @@ async function main() {
       password: 'alicepassword',
       firstname: 'Alice',
       lastname: 'Doe',
-      role: Role.STUDENT,
+      role: user_role.STUDENT,
     },
   });
 
@@ -23,7 +23,7 @@ async function main() {
       password: 'bobpassword',
       firstname: 'Bob',
       lastname: 'Smith',
-      role: Role.ADMIN,
+      role: user_role.ADMIN,
     },
   });
 
@@ -66,7 +66,7 @@ async function main() {
   ];
 
   for (const classGroup of classGroups) {
-    await prisma.classGroup.create({
+    await prisma.classgroup.create({
       data: classGroup,
     });
   }
