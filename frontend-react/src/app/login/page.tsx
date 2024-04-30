@@ -2,12 +2,12 @@
 
 "use client";
 import React, {useState} from 'react';
-import LoginForm from './components/LoginForm';
+import LoginForm from './form/LoginForm';
 import {Credentials, login} from './services/loginService';
 import Toast from '../../app/components/toasts';
 
 const LoginPage = () => {
-    const setIsLoggedIn = useState<boolean>(false)[1]; // Utiliser une variable unique pour le setter
+    const [loginState, setIsLoggedIn] = useState<boolean>(false);
     const [showToast, setShowToast] = useState<boolean>(false);
     const [toastMessage, setToastMessage] = useState<string>('');
     const [toastType, setToastType] = useState<'success' | 'error'>('success');
@@ -17,13 +17,14 @@ const LoginPage = () => {
             const token = await login(credentials);
 
             document.cookie = `jwt=${token}; path=/`;
-            console.log(document.cookie);
+
 
             setIsLoggedIn(true);
             setToastMessage('Connexion réussie !');
             setToastType('success');
             setShowToast(true);
         } catch (err) {
+            setIsLoggedIn(false);
             setToastMessage('Échec de la connexion');
             setToastType('error');
             setShowToast(true);

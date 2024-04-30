@@ -3,7 +3,7 @@
 import React, {useState} from 'react';
 import InputField from '../../components/inputs';
 import Button from '../../components/buttons';
-import {validateEmail, validateRequired} from "@/app/validators/validators";
+import {validateEmail, validateRequired} from "@/app/utils/validators";
 
 interface LoginFormProps {
     onSubmit: (credentials: { email: string; password: string }) => void;

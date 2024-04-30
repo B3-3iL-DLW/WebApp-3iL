@@ -1,6 +1,5 @@
-// src/app/classgroups/_middleware.ts
 import {NextRequest, NextResponse} from 'next/server'
-import {middleware as authMiddleware} from '../app/authMiddleware'
+import {middleware as authMiddleware} from '../utils/authMiddleware'
 
 export function middleware(req: NextRequest): NextResponse {
     const response = authMiddleware(req)

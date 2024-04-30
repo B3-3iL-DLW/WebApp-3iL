@@ -9,16 +9,16 @@ interface ToastProps {
 }
 
 const Toast = ({message, onClose, type}: ToastProps) => {
-    const [timeLeft, setTimeLeft] = useState(5);
+    const [timeLeft, setTimeLeft] = useState(3);
     const backgroundColor = type === 'success' ? 'bg-green-500' : 'bg-red-500';
 
     useEffect(() => {
-        const timer = setTimeout(onClose, 5000); // Ferme le toast après 5 secondes
+        const timer = setTimeout(onClose, 3000);
         const countdown = setInterval(() => setTimeLeft(time => time - 1), 1000); // Décrémente le temps restant chaque seconde
 
         return () => {
-            clearTimeout(timer); // Efface le timer si le composant est démonté avant que le timer ne se termine
-            clearInterval(countdown); // Efface le compte à rebours si le composant est démonté
+            clearTimeout(timer);
+            clearInterval(countdown);
         };
     }, [onClose]);
 
