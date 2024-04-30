@@ -1,4 +1,4 @@
-import { Role } from '@prisma/client';
+import { user_role } from '@prisma/client';
 import { IsNotEmpty } from 'class-validator';
 
 export class CreateUserDto {
@@ -11,5 +11,5 @@ export class CreateUserDto {
   @IsNotEmpty()
   lastname: string;
   @IsNotEmpty()
-  role: Role;
+  role: user_role;
 }

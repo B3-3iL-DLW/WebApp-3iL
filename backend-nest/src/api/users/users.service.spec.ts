@@ -2,8 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { UsersService } from './users.service';
 import { PrismaService } from '../../prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { Role } from '@prisma/client';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { user_role } from '@prisma/client';
 
 function createNewUser(): CreateUserDto {
   return {
@@ -11,7 +11,7 @@ function createNewUser(): CreateUserDto {
     password: 'createpassword',
     firstname: 'createfirstname',
     lastname: 'cretelastname',
-    role: Role.STUDENT,
+    role: user_role.STUDENT,
   };
 }
 
@@ -28,7 +28,7 @@ describe('UsersService', () => {
 
   describe('findOne', () => {
     it('return a user if a valid id is provided', async () => {
-      const userId = 12;
+      const userId = 11;
       const user = await service.findOne({ id: userId });
       expect(user).not.toBeNull();
       expect(user).not.toBeUndefined();
@@ -104,7 +104,7 @@ describe('UsersService', () => {
         password: 'updatedpassword',
         firstname: 'updatedfirstname',
         lastname: 'updatedlastname',
-        role: Role.STUDENT,
+        role: user_role.STUDENT,
       };
       const user = await service.update({
         where: { id: existinUser.id },

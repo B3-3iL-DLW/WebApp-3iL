@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateClassgroupDto } from './dto/create-classgroup.dto';
 import { PrismaService } from '../../prisma/prisma.service';
-import { ClassGroup } from '@prisma/client';
+import { classgroup } from '@prisma/client';
 
 @Injectable()
 export class ClassgroupsService {
@@ -11,7 +11,7 @@ export class ClassgroupsService {
     if (!createClassgroupDto) {
       throw new Error('Classgroup cannot be null');
     }
-    return this.prisma.classGroup.create({
+    return this.prisma.classgroup.create({
       data: createClassgroupDto,
     });
   }
@@ -20,27 +20,27 @@ export class ClassgroupsService {
     if (!createClassgroupDtos) {
       throw new Error('Classgroup cannot be null');
     }
-    return this.prisma.classGroup.createMany({
+    return this.prisma.classgroup.createMany({
       data: createClassgroupDtos,
     });
   }
 
   async findAll() {
-    return this.prisma.classGroup.findMany();
+    return this.prisma.classgroup.findMany();
   }
 
   async findOne(id: number) {
     if (!id) {
       throw new Error('ID connot be null');
     }
-    return this.prisma.classGroup.findUnique({
+    return this.prisma.classgroup.findUnique({
       where: { id },
     });
   }
 
   async findByFile(file: string) {
     if (!file) throw new Error('File connot be null');
-    return this.prisma.classGroup.findFirst({
+    return this.prisma.classgroup.findFirst({
       where: { file },
     });
   }
@@ -49,24 +49,24 @@ export class ClassgroupsService {
     if (!id) {
       throw new Error('The class does not exist');
     }
-    return this.prisma.classGroup.delete({
+    return this.prisma.classgroup.delete({
       where: { id },
     });
   }
 
   async upsert(param: {
-    create: Omit<ClassGroup, 'id'>;
-    update: Omit<ClassGroup, 'id'>;
+    create: Omit<classgroup, 'id'>;
+    update: Omit<classgroup, 'id'>;
     where: { file: string };
   }) {
     const isExisting = await this.findByFile(param.where.file);
     if (isExisting) {
-      return this.prisma.classGroup.update({
+      return this.prisma.classgroup.update({
         where: { id: isExisting.id },
         data: param.update,
       });
     } else {
-      return this.prisma.classGroup.create({
+      return this.prisma.classgroup.create({
         data: param.create,
       });
     }
