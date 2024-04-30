@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="452182f3-f735-40ff-800b-70244497b2e3" name="Changes" comment=":rotating_light: fix">
+      <change beforePath="$PROJECT_DIR$/backend-nest/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="false" />
+    <option name="myAllFileTypesSelected" value="true" />
+    <option name="mySelectedFileTypes">
+      <set />
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feat/setup-front" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;julesartd&quot;
+  }
+}</component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="master" />
+      </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/julesartd/backend-3il.git&quot;,
+    &quot;accountId&quot;: &quot;25f61140-290a-4f10-b589-0f8f69044136&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2eoEnbpILsHLq5R1XSJasq0nB4G" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Node.js.Unnamed.executor&quot;: &quot;Debug&quot;,
+    &quot;Node.js.npm start.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.package-lock.json.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jules/Documents/dev/backend-3il/src/main.ts&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start:dev.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\jules\\Documents\\dev\\backend-3il\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\jules\\Documents\\dev\\backend-3il\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jules\Documents\dev\backend-3il\src\api\auth" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jules\Documents\dev\backend-3il\backend-nest" />
+      <recent name="C:\Users\jules\Documents\dev\backend-3il\src\api\classgroups" />
+      <recent name="C:\Users\jules\Documents\dev\backend-3il\src\api" />
+      <recent name="C:\Users\jules\Documents\dev\backend-3il\src\api\users" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="452182f3-f735-40ff-800b-70244497b2e3" name="Changes" comment="" />
+      <created>1712562698943</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712562698943</updated>
+      <workItem from="1712562700360" duration="376000" />
+      <workItem from="1712563099720" duration="6712000" />
+      <workItem from="1712576074818" duration="15751000" />
+      <workItem from="1712592347797" duration="699000" />
+      <workItem from="1714372411829" duration="75000" />
+      <workItem from="1714372506674" duration="8192000" />
+      <workItem from="1714381213443" duration="6253000" />
+      <workItem from="1714393546106" duration="158000" />
+    </task>
+    <task id="LOCAL-00001" summary=":rotating_light: default fixes linter">
+      <option name="closed" value="true" />
+      <created>1712563551968</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712563551968</updated>
+    </task>
+    <task id="LOCAL-00002" summary=":card_file_box: : schema prisma">
+      <option name="closed" value="true" />
+      <created>1712569801998</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712569801998</updated>
+    </task>
+    <task id="LOCAL-00003" summary=":construction:: users crud">
+      <option name="closed" value="true" />
+      <created>1712579031797</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712579031797</updated>
+    </task>
+    <task id="LOCAL-00004" summary=":construction:: users crud pt2">
+      <option name="closed" value="true" />
+      <created>1712583721185</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712583721185</updated>
+    </task>
+    <task id="LOCAL-00005" summary=":recycle:: refactor user">
+      <option name="closed" value="true" />
+      <created>1712585272603</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712585272603</updated>
+    </task>
+    <task id="LOCAL-00006" summary=":rotating_light:: linter warns">
+      <option name="closed" value="true" />
+      <created>1712593056259</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712593056259</updated>
+    </task>
+    <task id="LOCAL-00007" summary=":recycle: : api scope">
+      <option name="closed" value="true" />
+      <created>1714375354891</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714375354891</updated>
+    </task>
+    <task id="LOCAL-00008" summary=":truck: : api routes to update class">
+      <option name="closed" value="true" />
+      <created>1714376999982</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714376999982</updated>
+    </task>
+    <task id="LOCAL-00009" summary=":passport_control: : add auth to use api">
+      <option name="closed" value="true" />
+      <created>1714381880155</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1714381880155</updated>
+    </task>
+    <task id="LOCAL-00010" summary=":wrench: add run file">
+      <option name="closed" value="true" />
+      <created>1714390446051</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1714390446051</updated>
+    </task>
+    <task id="LOCAL-00011" summary=":rotating_light: fix">
+      <option name="closed" value="true" />
+      <created>1714393685551</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714393685551</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=":rotating_light: default fixes linter" />
+    <MESSAGE value=":card_file_box: : schema prisma" />
+    <MESSAGE value=":construction:: users crud" />
+    <MESSAGE value=":construction:: users crud pt2" />
+    <MESSAGE value=":recycle:: refactor user" />
+    <MESSAGE value="Merge pull request #2 from B3-3iL-DLW/classgroups&#10;&#10;✨: Classes route" />
+    <MESSAGE value=":rotating_light:: linter warns" />
+    <MESSAGE value=":recycle: : api scope" />
+    <MESSAGE value=":truck: : api routes to update class" />
+    <MESSAGE value=":passport_control: : add auth to use api" />
+    <MESSAGE value=":wrench: add run file" />
+    <MESSAGE value=":rotating_light: fix" />
+    <option name="LAST_COMMIT_MESSAGE" value=":rotating_light: fix" />
+  </component>
+</project>
