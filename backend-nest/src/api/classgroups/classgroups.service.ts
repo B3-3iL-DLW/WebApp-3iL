@@ -8,12 +8,18 @@ export class ClassgroupsService {
   constructor(private prisma: PrismaService) {}
 
   async create(createClassgroupDto: CreateClassgroupDto) {
+    if (!createClassgroupDto) {
+      throw new Error('Classgroup cannot be null');
+    }
     return this.prisma.classGroup.create({
       data: createClassgroupDto,
     });
   }
 
   async createMany(createClassgroupDtos: CreateClassgroupDto[]) {
+    if (!createClassgroupDtos) {
+      throw new Error('Classgroup cannot be null');
+    }
     return this.prisma.classGroup.createMany({
       data: createClassgroupDtos,
     });
@@ -24,18 +30,25 @@ export class ClassgroupsService {
   }
 
   async findOne(id: number) {
+    if (!id) {
+      throw new Error('ID connot be null');
+    }
     return this.prisma.classGroup.findUnique({
       where: { id },
     });
   }
 
   async findByFile(file: string) {
+    if (!file) throw new Error('File connot be null');
     return this.prisma.classGroup.findFirst({
       where: { file },
     });
   }
 
   async delete(id: number) {
+    if (!id) {
+      throw new Error('The class does not exist');
+    }
     return this.prisma.classGroup.delete({
       where: { id },
     });

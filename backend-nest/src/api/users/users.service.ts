@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
 import { Prisma, User } from '@prisma/client';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -11,12 +11,18 @@ export class UsersService {
   async findOne(
     userWhereUniqueInput: Prisma.UserWhereUniqueInput,
   ): Promise<User | null> {
+    if (!userWhereUniqueInput) {
+      throw new NotFoundException('User not found');
+    }
     return this.prisma.user.findUnique({
       where: userWhereUniqueInput,
     });
   }
 
   async findOneByEmail(email: string): Promise<User | null> {
+    if (!email) {
+      throw new NotFoundException('Email cannot be null');
+    }
     return this.prisma.user.findFirst({
       where: { email },
     });
@@ -40,6 +46,9 @@ export class UsersService {
   }
 
   async create(data: CreateUserDto): Promise<User> {
+    if (!data) {
+      throw new NotFoundException('User not found');
+    }
     return this.prisma.user.create({
       data,
     });
@@ -50,6 +59,9 @@ export class UsersService {
     data: UpdateUserDto;
   }): Promise<User> {
     const { where, data } = params;
+    if (!params.data || !params.where) {
+      throw new NotFoundException('User not found');
+    }
     return this.prisma.user.update({
       data,
       where,
@@ -57,12 +69,24 @@ export class UsersService {
   }
 
   async delete(where: Prisma.UserWhereUniqueInput): Promise<User> {
+    const user = await this.prisma.user.findUnique({
+      where,
+    });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
     return this.prisma.user.delete({
       where,
     });
   }
 
   async updateClassGroup(userId: number, classGroupId: number): Promise<User> {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+    });
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
     return this.prisma.user.update({
       where: { id: userId },
       data: { classGroupId },

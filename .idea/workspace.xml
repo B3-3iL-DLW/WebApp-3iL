@@ -4,62 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env_example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.run/start_dev.run.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.sonarlint/connectedMode.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nest-cli.json" beforeDir="false" />
+    <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment="Vérifications pour les valeurs null">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-nest/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-nest/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/classgroups/classgroups.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/classgroups/classgroups.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/classgroups/dto/create-classgroup.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/classgroups/dto/create-classgroup.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/users/dto/create-user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/users/dto/create-user.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/users/users.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/users/users.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/users/users.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/migrations/20240408121153_init/migration.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/migrations/20240408151658_/migration.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/migrations/20240408153630_/migration.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/migrations/20240408154950_/migration.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/migrations/20240429115839_added/migration.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/migrations/migration_lock.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/seed.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.controller.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.guard.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/auth/constants.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/classgroups/classgroups.controller.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/classgroups/classgroups.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/classgroups/classgroups.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/classgroups/classgroups.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/classgroups/classgroups.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/classgroups/dto/create-classgroup.dto.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/classgroups/dto/update-classgroup.dto.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/persist/persist.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/persist/persist.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/users/dto/create-user.dto.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/users/dto/update-user.dto.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/users/users.controller.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/users/users.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/users/users.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/users/users.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/users/users.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.controller.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prisma/prisma.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prisma/prisma.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/app.e2e-spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/jest-e2e.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +21,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -88,6 +47,9 @@
     &quot;accountId&quot;: &quot;d1f3160f-3f0f-4f75-ab7e-f0b192c029f0&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -98,9 +60,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Jest.UsersService.executor": "Run",
+    "Jest.UsersService.findOne.executor": "Run",
+    "Jest.users.service.spec.ts.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "fix/test",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/Projets/3IL/backend-3iL/backend-3il/backend-nest",
     "node.js.detected.package.eslint": "true",
@@ -109,18 +74,53 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "C:/Users/33647/Desktop/dev/backend-3il/backend-nest/node_modules/jest",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "D:\\Projets\\3IL\\backend-3iL\\backend-3il\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\33647\\Desktop\\dev\\backend-3il\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\33647\Desktop\dev\backend-3il\backend-nest" />
       <recent name="D:\Projets\3IL\backend-3iL\backend-3il\backend-nest" />
       <recent name="D:\Projets\3IL\backend-3iL\backend-3il" />
       <recent name="D:\Projets\3IL\backend-3iL\backend-3il\src\api" />
     </key>
+  </component>
+  <component name="RunManager" selected="Jest.UsersService">
+    <configuration name="UsersService" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/backend-nest/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/backend-nest" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/backend-nest/src/api/users/users.service.spec.ts" />
+      <test-names>
+        <test-name value="UsersService" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UsersService.findOne" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/backend-nest/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/backend-nest" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/backend-nest/src/api/users/users.service.spec.ts" />
+      <test-names>
+        <test-name value="UsersService" />
+        <test-name value="findOne" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.UsersService" />
+        <item itemvalue="Jest.UsersService.findOne" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -140,6 +140,7 @@
       <workItem from="1714381249278" duration="4421000" />
       <workItem from="1714391480182" duration="1270000" />
       <workItem from="1714392782255" duration="12000" />
+      <workItem from="1714458748960" duration="11880000" />
     </task>
     <task id="LOCAL-00001" summary=":bug: Authentication and linter">
       <option name="closed" value="true" />
@@ -193,6 +194,7 @@
     <MESSAGE value=":recycle: Refactor of file names" />
     <MESSAGE value=":heavy_plus_sign: Added sonarcloud config" />
     <MESSAGE value=":card_file_box: Updated weekschedule schema.prisma" />
-    <option name="LAST_COMMIT_MESSAGE" value=":card_file_box: Updated weekschedule schema.prisma" />
+    <MESSAGE value="Vérifications pour les valeurs null" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vérifications pour les valeurs null" />
   </component>
 </project>
