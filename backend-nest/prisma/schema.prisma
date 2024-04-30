@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,72 +7,43 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model EventHours {
-  id      Int     @id @default(autoincrement())
-  startAt String
-  endAt   String
-  Event   Event[]
+model classgroup {
+  file String @unique(map: "ClassGroup_file_key")
+  name String @unique(map: "ClassGroup_name_key")
+  id   Int    @id @default(autoincrement())
 }
 
-model Event {
-  id            Int         @id @default(autoincrement())
-  creneau       Int
-  activite      String
-  couleur       String
-  horaires      EventHours  @relation(fields: [horairesId], references: [id])
-  horairesId    Int
-  salle         String
-  visio         Boolean
-  repas         Boolean
-  dayScheduleId Int
-  DaySchedule   DaySchedule @relation(fields: [dayScheduleId], references: [id])
-}
-
-model DaySchedule {
-  id             Int           @id @default(autoincrement())
-  date           DateTime
-  jour           Int
-  weekSchedule   WeekSchedule? @relation(fields: [weekScheduleId], references: [id])
-  weekScheduleId Int?
-  events         Event[]
-}
-
-model WeekSchedule {
-  id          Int           @id @default(autoincrement())
-  code        String
-  days        DaySchedule[]
-  Timetable   Timetable?    @relation(fields: [timetableId], references: [id])
-  timetableId Int?
-}
-
-model Timetable {
-  id           Int            @id @default(autoincrement())
-  code         String
-  weeks        WeekSchedule[]
-  classGroup   ClassGroup     @relation(fields: [classGroupId], references: [id])
+model event {
+  id           Int      @id @default(autoincrement())
+  creneau      Int
+  semaine      String
+  dateJour     DateTime
+  activite     String
+  couleur      String
+  salle        String
+  visio        Boolean
+  repas        Boolean
+  eval         Boolean
+  startAt      String
+  endAt        String
   classGroupId Int
+
+  @@index([classGroupId], map: "Event_classGroupId_fkey")
 }
 
-model ClassGroup {
-  id        Int         @id @default(autoincrement())
-  file      String      @unique
-  name      String      @unique
-  users     User[]
-  Timetable Timetable[]
-}
-
-model User {
-  id           Int         @id @default(autoincrement())
-  email        String      @unique
+model user {
+  id           Int       @id @default(autoincrement())
+  email        String    @unique(map: "User_email_key")
   password     String
   firstname    String
   lastname     String
-  role         Role        @default(STUDENT)
-  classGroup   ClassGroup? @relation(fields: [classGroupId], references: [id])
+  role         user_role @default(STUDENT)
   classGroupId Int?
+
+  @@index([classGroupId], map: "User_classGroupId_fkey")
 }
 
-enum Role {
+enum user_role {
   STUDENT
   ADMIN
 }
