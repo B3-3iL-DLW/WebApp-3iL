@@ -1,7 +1,7 @@
 // src/app/login/page.tsx
 
 "use client";
-// src/app/login/page.tsx
+// src/app/login/Page.tsx
 
 import React, {useState} from 'react';
 import LoginForm from './form/LoginForm';
