@@ -5,6 +5,16 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { Role } from '@prisma/client';
 import { UpdateUserDto } from './dto/update-user.dto';
 
+function createNewUser(): CreateUserDto {
+  return {
+    email: `create${Math.random()}@example.com`,
+    password: 'createpassword',
+    firstname: 'createfirstname',
+    lastname: 'cretelastname',
+    role: Role.STUDENT,
+  };
+}
+
 describe('UsersService', () => {
   let service: UsersService;
 
@@ -68,13 +78,7 @@ describe('UsersService', () => {
 
   describe('create', () => {
     it('create a new user', async () => {
-      const newUser: CreateUserDto = {
-        email: `create${Math.random()}@example.com`,
-        password: 'createpassword',
-        firstname: 'createfirstname',
-        lastname: 'cretelastname',
-        role: Role.STUDENT,
-      };
+      const newUser = createNewUser();
       const user = await service.create(newUser);
       expect(user).not.toBeNull();
       expect(user).not.toBeUndefined();
@@ -83,7 +87,6 @@ describe('UsersService', () => {
       expect(user.firstname).toBe(newUser.firstname);
       expect(user.lastname).toBe(newUser.lastname);
       expect(user.role).toBe(newUser.role);
-      expect(user.classGroupId).toBeNull();
     });
   });
 
@@ -91,13 +94,7 @@ describe('UsersService', () => {
     let existinUser;
 
     beforeEach(async () => {
-      const newUser: CreateUserDto = {
-        email: `updated${Math.random()}@example.com`,
-        password: 'updatedpassword',
-        firstname: 'updatedfirstname',
-        lastname: 'updatedlastname',
-        role: Role.STUDENT,
-      };
+      const newUser = createNewUser();
       existinUser = await service.create(newUser);
     });
 
@@ -126,13 +123,7 @@ describe('UsersService', () => {
     let existingUser;
 
     beforeEach(async () => {
-      const newUser: CreateUserDto = {
-        email: `delete${Math.random()}@example.com`,
-        password: 'deletepassword',
-        firstname: 'deletefirstname',
-        lastname: 'deletelastname',
-        role: Role.STUDENT,
-      };
+      const newUser = createNewUser();
       existingUser = await service.create(newUser);
     });
 

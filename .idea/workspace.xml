@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment="Vérifications pour les valeurs null">
+    <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment="ajout test unitaire UserService">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/classgroups/classgroups.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/classgroups/classgroups.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/classgroups/dto/create-classgroup.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/classgroups/dto/create-classgroup.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/users/dto/create-user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/users/dto/create-user.dto.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-nest/src/api/users/users.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/users/users.service.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/users/users.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +69,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs.jest.jest_package": "C:/Users/33647/Desktop/dev/backend-3il/backend-nest/node_modules/jest",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "C:\\Users\\33647\\Desktop\\dev\\backend-3il\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -140,7 +133,7 @@
       <workItem from="1714381249278" duration="4421000" />
       <workItem from="1714391480182" duration="1270000" />
       <workItem from="1714392782255" duration="12000" />
-      <workItem from="1714458748960" duration="11880000" />
+      <workItem from="1714458748960" duration="17199000" />
     </task>
     <task id="LOCAL-00001" summary=":bug: Authentication and linter">
       <option name="closed" value="true" />
@@ -182,11 +175,38 @@
       <option name="project" value="LOCAL" />
       <updated>1714391950407</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Vérifications pour les valeurs null">
+      <option name="closed" value="true" />
+      <created>1714476539110</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714476539110</updated>
+    </task>
+    <task id="LOCAL-00007" summary="ajout test unitaire UserService">
+      <option name="closed" value="true" />
+      <created>1714480641015</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714480641015</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value=":bug: Authentication and linter" />
@@ -195,6 +215,7 @@
     <MESSAGE value=":heavy_plus_sign: Added sonarcloud config" />
     <MESSAGE value=":card_file_box: Updated weekschedule schema.prisma" />
     <MESSAGE value="Vérifications pour les valeurs null" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vérifications pour les valeurs null" />
+    <MESSAGE value="ajout test unitaire UserService" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout test unitaire UserService" />
   </component>
 </project>
