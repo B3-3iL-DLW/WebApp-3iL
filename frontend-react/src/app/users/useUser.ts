@@ -13,7 +13,7 @@ export const useUser = (id: number) => {
             setUser(user);
         };
 
-        fetchUser();
+        fetchUser().then(r => r);
     }, [id]);
 
     return user;
