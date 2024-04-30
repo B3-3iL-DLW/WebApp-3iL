@@ -27,50 +27,6 @@ async function main() {
     },
   });
 
-  const classGroups = [
-    {
-      id: 1,
-      file: 'B1 Groupe 1.xml',
-      name: 'B1 Groupe 1',
-    },
-    {
-      id: 2,
-      file: 'I2 Groupe 3.xml',
-      name: 'I2 Groupe 3',
-    },
-    {
-      id: 3,
-      file: 'I2 Groupe 5 FA.xml',
-      name: 'I2 Groupe 5 FA',
-    },
-    {
-      id: 4,
-      file: 'I2 Temporaire.xml',
-      name: 'I2 Temporaire',
-    },
-    {
-      id: 5,
-      file: 'ERIS1 Groupe 1 FE.xml',
-      name: 'ERIS1 Groupe 1 FE',
-    },
-    {
-      id: 6,
-      file: 'ERIS2 Groupe 1 FE.xml',
-      name: 'ERIS2 Groupe 1 FE',
-    },
-    {
-      id: 7,
-      file: 'B3 Groupe 1 IRC-FA.xml',
-      name: 'B3 Groupe 1 IRC-FA',
-    },
-  ];
-
-  for (const classGroup of classGroups) {
-    await prisma.classgroup.create({
-      data: classGroup,
-    });
-  }
-
   console.log({ user1, user2 });
 }
 
