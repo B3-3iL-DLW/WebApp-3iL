@@ -1,11 +1,13 @@
-import { NextRequest, NextResponse } from 'next/server'
+// src/app/classgroups/_middleware.ts
+import {NextRequest, NextResponse} from 'next/server'
+import {middleware as authMiddleware} from '../app/authMiddleware'
 
-export function middleware(req: NextRequest) {
-    const token = req.cookies.get('jwt')
+export function middleware(req: NextRequest): NextResponse {
+    const response = authMiddleware(req)
 
-    if (token) {
-        req.headers.set('Authorization', `Bearer ${token}`)
+    if (!req.cookies.get('jwt')) {
+        return NextResponse.redirect('/login')
     }
 
-    return NextResponse.next()
+    return response
 }

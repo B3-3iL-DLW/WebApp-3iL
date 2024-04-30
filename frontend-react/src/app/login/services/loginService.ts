@@ -19,6 +19,7 @@ export async function login({ email, password }: Credentials) {
         throw new Error('Failed to log in');
     }
 
-    const { token } = await response.json();
-    return token;
+    const { access_token } = await response.json();
+    console.log('Access token:', access_token);
+    return access_token;
 }
