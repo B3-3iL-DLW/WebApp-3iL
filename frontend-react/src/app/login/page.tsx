@@ -23,13 +23,13 @@ const LoginPage = () => {
             setToastMessage('Connexion réussie !');
             setToastType('success');
             setShowToast(true);
-            setConnectionError(false); // Pas d'erreur de connexion
+            setConnectionError(false);
         } catch (err) {
             setToastMessage('Échec de la connexion');
             setToastType('error');
             setShowToast(true);
             if (err instanceof InvalidCredentialsError) {
-                setConnectionError(true); // Erreur de connexion uniquement pour les identifiants incorrects
+                setConnectionError(true);
             }
         }
     };
