@@ -1,30 +1,17 @@
-// src/app/login/components/LoginForm.tsx
+// src/app/login/form/LoginForm.tsx
 
-import React, {useState} from 'react';
+import React from 'react';
 import InputField from '../../components/inputs';
 import Button from '../../components/buttons';
-import {validateEmail, validateRequired} from "@/app/utils/validators";
+import useLoginForm from '../hooks/useLoginForm';
 
 interface LoginFormProps {
     onSubmit: (credentials: { email: string; password: string }) => void;
+    connectionError: boolean;
 }
 
-const LoginForm = ({ onSubmit }: LoginFormProps) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [emailError, setEmailError] = useState('');
-    const [passwordError, setPasswordError] = useState('');
-
-    const handleSubmit = (event: React.FormEvent) => {
-        event.preventDefault();
-
-        setEmailError(validateEmail(email));
-        setPasswordError(validateRequired(password));
-
-        if (!emailError && !passwordError) {
-            onSubmit({email, password});
-        }
-    };
+const LoginForm = ({onSubmit, connectionError}: LoginFormProps) => {
+    const {email, setEmail, password, setPassword, emailError, passwordError, handleSubmit} = useLoginForm(onSubmit);
 
     return (
         <form onSubmit={handleSubmit} className="bg-white rounded-md shadow-2xl p-5 text-black">
@@ -44,6 +31,7 @@ const LoginForm = ({ onSubmit }: LoginFormProps) => {
                 placeholder="Mot de passe"
                 error={passwordError}
             />
+            {connectionError && <p className="text-red-500">Identifiants incorrect</p>}
             <Button type="submit"
                     className="block w-full bg-indigo-600 mt-5 py-2 rounded-2xl hover:bg-indigo-700 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2">
                 Login

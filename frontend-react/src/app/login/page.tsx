@@ -1,9 +1,11 @@
 // src/app/login/page.tsx
 
 "use client";
+// src/app/login/page.tsx
+
 import React, {useState} from 'react';
 import LoginForm from './form/LoginForm';
-import {Credentials, login} from './services/loginService';
+import {Credentials, InvalidCredentialsError, login} from './services/loginService';
 import Toast from '../../app/components/toasts';
 
 const LoginPage = () => {
@@ -11,6 +13,7 @@ const LoginPage = () => {
     const [showToast, setShowToast] = useState<boolean>(false);
     const [toastMessage, setToastMessage] = useState<string>('');
     const [toastType, setToastType] = useState<'success' | 'error'>('success');
+    const [connectionError, setConnectionError] = useState<boolean>(false); // Nouvel état pour l'erreur de connexion
 
     const handleLogin = async (credentials: Credentials) => {
         try {
@@ -18,16 +21,19 @@ const LoginPage = () => {
 
             document.cookie = `jwt=${token}; path=/`;
 
-
             setIsLoggedIn(true);
             setToastMessage('Connexion réussie !');
             setToastType('success');
             setShowToast(true);
+            setConnectionError(false); // Pas d'erreur de connexion
         } catch (err) {
             setIsLoggedIn(false);
             setToastMessage('Échec de la connexion');
             setToastType('error');
             setShowToast(true);
+            if (err instanceof InvalidCredentialsError) {
+                setConnectionError(true); // Erreur de connexion uniquement pour les identifiants incorrects
+            }
         }
     };
 
@@ -54,7 +60,7 @@ const LoginPage = () => {
                 </div>
                 <div className="flex w-full lg:w-1/2 justify-center items-center bg-white space-y-8">
                     <div className="w-full px-8 md:px-32 lg:px-24">
-                        <LoginForm onSubmit={handleLogin}/>
+                        <LoginForm onSubmit={handleLogin} connectionError={connectionError}/> {/* Passer connectionError à LoginForm */}
                     </div>
                 </div>
             </div>

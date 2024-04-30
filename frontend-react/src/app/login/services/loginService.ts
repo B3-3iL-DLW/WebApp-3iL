@@ -1,25 +1,30 @@
+// src/app/login/services/loginService.ts
+
+import {apiRequest} from '../../api/apiService';
+
+export class InvalidCredentialsError extends Error {
+    constructor(message?: string) {
+        super(message);
+        this.name = 'InvalidCredentialsError';
+    }
+}
+
 export interface Credentials {
     email: string;
     password: string;
 }
 
-export async function login({ email, password }: Credentials) {
-    const response = await fetch('http://localhost:3000/api/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            email,
-            password,
-        }),
-    });
 
-    if (!response.ok) {
-        throw new Error('Failed to log in');
+export async function login(credentials: Credentials) {
+    try {
+        const {access_token} = await apiRequest('auth/login', 'POST', credentials);
+
+        return access_token;
+    } catch (error: any) {
+        if (error.response && error.response.status === 401) {
+            throw new InvalidCredentialsError('Invalid credentials');
+        } else {
+            throw new Error('Failed to log in');
+        }
     }
-
-    const { access_token } = await response.json();
-    console.log('Access token:', access_token);
-    return access_token;
 }

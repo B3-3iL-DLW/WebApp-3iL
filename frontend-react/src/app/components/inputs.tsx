@@ -1,3 +1,5 @@
+// src/app/components/inputs.tsx
+
 import React from 'react';
 
 interface InputFieldProps {
@@ -11,8 +13,10 @@ interface InputFieldProps {
 const InputField = ({ type, value, onChange, placeholder, error }: InputFieldProps) => {
     return (
         <div className="mb-8">
-            <div className="flex items-center border-2 py-2 px-3 rounded-2xl">
+            <div
+                className={`flex items-center py-2 px-3 rounded-2xl ${error ? 'border-2 border-red-500' : 'border-2'}`}>
                 <input
+                    required={true}
                     type={type}
                     value={value}
                     onChange={onChange}
