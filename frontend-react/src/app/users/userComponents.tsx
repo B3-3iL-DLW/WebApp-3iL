@@ -1,10 +1,10 @@
 // src/app/users/UserComponent.tsx
 "use client";
 import React from 'react';
-import {useUser} from './useUser';
+import useCurrentUser from "@/app/auth/useCurrentUser";
 
 const UserComponent = () => {
-    const user = useUser(1);
+    const user = useCurrentUser();
 
     return (
         <div>
