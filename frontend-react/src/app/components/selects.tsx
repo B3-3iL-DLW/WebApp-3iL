@@ -67,19 +67,16 @@ const Select: React.FC<SelectProps> = ({options = {}, value, onChange, placehold
                     />
                     <ul>
                         {Object.keys(filteredOptions).map(key => (
-                            <li key={key}
-                                onClick={() => handleSelect(key)}
-                                onKeyDown={(event) => {
-                                    // Add a keyboard event listener
-                                    if (event.key === 'Enter') {
-                                        handleSelect(key);
-                                    }
-                                }}
-                                role="button" // Add a role attribute
-                                tabIndex={0} // Add a tabIndex attribute
-                                className="relative py-2 pl-3 text-gray-900 cursor-default select-none pr-9">
+                            <button key={key}
+                                    onClick={() => handleSelect(key)}
+                                    onKeyDown={(event) => {
+                                        if (event.key === 'Enter') {
+                                            handleSelect(key);
+                                        }
+                                    }}
+                                    className="relative py-2 pl-3 text-gray-900 cursor-default select-none pr-9">
                                 {options[key]}
-                            </li>
+                            </button>
                         ))}
                     </ul>
                 </div>
