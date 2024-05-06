@@ -18,7 +18,6 @@ export interface Credentials {
 export async function login(credentials: Credentials) {
     try {
         const {access_token} = await apiRequest('auth/login', 'POST', credentials);
-        console.log(access_token)
         return access_token;
     } catch (error: any) {
         if (error.response && error.response.status === 401) {

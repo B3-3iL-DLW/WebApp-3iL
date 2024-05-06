@@ -1,39 +1,63 @@
 // src/app/register/form/RegisterForm.tsx
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import InputField from '../../components/inputs';
 import Button from '../../components/buttons';
 import Select from '../../components/selects';
 import useRegisterForm from '../hooks/useRegisterForm';
+import {getClassGroups} from '../services/classgroupService';
+import {Classgroup} from "@/app/models/classgroup";
+import {register} from "@/app/register/services/registerService";
+import {User} from "@/app/models/user";
 
 interface RegisterFormProps {
-    onSubmit: (data: { nom: string, prenom: string, classe: string, motDePasse: string }) => void;
+    onSubmit: (data: User) => void;
 }
 
 const RegisterForm: React.FC<RegisterFormProps> = ({onSubmit}) => {
     const {
-        nom,
-        prenom,
-        classe,
-        motDePasse,
-        confirmationMotDePasse,
-        nomError,
-        prenomError,
-        classeError,
-        motDePasseError,
-        confirmationMotDePasseError,
-        handleSubmit,
+        email,
+        lastname,
+        firstname,
+        classGroupId,
+        password,
+        confirmPassword,
+        emailError,
+        lastNameError,
+        firstNameError,
+        classError,
+        passwordError,
+        confirmPasswordError,
+        setEmail,
         setNom,
         setPrenom,
-        setClasse,
+        setClassGroupId,
         setMotDePasse,
         setConfirmationMotDePasse,
-    } = useRegisterForm(onSubmit);
+        handleSubmit,
+    } = useRegisterForm(async (user) => {
+        try {
+            console.log(user);
+            await register(user);
+        } catch (error) {
+            // Gérer l'erreur lors de l'envoi des données
+        }
+    });
 
-    const classOptions = {
-        classe1: 'Classe 1',
-        classe2: 'Classe 2',
-    }
+    const [classOptions, setClassOptions] = useState<{ [key: string]: string }>({});
+
+    useEffect(() => {
+        const fetchClassGroups = async () => {
+            const classGroups = await getClassGroups();
+            const classOptions = classGroups.reduce((options: { [key: string]: string }, group: Classgroup) => {
+                options[group.id.toString()] = group.name;
+                return options;
+            }, {});
+            setClassOptions(classOptions);
+        };
+
+        fetchClassGroups().then(r => console.log(r));
+    }, []);
 
     return (
         <form onSubmit={handleSubmit} className="bg-white rounded-md shadow-2xl p-5 text-black">
@@ -41,42 +65,51 @@ const RegisterForm: React.FC<RegisterFormProps> = ({onSubmit}) => {
             <p className="text-sm font-normal text-gray-600 mb-8">Inscris-toi pour accéder à ton emploi du temps</p>
 
             <InputField
+                type="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="Email"
+                error={emailError}
+            />
+
+            <InputField
                 type="text"
-                value={nom}
+                value={lastname}
                 onChange={e => setNom(e.target.value)}
                 placeholder="Nom"
-                error={nomError}
+                error={lastNameError}
             />
             <InputField
                 type="text"
-                value={prenom}
+                value={firstname}
                 onChange={e => setPrenom(e.target.value)}
                 placeholder="Prénom"
-                error={prenomError}
+                error={firstNameError}
             />
 
             <Select
                 options={classOptions}
-                value={classe}
-                onChange={setClasse}
+                value={classGroupId.toString()}
+                onChange={(value) => {
+                    setClassGroupId(Number(value));
+                }}
                 placeholder="Sélectionnez une classe"
-                error={classeError}
+                error={classError}
             />
+
             <InputField
                 type="password"
-                value={motDePasse}
+                value={password}
                 onChange={e => setMotDePasse(e.target.value)}
                 placeholder="Mot de passe"
-                error={motDePasseError}
+                error={passwordError}
             />
             <InputField
                 type="password"
-                value={confirmationMotDePasse}
-                onChange={e => {
-                    setConfirmationMotDePasse(e.target.value);
-                }}
+                value={confirmPassword}
+                onChange={e => setConfirmationMotDePasse(e.target.value)}
                 placeholder="Confirmez le mot de passe"
-                error={confirmationMotDePasseError}
+                error={confirmPasswordError}
             />
 
             <Button type="submit"

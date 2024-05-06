@@ -1,64 +1,83 @@
 // src/app/register/hooks/useRegisterForm.ts
 
 import React, {useState} from 'react';
-import {validateRequired} from "@/app/utils/validators";
+import {validateEmail, validateRequired} from "@/app/utils/validators";
 
 const useRegisterForm = (onSubmit: (data: {
-    nom: string,
-    prenom: string,
-    classe: string,
-    motDePasse: string
+    email: string,
+    password: string,
+    firstname: string,
+    lastname: string,
+    classGroupId: number,
 }) => void) => {
-    const [nom, setNom] = useState('');
-    const [prenom, setPrenom] = useState('');
-    const [classe, setClasse] = useState('');
-    const [motDePasse, setMotDePasse] = useState('');
-    const [confirmationMotDePasse, setConfirmationMotDePasse] = useState('');
-    const [nomError, setNomError] = useState('');
-    const [prenomError, setPrenomError] = useState('');
-    const [classeError, setClasseError] = useState('');
-    const [motDePasseError, setMotDePasseError] = useState('');
-    const [confirmationMotDePasseError, setConfirmationMotDePasseError] = useState('');
+    const [email, setEmail] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [firstname, setFirstname] = useState('');
+    const [classGroupId, setClassGroupId] = useState<number>(0);
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [lastNameError, setLastNameError] = useState('');
+    const [firstNameError, setFirstNameError] = useState('');
+    const [classError, setClassError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [confirmPasswordError, setConfirmPasswordError] = useState('');
 
-    const handleSubmit = (event: React.FormEvent) => {
+    const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
 
-        const newNomError = validateRequired(nom);
-        const newPrenomError = validateRequired(prenom);
-        const newClasseError = validateRequired(classe);
-        const newMotDePasseError = validateRequired(motDePasse);
-        const newConfirmationMotDePasseError = validateRequired(confirmationMotDePasse) ||
-            (motDePasse !== confirmationMotDePasse ? 'Les mots de passe ne correspondent pas.' : '');
+        const newEmailError = validateEmail(email);
+        const newNomError = validateRequired(lastname);
+        const newPrenomError = validateRequired(firstname);
+        const newClassError = validateRequired(classGroupId);
+        const newPasswordError = validateRequired(password);
+        const newConfirmPasswordError = validateRequired(confirmPassword) ||
+            (password !== confirmPassword ? 'Les mots de passe ne correspondent pas.' : '');
 
 
-        setNomError(newNomError);
-        setPrenomError(newPrenomError);
-        setClasseError(newClasseError);
-        setMotDePasseError(newMotDePasseError);
-        setConfirmationMotDePasseError(newConfirmationMotDePasseError);
+        setEmailError(newEmailError);
+        setLastNameError(newNomError);
+        setFirstNameError(newPrenomError);
+        setClassError(newClassError);
+        setPasswordError(newPasswordError);
+        setConfirmPasswordError(newConfirmPasswordError);
 
-        if (!newNomError && !newPrenomError && !newClasseError && !newMotDePasseError && !newConfirmationMotDePasseError) {
-            onSubmit({nom, prenom, classe, motDePasse});
+        if (!newNomError && !newPrenomError && !newClassError && !newPasswordError && !newConfirmPasswordError && !newEmailError) {
+            const user = {
+                email,
+                password,
+                firstname,
+                lastname,
+                classGroupId
+            };
+            try {
+                onSubmit(user);
+            } catch (error) {
+
+            }
         }
     };
 
     return {
-        nom,
-        prenom,
-        classe,
-        motDePasse,
-        confirmationMotDePasse,
-        nomError,
-        prenomError,
-        classeError,
-        motDePasseError,
-        confirmationMotDePasseError,
+        email,
+        lastname,
+        firstname,
+        classGroupId,
+        password,
+        confirmPassword,
+        emailError,
+        lastNameError,
+        firstNameError,
+        classError,
+        passwordError,
+        confirmPasswordError,
         handleSubmit,
-        setNom,
-        setPrenom,
-        setClasse,
-        setMotDePasse,
-        setConfirmationMotDePasse
+        setEmail,
+        setLastname,
+        setFirstname,
+        setClassGroupId,
+        setMotDePasse: setPassword,
+        setConfirmationMotDePasse: setConfirmPassword
     };
 };
 

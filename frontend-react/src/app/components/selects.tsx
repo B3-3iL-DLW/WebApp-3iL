@@ -70,7 +70,6 @@ const Select: React.FC<SelectProps> = ({options = {}, value, onChange, placehold
                             <button key={key}
                                     onClick={() => handleSelect(key)}
                                     onKeyDown={(event) => {
-                                        // Add a keyboard event listener
                                         if (event.key === 'Enter') {
                                             handleSelect(key);
                                         }

@@ -40,9 +40,14 @@ export class UsersService {
   }
 
   async create(data: CreateUserDto): Promise<user> {
-    return this.prisma.user.create({
-      data,
-    });
+    try {
+      return await this.prisma.user.create({
+        data,
+      });
+    } catch (error) {
+      console.error("Erreur lors de la création de l'utilisateur :", error);
+      throw new Error("Erreur lors de la création de l'utilisateur.");
+    }
   }
 
   async update(params: {

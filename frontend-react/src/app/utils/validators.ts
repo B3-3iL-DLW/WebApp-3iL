@@ -9,6 +9,6 @@ export const validateEmail = (email: string) => {
     }
 };
 
-export const validateRequired = (value: string) => {
+export const validateRequired = (value: any) => {
     return value ? '' : 'Veuillez remplir ce champ';
 };
