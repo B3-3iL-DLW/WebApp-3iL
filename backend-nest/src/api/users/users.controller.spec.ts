@@ -33,6 +33,10 @@ describe('UsersController', () => {
     service = module.get<UsersService>(UsersService);
   });
 
+  it('should be defined', () => {
+    expect(controller).toBeDefined();
+  });
+
   describe('create', () => {
     it('should create a user', async () => {
       const createUserDto: CreateUserDto = {

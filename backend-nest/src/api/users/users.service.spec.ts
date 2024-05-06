@@ -26,6 +26,10 @@ describe('UsersService', () => {
     service = module.get<UsersService>(UsersService);
   });
 
+  it ('should be defined', () => {
+    expect(service).toBeDefined();
+  });
+
   describe('findOne', () => {
     it('return a user if a valid id is provided', async () => {
       const userId = 11;
