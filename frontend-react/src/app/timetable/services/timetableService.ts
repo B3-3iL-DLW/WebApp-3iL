@@ -12,8 +12,7 @@ export class InvalidTimeTableError extends Error {
 
 export async function getTimeTable(className: string) {
     try {
-        const {timetable} = await apiRequest(`timetable/${className}`, 'GET');
-        return timetable;
+        return await apiRequest(`timetable/${className}`, 'GET');
     } catch (error: any) {
         if (error.response && error.response.status === 401) {
             throw new InvalidTimeTableError('Invalid TimeTable');
