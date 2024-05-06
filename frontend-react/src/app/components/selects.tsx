@@ -65,11 +65,12 @@ const Select: React.FC<SelectProps> = ({options = {}, value, onChange, placehold
                         className="w-full px-2 py-1"
                         placeholder="Rechercher..."
                     />
-                    <ul>
+                    <ul className="flex flex-col items-start">
                         {Object.keys(filteredOptions).map(key => (
                             <button key={key}
                                     onClick={() => handleSelect(key)}
                                     onKeyDown={(event) => {
+                                        // Add a keyboard event listener
                                         if (event.key === 'Enter') {
                                             handleSelect(key);
                                         }
