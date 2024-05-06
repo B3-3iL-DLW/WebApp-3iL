@@ -9,7 +9,7 @@ const useRegisterForm = (onSubmit: (data: {
     firstname: string,
     lastname: string,
     classGroupId: number,
-}) => void) => {
+}) => Promise<void>) => {
     const [email, setEmail] = useState('');
     const [lastname, setLastname] = useState('');
     const [firstname, setFirstname] = useState('');
@@ -27,8 +27,8 @@ const useRegisterForm = (onSubmit: (data: {
         event.preventDefault();
 
         const newEmailError = validateEmail(email);
-        const newNomError = validateRequired(lastname);
-        const newPrenomError = validateRequired(firstname);
+        const newLastnameError = validateRequired(lastname);
+        const newFirstnameError = validateRequired(firstname);
         const newClassError = validateRequired(classGroupId);
         const newPasswordError = validateRequired(password);
         const newConfirmPasswordError = validateRequired(confirmPassword) ||
@@ -36,13 +36,13 @@ const useRegisterForm = (onSubmit: (data: {
 
 
         setEmailError(newEmailError);
-        setLastNameError(newNomError);
-        setFirstNameError(newPrenomError);
+        setLastNameError(newLastnameError);
+        setFirstNameError(newFirstnameError);
         setClassError(newClassError);
         setPasswordError(newPasswordError);
         setConfirmPasswordError(newConfirmPasswordError);
 
-        if (!newNomError && !newPrenomError && !newClassError && !newPasswordError && !newConfirmPasswordError && !newEmailError) {
+        if (!newLastnameError && !newFirstnameError && !newClassError && !newPasswordError && !newConfirmPasswordError && !newEmailError) {
             const user = {
                 email,
                 password,
@@ -50,11 +50,11 @@ const useRegisterForm = (onSubmit: (data: {
                 lastname,
                 classGroupId
             };
-            try {
-                onSubmit(user);
-            } catch (error) {
-
-            }
+            onSubmit(user).catch((error: any) => {
+                if (error.response && error.response.status === 409) {
+                    setEmailError('Cet email est déjà utilisé.');
+                }
+            });
         }
     };
 
@@ -76,8 +76,9 @@ const useRegisterForm = (onSubmit: (data: {
         setLastname,
         setFirstname,
         setClassGroupId,
-        setMotDePasse: setPassword,
-        setConfirmationMotDePasse: setConfirmPassword
+        setPassword,
+        setConfirmPassword,
+        setEmailError,
     };
 };
 

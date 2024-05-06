@@ -29,19 +29,14 @@ const RegisterForm: React.FC<RegisterFormProps> = ({onSubmit}) => {
         passwordError,
         confirmPasswordError,
         setEmail,
-        setNom,
-        setPrenom,
+        setLastname,
+        setFirstname,
         setClassGroupId,
-        setMotDePasse,
-        setConfirmationMotDePasse,
+        setPassword,
+        setConfirmPassword,
         handleSubmit,
-    } = useRegisterForm(async (user) => {
-        try {
-            console.log(user);
-            await register(user);
-        } catch (error) {
-            // Gérer l'erreur lors de l'envoi des données
-        }
+    } = useRegisterForm((user) => {
+        return register(user);
     });
 
     const [classOptions, setClassOptions] = useState<{ [key: string]: string }>({});
@@ -75,14 +70,14 @@ const RegisterForm: React.FC<RegisterFormProps> = ({onSubmit}) => {
             <InputField
                 type="text"
                 value={lastname}
-                onChange={e => setNom(e.target.value)}
+                onChange={e => setLastname(e.target.value)}
                 placeholder="Nom"
                 error={lastNameError}
             />
             <InputField
                 type="text"
                 value={firstname}
-                onChange={e => setPrenom(e.target.value)}
+                onChange={e => setFirstname(e.target.value)}
                 placeholder="Prénom"
                 error={firstNameError}
             />
@@ -100,14 +95,14 @@ const RegisterForm: React.FC<RegisterFormProps> = ({onSubmit}) => {
             <InputField
                 type="password"
                 value={password}
-                onChange={e => setMotDePasse(e.target.value)}
+                onChange={e => setPassword(e.target.value)}
                 placeholder="Mot de passe"
                 error={passwordError}
             />
             <InputField
                 type="password"
                 value={confirmPassword}
-                onChange={e => setConfirmationMotDePasse(e.target.value)}
+                onChange={e => setConfirmPassword(e.target.value)}
                 placeholder="Confirmez le mot de passe"
                 error={confirmPasswordError}
             />

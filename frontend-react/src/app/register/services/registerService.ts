@@ -16,6 +16,6 @@ export async function register(user: {
         };
         return await apiRequest('users', 'POST', userWithRole);
     } catch (error: any) {
-        throw new Error('Failed to register user');
+        return Promise.reject(error);
     }
 }
