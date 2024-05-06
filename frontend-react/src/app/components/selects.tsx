@@ -7,9 +7,10 @@ interface SelectProps {
     value: string;
     onChange: (value: string) => void;
     placeholder: string;
+    error?: string;
 }
 
-const Select: React.FC<SelectProps> = ({options = {}, value, onChange, placeholder}) => {
+const Select: React.FC<SelectProps> = ({options = {}, value, onChange, placeholder, error}) => {
     const [open, setOpen] = useState(false);
     const [search, setSearch] = useState('');
     const ref = useRef<HTMLDivElement>(null);
@@ -46,9 +47,13 @@ const Select: React.FC<SelectProps> = ({options = {}, value, onChange, placehold
                 event.stopPropagation();
                 setOpen(!open);
             }}
-                    className="relative z-0 w-full py-2 px-3 rounded-2xl pr-10 text-left transition duration-150 ease-in-out bg-white border border-gray-300 cursor-default focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+                    className={`relative z-0 w-full py-2 px-3 rounded-2xl pr-10 text-left 
+                    transition duration-150 ease-in-out bg-white cursor-default
+                    focus:outline-none   sm:text-sm sm:leading-5
+                    ${error ? 'border-2 border-red-500' : 'border border-gray-300'} `}>
                 {value in options ? options[value] : placeholder}
             </button>
+            {error && <p className="text-red-500 text-xs mt-2">{error}</p>}
             {open && (
                 <div
                     className="absolute z-10 w-full mt-1 bg-white rounded-md shadow-lg py-1 overflow-auto text-base leading-6 max-h-60 focus:outline-none sm:text-sm sm:leading-5">
@@ -62,7 +67,16 @@ const Select: React.FC<SelectProps> = ({options = {}, value, onChange, placehold
                     />
                     <ul>
                         {Object.keys(filteredOptions).map(key => (
-                            <li key={key} onClick={() => handleSelect(key)}
+                            <li key={key}
+                                onClick={() => handleSelect(key)}
+                                onKeyDown={(event) => {
+                                    // Add a keyboard event listener
+                                    if (event.key === 'Enter') {
+                                        handleSelect(key);
+                                    }
+                                }}
+                                role="button" // Add a role attribute
+                                tabIndex={0} // Add a tabIndex attribute
                                 className="relative py-2 pl-3 text-gray-900 cursor-default select-none pr-9">
                                 {options[key]}
                             </li>
@@ -70,6 +84,7 @@ const Select: React.FC<SelectProps> = ({options = {}, value, onChange, placehold
                     </ul>
                 </div>
             )}
+
         </div>
     );
 };

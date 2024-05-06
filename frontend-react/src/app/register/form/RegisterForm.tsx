@@ -1,32 +1,34 @@
 // src/app/register/form/RegisterForm.tsx
 
-import React, {useState} from 'react';
+import React from 'react';
 import InputField from '../../components/inputs';
 import Button from '../../components/buttons';
 import Select from '../../components/selects';
+import useRegisterForm from '../hooks/useRegisterForm';
 
 interface RegisterFormProps {
     onSubmit: (data: { nom: string, prenom: string, classe: string, motDePasse: string }) => void;
 }
 
 const RegisterForm: React.FC<RegisterFormProps> = ({onSubmit}) => {
-    const [nom, setNom] = useState('');
-    const [prenom, setPrenom] = useState('');
-    const [classe, setClasse] = useState('');
-    const [motDePasse, setMotDePasse] = useState('');
-    const [confirmationMotDePasse, setConfirmationMotDePasse] = useState('');
-    const [passwordMatchError, setPasswordMatchError] = useState('');
-
-    const handleRegister = (e: React.FormEvent) => {
-        e.preventDefault();
-
-        if (motDePasse !== confirmationMotDePasse) {
-            setPasswordMatchError('Les mots de passe ne correspondent pas.');
-            return;
-        }
-
-        onSubmit({nom, prenom, classe, motDePasse});
-    };
+    const {
+        nom,
+        prenom,
+        classe,
+        motDePasse,
+        confirmationMotDePasse,
+        nomError,
+        prenomError,
+        classeError,
+        motDePasseError,
+        confirmationMotDePasseError,
+        handleSubmit,
+        setNom,
+        setPrenom,
+        setClasse,
+        setMotDePasse,
+        setConfirmationMotDePasse,
+    } = useRegisterForm(onSubmit);
 
     const classOptions = {
         classe1: 'Classe 1',
@@ -34,7 +36,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({onSubmit}) => {
     }
 
     return (
-        <form onSubmit={handleRegister} className="bg-white rounded-md shadow-2xl p-5 text-black">
+        <form onSubmit={handleSubmit} className="bg-white rounded-md shadow-2xl p-5 text-black">
             <h1 className="text-gray-800 font-bold text-2xl mb-1">Bienvenue !</h1>
             <p className="text-sm font-normal text-gray-600 mb-8">Inscris-toi pour accéder à ton emploi du temps</p>
 
@@ -43,12 +45,14 @@ const RegisterForm: React.FC<RegisterFormProps> = ({onSubmit}) => {
                 value={nom}
                 onChange={e => setNom(e.target.value)}
                 placeholder="Nom"
+                error={nomError}
             />
             <InputField
                 type="text"
                 value={prenom}
                 onChange={e => setPrenom(e.target.value)}
                 placeholder="Prénom"
+                error={prenomError}
             />
 
             <Select
@@ -56,23 +60,23 @@ const RegisterForm: React.FC<RegisterFormProps> = ({onSubmit}) => {
                 value={classe}
                 onChange={setClasse}
                 placeholder="Sélectionnez une classe"
+                error={classeError}
             />
             <InputField
                 type="password"
                 value={motDePasse}
                 onChange={e => setMotDePasse(e.target.value)}
                 placeholder="Mot de passe"
-                error={passwordMatchError}
+                error={motDePasseError}
             />
             <InputField
                 type="password"
                 value={confirmationMotDePasse}
                 onChange={e => {
                     setConfirmationMotDePasse(e.target.value);
-                    setPasswordMatchError('');
                 }}
                 placeholder="Confirmez le mot de passe"
-                error={passwordMatchError}
+                error={confirmationMotDePasseError}
             />
 
             <Button type="submit"

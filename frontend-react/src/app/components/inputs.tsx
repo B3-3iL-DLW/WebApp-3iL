@@ -16,7 +16,7 @@ const InputField = ({ type, value, onChange, placeholder, error }: InputFieldPro
             <div
                 className={`flex items-center py-2 px-3 rounded-2xl ${error ? 'border-2 border-red-500' : 'border-2'}`}>
                 <input
-                    required={true}
+                    // required={true}
                     type={type}
                     value={value}
                     onChange={onChange}
