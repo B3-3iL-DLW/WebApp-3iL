@@ -13,7 +13,8 @@ export class InvalidTimeTableError extends Error {
 
 async function getTimeTable(className: string) {
     try {
-        return await apiRequest(`timetable/${className}`, 'GET');
+        let response = await apiRequest(`timetable/${className}`, 'GET');
+        return response.data;
     } catch (error: any) {
         if (error.response && error.response.status === 401) {
             throw new InvalidTimeTableError('Invalid TimeTable');
@@ -32,7 +33,7 @@ async function getTimeTable(className: string) {
  * @returns {Promise<Event[]>} Un tableau d'objets de type Event représentant l'emploi du temps de la classe.
  * @throws {Error} Si une erreur se produit lors de la requête à l'API.
  */
-export async function mapTimeTable(className: string){
+export async function mapTimeTable(className: string): Promise<Event[]>{
     try {
         const response = await getTimeTable(encodeURIComponent(className));
         return await response.event.map((event: any) => {

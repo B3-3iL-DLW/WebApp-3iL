@@ -7,6 +7,8 @@ import { Event } from '@/app/models/eventModel';
 import Card from "@/app/components/card";
 import {getWeek} from "@/app/utils/dateHelper";
 import Arrow from "@/app/components/arrows";
+import useCurrentUser from "@/app/auth/useCurrentUser";
+import {getClassGroupById} from "@/app/api/services/classgroupService";
 
 export default function Page() {
     const [events, setEvents] = useState<Event[]>([]);
@@ -14,10 +16,13 @@ export default function Page() {
     const fullYear = new Date().getFullYear(); // e.g., 2024
     const lastTwoDigits = fullYear % 100; // e.g., 24
     const [currentYear] = useState<number>(lastTwoDigits);
-
+    const user = useCurrentUser();
+    let className = "B3 Groupe 3 DLW-FA";
     useEffect(() => {
-        const fetchTimeTable = async () => {
-            const events = await mapTimeTable('L3-MIAGE')
+
+
+        const fetchTimeTable  = async () => {
+            const events = await mapTimeTable(className);
             setEvents(events);
         };
         fetchTimeTable().then(r => console.log(r));
@@ -58,6 +63,12 @@ export default function Page() {
                     <Arrow onClick={() => setCurrentWeek(currentWeek - 1)}  direction={'left'}/>
                 </div>
             )}
+            {currentWeek > firstWeek ? null : <div className="col-span-1"></div>}
+            {eventsThisWeek.length === 0 && (
+                <div className="col-span-12 flex items-center justify-center w-auto p-2">
+                    <h2>Aucun événement cette semaine</h2>
+                </div>
+            )}
             {Object.entries(
                 eventsThisWeek.reduce((acc, event) => {
                     const date = event.dateJour.toISOString().split('T')[0];
@@ -90,6 +101,7 @@ export default function Page() {
                     <Arrow onClick={() => setCurrentWeek(currentWeek + 1)} direction={'right'}/>
                 </div>
             )}
+            {currentWeek < lastWeek ? null : <div className="col-span-1"></div>}
         </div>
     );
 }
