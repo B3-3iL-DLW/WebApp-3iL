@@ -1,19 +1,14 @@
 // src/app/pages/UserPage.tsx
 
 import React from 'react';
-import {useUser} from '../users/useUser';
+import dynamic from 'next/dynamic';
+
+const UserComponent = dynamic(() => import('../users/userComponents'), { ssr: false });
 
 const UserPage = () => {
-    const user = useUser(1);
-
     return (
         <div>
-            {user && (
-                <div>
-                    <h1>{user.firstname} {user.lastname}</h1>
-                    <p>{user.email}</p>
-                </div>
-            )}
+            <UserComponent />
         </div>
     );
 };

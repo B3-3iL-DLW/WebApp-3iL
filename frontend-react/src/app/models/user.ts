@@ -7,5 +7,5 @@ export interface User {
     firstname: string;
     lastname: string;
     role: string;
-    classGroupId: number | null;
+    classGroupId: number;
 }
