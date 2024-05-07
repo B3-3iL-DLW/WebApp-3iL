@@ -23,13 +23,13 @@ model event {
   salle        String
   visio        Boolean
   repas        Boolean
-  classGroupId Int
+  eval         Boolean
+  classGroup   classgroup @relation(fields: [classGroupId], references: [id])
+  classGroupId Int        @map("classGroupId")
   dateJour     DateTime
   endAt        String
-  eval         Boolean
   semaine      String
   startAt      String
-  classgroup   classgroup @relation(fields: [classGroupId], references: [id])
 
   @@unique([classGroupId, activite, semaine, dateJour, creneau], map: "Event_classGroupId_activite_semaine_dateJour_key")
 }
@@ -41,10 +41,8 @@ model user {
   firstname    String
   lastname     String
   role         user_role   @default(STUDENT)
-  classGroupId Int?
-  classgroup   classgroup? @relation(fields: [classGroupId], references: [id])
-
-  @@index([classGroupId], map: "user_classGroupId_fkey")
+  classGroup   classgroup? @relation(fields: [classGroupId], references: [id])
+  classGroupId Int?        @map("classGroupId")
 }
 
 enum user_role {

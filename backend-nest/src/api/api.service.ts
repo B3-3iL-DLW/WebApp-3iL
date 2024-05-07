@@ -13,4 +13,12 @@ export class ApiService {
       'https://api.lukasvalois.com/api/classes',
     );
   }
+
+  getTimetableByClassFile(file: string): Observable<AxiosResponse<any>> {
+    // On encode le paramètre de la requête pour éviter les erreurs
+    file = encodeURIComponent(file);
+    return this.httpService.get<any>(
+      `https://api.lukasvalois.com/api/timetable?class_param=${file}`,
+    );
+  }
 }
