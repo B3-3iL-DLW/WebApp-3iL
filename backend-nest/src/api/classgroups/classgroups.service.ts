@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateClassgroupDto } from './dto/create-classgroup.dto';
 import { PrismaService } from '../../prisma/prisma.service';
 import { classgroup } from '@prisma/client';
@@ -8,12 +8,18 @@ export class ClassgroupsService {
   constructor(private prisma: PrismaService) {}
 
   async create(createClassgroupDto: CreateClassgroupDto) {
+    if (!createClassgroupDto) {
+      throw new Error('Classgroup cannot be null');
+    }
     return this.prisma.classgroup.create({
       data: createClassgroupDto,
     });
   }
 
   async createMany(createClassgroupDtos: CreateClassgroupDto[]) {
+    if (!createClassgroupDtos) {
+      throw new Error('Classgroup cannot be null');
+    }
     return this.prisma.classgroup.createMany({
       data: createClassgroupDtos,
     });
@@ -24,18 +30,33 @@ export class ClassgroupsService {
   }
 
   async findOne(id: number) {
+    const existingClassgroup = await this.prisma.classgroup.findUnique({
+      where: { id },
+    });
+    if (!existingClassgroup) {
+      throw new NotFoundException('Classgroup not found');
+    }
     return this.prisma.classgroup.findUnique({
       where: { id },
     });
   }
 
   async findByFile(file: string) {
+    const existingClassgroup = await this.prisma.classgroup.findFirst({
+      where: { file },
+    });
+    if (!existingClassgroup) {
+      throw new NotFoundException('Classgroup not found');
+    }
     return this.prisma.classgroup.findFirst({
       where: { file },
     });
   }
 
   async delete(id: number) {
+    if (!id) {
+      throw new Error('The class does not exist');
+    }
     return this.prisma.classgroup.delete({
       where: { id },
     });

@@ -16,6 +16,12 @@ export class UsersService {
   async findOne(
     userWhereUniqueInput: Prisma.userWhereUniqueInput,
   ): Promise<user | null> {
+    const existingUser = await this.prisma.user.findUnique({
+      where: userWhereUniqueInput,
+    });
+    if (!existingUser) {
+      throw new NotFoundException('User not found');
+    }
     try {
       return await this.prisma.user.findUnique({
         where: userWhereUniqueInput,
@@ -27,10 +33,14 @@ export class UsersService {
   }
 
   async findOneByEmail(email: string): Promise<user | null> {
+    const existingUser = await this.prisma.user.findFirst({
+      where: { email },
+    });
+    if (!existingUser) {
+      throw new NotFoundException('User not found');
+    }
     try {
-      return await this.prisma.user.findFirst({
-        where: { email },
-      });
+      return existingUser;
     } catch (error) {
       console.error(error);
       throw new InternalServerErrorException('Error finding user by email');
@@ -66,7 +76,6 @@ export class UsersService {
       console.error(errorMessage);
       throw new ConflictException(errorMessage);
     }
-
     try {
       return await this.prisma.user.create({
         data,
@@ -86,12 +95,10 @@ export class UsersService {
     if (!existingUser) {
       throw new NotFoundException('User not found');
     }
-
     const userWithUpdatedEmail = await this.findOneByEmail(data.email);
     if (userWithUpdatedEmail && userWithUpdatedEmail.id !== existingUser.id) {
       throw new ConflictException('Email already in use');
     }
-
     try {
       return await this.prisma.user.update({
         data,
@@ -110,7 +117,6 @@ export class UsersService {
     if (!existingUser) {
       throw new NotFoundException('User not found');
     }
-
     try {
       return await this.prisma.user.delete({
         where,
@@ -128,7 +134,6 @@ export class UsersService {
     if (!existingUser) {
       throw new NotFoundException('User not found');
     }
-
     try {
       return await this.prisma.user.update({
         where: { id: userId },

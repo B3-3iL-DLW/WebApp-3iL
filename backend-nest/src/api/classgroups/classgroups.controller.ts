@@ -22,7 +22,12 @@ export class ClassgroupsController {
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string) {
+  delete(@Param('id') id: number) {
     return this.classgroupsService.delete(+id);
+  }
+
+  @Post(':file')
+  findByFile(@Param('file') file: string) {
+    return this.classgroupsService.findByFile(file);
   }
 }

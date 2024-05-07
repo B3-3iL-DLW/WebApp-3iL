@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.env_example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.run/start_dev.run.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.sonarlint/connectedMode.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nest-cli.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/migrations/20240408121153_init/migration.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/migrations/20240408151658_/migration.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/migrations/20240408153630_/migration.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/migrations/20240408154950_/migration.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/migrations/20240429115839_added/migration.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/migrations/migration_lock.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/seed.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/api.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.guard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth/auth.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/auth/constants.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/classgroups/classgroups.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/classgroups/classgroups.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/classgroups/classgroups.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/classgroups/classgroups.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/classgroups/classgroups.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/classgroups/dto/create-classgroup.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/classgroups/dto/update-classgroup.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/persist/persist.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/persist/persist.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/users/dto/create-user.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/users/dto/update-user.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/users/users.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/users/users.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/users/users.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/users/users.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/users/users.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/prisma/prisma.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/prisma/prisma.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/jest-e2e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.build.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;PHPLukaas&quot;
+  }
+}</component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="master" />
+      </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/B3-3iL-DLW/backend-3il.git&quot;,
+    &quot;accountId&quot;: &quot;d1f3160f-3f0f-4f75-ab7e-f0b192c029f0&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2flgnpveIHKO2KvIz3Hw9N7ToSo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "dev",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/Projets/3IL/backend-3iL/backend-3il/backend-nest",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "ts.external.directory.path": "D:\\Projets\\3IL\\backend-3iL\\backend-3il\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projets\3IL\backend-3iL\backend-3il\backend-nest" />
+      <recent name="D:\Projets\3IL\backend-3iL\backend-3il" />
+      <recent name="D:\Projets\3IL\backend-3iL\backend-3il\src\api" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment="" />
+      <created>1714381247944</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714381247944</updated>
+      <workItem from="1714381249278" duration="4421000" />
+      <workItem from="1714391480182" duration="1270000" />
+      <workItem from="1714392782255" duration="12000" />
+    </task>
+    <task id="LOCAL-00001" summary=":bug: Authentication and linter">
+      <option name="closed" value="true" />
+      <created>1714383095926</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714383095926</updated>
+    </task>
+    <task id="LOCAL-00002" summary=":rotating_light: Fix linter">
+      <option name="closed" value="true" />
+      <created>1714390552893</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714390552893</updated>
+    </task>
+    <task id="LOCAL-00003" summary=":recycle: Refactor of file names">
+      <option name="closed" value="true" />
+      <created>1714391447339</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714391447339</updated>
+    </task>
+    <task id="LOCAL-00004" summary=":heavy_plus_sign: Added sonarcloud config">
+      <option name="closed" value="true" />
+      <created>1714391634921</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714391634921</updated>
+    </task>
+    <task id="LOCAL-00005" summary=":card_file_box: Updated weekschedule schema.prisma">
+      <option name="closed" value="true" />
+      <created>1714391950407</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714391950407</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=":bug: Authentication and linter" />
+    <MESSAGE value=":rotating_light: Fix linter" />
+    <MESSAGE value=":recycle: Refactor of file names" />
+    <MESSAGE value=":heavy_plus_sign: Added sonarcloud config" />
+    <MESSAGE value=":card_file_box: Updated weekschedule schema.prisma" />
+    <option name="LAST_COMMIT_MESSAGE" value=":card_file_box: Updated weekschedule schema.prisma" />
+  </component>
+</project>

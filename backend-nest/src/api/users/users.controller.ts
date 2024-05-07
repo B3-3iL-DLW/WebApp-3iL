@@ -30,6 +30,11 @@ export class UsersController {
     return this.usersService.findOne({ id: Number(id) });
   }
 
+  @Post(':email')
+  async findOneByEmail(@Param('email') email: string) {
+    return this.usersService.findOneByEmail(email);
+  }
+
   @Patch(':id')
   async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.usersService.update({
