@@ -21,6 +21,7 @@ const LoginPage = () => {
 
             document.cookie = `jwt=${token}; path=/`;
 
+
             setToastMessage('Connexion réussie !');
             setToastType('success');
             setShowToast(true);
