@@ -6,4 +6,5 @@ export class CreateUserDto {
   firstname: string;
   lastname: string;
   role: user_role;
+  classGroupId: number;
 }

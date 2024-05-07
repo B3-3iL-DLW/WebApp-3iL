@@ -1,39 +1,32 @@
-// src/app/login/page.tsx
+// src/app/register/page.tsx
 
 "use client";
 import React, {useState} from 'react';
-import LoginForm from './form/LoginForm';
-import {Credentials, InvalidCredentialsError, login} from './services/loginService';
-import Toast from '../../app/components/toasts';
+import RegisterForm from './form/RegisterForm';
 import {useRouter} from 'next/navigation';
+import Toast from "@/app/components/toasts";
 
-const LoginPage = () => {
+const RegisterPage = () => {
     const router = useRouter();
 
     const [showToast, setShowToast] = useState<boolean>(false);
     const [toastMessage, setToastMessage] = useState<string>('');
     const [toastType, setToastType] = useState<'success' | 'error'>('success');
-    const [connectionError, setConnectionError] = useState<boolean>(false);
 
-    const handleLogin = async (credentials: Credentials) => {
+    const handleRegister = async (data: { nom: string, prenom: string, classe: string, motDePasse: string }) => {
         try {
-            const token = await login(credentials);
+            // Ici, vous pouvez appeler votre service d'inscription
+            // const result = await register(data);
 
-            document.cookie = `jwt=${token}; path=/`;
-
-            setToastMessage('Connexion réussie !');
+            setToastMessage('Inscription réussie !');
             setToastType('success');
             setShowToast(true);
-            setConnectionError(false);
 
-            router.push('/users', {scroll: false});
+            router.push('/login', {scroll: false});
         } catch (err) {
-            setToastMessage('Échec de la connexion');
+            setToastMessage('Échec de l\'inscription');
             setToastType('error');
             setShowToast(true);
-            if (err instanceof InvalidCredentialsError) {
-                setConnectionError(true);
-            }
         }
     };
 
@@ -60,7 +53,7 @@ const LoginPage = () => {
                 </div>
                 <div className="flex w-full lg:w-1/2 justify-center items-center bg-white space-y-8">
                     <div className="w-full px-8 md:px-32 lg:px-24">
-                        <LoginForm onSubmit={handleLogin} connectionError={connectionError}/> {/* Passer connectionError à LoginForm */}
+                        <RegisterForm onSubmit={handleRegister}/>
                     </div>
                 </div>
             </div>
@@ -68,4 +61,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default RegisterPage;

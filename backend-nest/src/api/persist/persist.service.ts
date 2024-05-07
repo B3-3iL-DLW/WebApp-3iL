@@ -16,7 +16,7 @@ export class PersistService {
   /**
    * Cron job to persist classes every 5 minutes.
    */
-  @Cron('*/30 * * * *')
+  @Cron('*/5 * * * *')
   persistClasses() {
     this.apiService.getClasses().subscribe((response) => {
       response.data.forEach((item) => {
@@ -35,7 +35,7 @@ export class PersistService {
   /**
    * Cron job to persist events every 10 seconds.
    */
-  @Cron('*/30 * * * * *')
+  @Cron('* */10 * * * *')
   persistEvents() {
     this.classGroupService.findAll().then((classGroups) => {
       classGroups.forEach((classGroup: { name: string; id: any }) => {
