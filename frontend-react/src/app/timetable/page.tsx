@@ -12,7 +12,9 @@ export default function Page() {
     const [currentWeek, setCurrentWeek] = useState<number>(getWeek(new Date()));
     const fullYear = new Date().getFullYear(); // e.g., 2024
     const lastTwoDigits = fullYear % 100; // e.g., 24
-    const [currentYear] = useState<number>(lastTwoDigits);    useEffect(() => {
+    const [currentYear] = useState<number>(lastTwoDigits);
+
+    useEffect(() => {
         const fetchTimeTable = async () => {
             let className;
             try {
@@ -44,31 +46,42 @@ export default function Page() {
         fetchTimeTable().then(r => console.log(r));
     }, []);
 
+    const getButtonClass = (week: number, currentWeek: number) => {
+        if (currentWeek === week) {
+            return 'bg-[#5E17F4] text-white';
+        } else if (week === getWeek(new Date())) {
+            return 'bg-[#7E30FF] text-white';
+        } else {
+            return '';
+        }
+    };
+
     const eventsThisWeek = events.filter(event => {
         const [eventYear, eventWeek] = event.semaine.split('/').map(Number);
         return eventYear === currentYear && eventWeek === currentWeek;
     });
     const firstWeek = Math.min(...events.map(event => Number(event.semaine.split('/')[1])));
     const lastWeek = Math.max(...events.map(event => Number(event.semaine.split('/')[1])));
-    const uniqueWeeks = Array.from(new Set(events.map(event => Number(event.semaine.split('/')[1])))).sort();
+    const uniqueWeeks = Array.from(new Set(events.map(event => Number(event.semaine.split('/')[1])))).sort((a, b) => (a - b));
     return (
         <div className="grid grid-cols-12 gap-4 p-4 pt-8 bg-white text-black">
-            <div className="col-span-12 flex items-center justify-center w-auto p-2">
-                <label htmlFor="weekPicker">Selecteur de semaines: </label>
-                <select id="weekPicker" value={currentWeek} onChange={(e) => setCurrentWeek(Number(e.target.value))}>
-                    {uniqueWeeks.map(week => (
-                        <option key={week} value={week}>
-                            Semaine n° {week}
-                        </option>
-                    ))}
-                </select>
+            <div className="col-span-12 flex items-center justify-center w-auto p-2 space-x-2 overflow-x-auto">
+                {uniqueWeeks.map(week => (
+                    <button
+                        key={week}
+                        onClick={() => setCurrentWeek(week)}
+                        className={`px-4 py-2 border rounded-md ${getButtonClass(week, currentWeek)}`}
+                    >
+                        Semaine n° {week}
+                    </button>
+                ))}
             </div>
             {currentWeek > firstWeek && (
                 <div className="col-span-1 flex items-center justify-center w-auto p-2">
                     <button onClick={() => setCurrentWeek(currentWeek - 1)}>
                         <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none'
                              stroke='#000000' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
-                            <path d='M19 12H6M12 19l-7 -7 7 -7'/>
+                        <path d='M19 12H6M12 19l-7 -7 7 -7'/>
                         </svg>
                     </button>
                 </div>
