@@ -5,6 +5,8 @@ import React, {useState} from 'react';
 import RegisterForm from './form/RegisterForm';
 import {useRouter} from 'next/navigation';
 import Toast from "@/app/components/toasts";
+import {register} from "@/app/register/services/registerService";
+import {ApiResponse} from "@/app/api/apiService";
 
 const RegisterPage = () => {
     const router = useRouter();
@@ -13,22 +15,28 @@ const RegisterPage = () => {
     const [toastMessage, setToastMessage] = useState<string>('');
     const [toastType, setToastType] = useState<'success' | 'error'>('success');
 
-    const handleRegister = async (data: { nom: string, prenom: string, classe: string, motDePasse: string }) => {
-        try {
-            // Ici, vous pouvez appeler votre service d'inscription
-            // const result = await register(data);
 
-            setToastMessage('Inscription réussie !');
-            setToastType('success');
-            setShowToast(true);
-
-            router.push('/login', {scroll: false});
-        } catch (err) {
+    const handleRegister = async (user: {
+        email: string,
+        password: string,
+        firstname: string,
+        lastname: string,
+        classGroupId: number,
+    }): Promise<ApiResponse> => {
+        const response = await register(user);
+        if (!response.ok) {
             setToastMessage('Échec de l\'inscription');
             setToastType('error');
             setShowToast(true);
+        } else {
+            setToastMessage('Inscription réussie !');
+            setToastType('success');
+            setShowToast(true);
+            router.push('/login', {scroll: false});
         }
+        return response;
     };
+
 
     const handleCloseToast = () => {
         setShowToast(false);

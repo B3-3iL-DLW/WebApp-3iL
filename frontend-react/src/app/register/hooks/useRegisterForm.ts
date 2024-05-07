@@ -75,7 +75,9 @@ const useRegisterForm = (onSubmit: (data: {
         }
     };
 
-    const handleSubmit = async (event: React.FormEvent) => {
+    // Dans useRegisterForm.ts
+
+    const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
 
         if (validateFields()) {
@@ -86,8 +88,7 @@ const useRegisterForm = (onSubmit: (data: {
                 lastname: fields.lastname.value,
                 classGroupId: Number(fields.classGroupId.value),
             };
-            const response = await onSubmit(user);
-            handleErrors(response);
+            onSubmit(user).then(handleErrors); // Call onSubmit with the user
         }
     };
 

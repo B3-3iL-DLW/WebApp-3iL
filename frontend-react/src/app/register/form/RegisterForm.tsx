@@ -5,13 +5,21 @@ import Select from '../../components/selects';
 import useRegisterForm from '../hooks/useRegisterForm';
 import {getClassGroups} from '../services/classgroupService';
 import {Classgroup} from "@/app/models/classgroup";
-import {register} from "@/app/register/services/registerService";
+import {ApiResponse} from "@/app/api/apiService";
+
+interface RegisterFormProps {
+    onSubmit: (user: {
+        email: string,
+        password: string,
+        firstname: string,
+        lastname: string,
+        classGroupId: number,
+    }) => Promise<ApiResponse>;
+}
 
 
-const RegisterForm: React.FC = () => {
-    const {fields, setFieldValue, handleSubmit} = useRegisterForm((user) => {
-        return register(user);
-    });
+const RegisterForm: React.FC<RegisterFormProps> = ({onSubmit}) => {
+    const {fields, setFieldValue, handleSubmit} = useRegisterForm(onSubmit);
 
     const [classOptions, setClassOptions] = useState<{ [key: string]: string }>({});
 
