@@ -2,10 +2,11 @@
 
 "use client";
 import React, { useEffect, useState } from 'react';
-import { getTimeTable } from '@/app/timetable/services/timetableService';
+import { mapTimeTable } from '@/app/timetable/services/timetableService';
 import { Event } from '@/app/models/eventModel';
 import Card from "@/app/components/card";
 import {getWeek} from "@/app/utils/dateHelper";
+import Arrow from "@/app/components/arrows";
 
 export default function Page() {
     const [events, setEvents] = useState<Event[]>([]);
@@ -16,33 +17,9 @@ export default function Page() {
 
     useEffect(() => {
         const fetchTimeTable = async () => {
-            let className;
-            try {
-                className = encodeURIComponent('B3 Groupe 3 DLW-FA');
-                const response = await getTimeTable(className);
-                const timetable = await response.event.map((event: any) => {
-                    return {
-                        id: event.id,
-                        creneau: event.creneau,
-                        semaine: event.semaine,
-                        dateJour: new Date(event.dateJour),
-                        activite: event.activite,
-                        couleur: event.couleur,
-                        salle: event.salle,
-                        visio: event.visio,
-                        repas: event.repas,
-                        eval: event.eval,
-                        startAt: event.startAt,
-                        endAt: event.endAt,
-                        classGroupId: event.classGroupId,
-                    } as Event;
-                });
-                setEvents(timetable);
-            } catch (error) {
-                console.error(error);
-            }
+            const events = await mapTimeTable('L3-MIAGE')
+            setEvents(events);
         };
-
         fetchTimeTable().then(r => console.log(r));
     }, []);
 
@@ -78,12 +55,7 @@ export default function Page() {
             </div>
             {currentWeek > firstWeek && (
                 <div className="col-span-1 flex items-center justify-center w-auto p-2">
-                    <button onClick={() => setCurrentWeek(currentWeek - 1)}>
-                        <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none'
-                             stroke='#000000' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
-                        <path d='M19 12H6M12 19l-7 -7 7 -7'/>
-                        </svg>
-                    </button>
+                    <Arrow onClick={() => setCurrentWeek(currentWeek - 1)}  direction={'left'}/>
                 </div>
             )}
             {Object.entries(
@@ -115,12 +87,7 @@ export default function Page() {
             ))}
             {currentWeek < lastWeek && (
                 <div className="col-span-1 flex items-center justify-center w-auto p-2">
-                    <button onClick={() => setCurrentWeek(currentWeek + 1)}>
-                        <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none'
-                             stroke='#000000' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
-                            <path d='M5 12h13M12 5l7 7-7 7'/>
-                        </svg>
-                    </button>
+                    <Arrow onClick={() => setCurrentWeek(currentWeek + 1)} direction={'right'}/>
                 </div>
             )}
         </div>
