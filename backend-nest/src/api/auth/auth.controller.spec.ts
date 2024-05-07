@@ -38,7 +38,7 @@ describe('AuthController', () => {
 
   describe('signIn', () => {
     it('should call AuthService signIn with correct parameters', async () => {
-      const signInDto = { email: 'test@example.com', password: 'password' };
+      const signInDto = { email: 'test@example.com', password: 'Yutatest' };
       await controller.signIn(signInDto);
       expect(authService.signIn).toHaveBeenCalledWith(
         signInDto.email,
@@ -50,7 +50,7 @@ describe('AuthController', () => {
   describe('getProfile', () => {
     it('should return the user from the request', () => {
       const req = {
-        user: { id: 19, email: 'test@example.com', password: 'password' },
+        user: { id: 19, email: 'test@example.com', password: 'Yutatest' },
       };
       const result = controller.getProfile(req);
       expect(result).toEqual(req.user);
