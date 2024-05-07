@@ -2,6 +2,23 @@
 
 import React, {useState} from 'react';
 import {validateEmail, validateRequired} from "@/app/utils/validators";
+import {ApiResponse} from "@/app/api/apiService";
+
+interface FieldState {
+    value: string;
+    error: string;
+}
+
+interface FieldsState {
+    [key: string]: FieldState;
+
+    email: FieldState;
+    lastname: FieldState;
+    firstname: FieldState;
+    classGroupId: FieldState;
+    password: FieldState;
+    confirmPassword: FieldState;
+}
 
 const useRegisterForm = (onSubmit: (data: {
     email: string,
@@ -9,76 +26,75 @@ const useRegisterForm = (onSubmit: (data: {
     firstname: string,
     lastname: string,
     classGroupId: number,
-}) => Promise<void>) => {
-    const [email, setEmail] = useState('');
-    const [lastname, setLastname] = useState('');
-    const [firstname, setFirstname] = useState('');
-    const [classGroupId, setClassGroupId] = useState<number>(0);
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [emailError, setEmailError] = useState('');
-    const [lastNameError, setLastNameError] = useState('');
-    const [firstNameError, setFirstNameError] = useState('');
-    const [classError, setClassError] = useState('');
-    const [passwordError, setPasswordError] = useState('');
-    const [confirmPasswordError, setConfirmPasswordError] = useState('');
+}) => Promise<ApiResponse>) => {
+    const [fields, setFields] = useState<FieldsState>({
+        email: {value: '', error: ''},
+        lastname: {value: '', error: ''},
+        firstname: {value: '', error: ''},
+        classGroupId: {value: '', error: ''},
+        password: {value: '', error: ''},
+        confirmPassword: {value: '', error: ''},
+    });
+
+    const setFieldValue = (field: keyof FieldsState, value: string) => {
+        setFields(prevFields => ({
+            ...prevFields,
+            [field]: {...prevFields[field], value},
+        }));
+    };
+
+    const validateFields = () => {
+        const newFields = {...fields};
+
+        newFields.email.error = validateEmail(newFields.email.value);
+        newFields.lastname.error = validateRequired(newFields.lastname.value);
+        newFields.firstname.error = validateRequired(newFields.firstname.value);
+        newFields.classGroupId.error = validateRequired(newFields.classGroupId.value);
+        newFields.password.error = validateRequired(newFields.password.value);
+        newFields.confirmPassword.error = validateRequired(newFields.confirmPassword.value) ||
+            (newFields.password.value !== newFields.confirmPassword.value ? 'Les mots de passe ne correspondent pas.' : '');
+
+        setFields(newFields);
+
+        return !Object.values(newFields).some(field => field.error);
+    };
+
+
+    const handleErrors = (response: ApiResponse) => {
+        if (!response.ok) {
+            if (response.status === 409) {
+                setFields(prevFields => ({
+                    ...prevFields,
+                    email: {...prevFields.email, error: 'Cet email est déjà utilisé.'},
+                }));
+            } else {
+                console.log('Error:', response.data);
+            }
+        } else {
+            console.log('Registration successful:', response.data);
+        }
+    };
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
 
-        const newEmailError = validateEmail(email);
-        const newLastnameError = validateRequired(lastname);
-        const newFirstnameError = validateRequired(firstname);
-        const newClassError = validateRequired(classGroupId);
-        const newPasswordError = validateRequired(password);
-        const newConfirmPasswordError = validateRequired(confirmPassword) ||
-            (password !== confirmPassword ? 'Les mots de passe ne correspondent pas.' : '');
-
-
-        setEmailError(newEmailError);
-        setLastNameError(newLastnameError);
-        setFirstNameError(newFirstnameError);
-        setClassError(newClassError);
-        setPasswordError(newPasswordError);
-        setConfirmPasswordError(newConfirmPasswordError);
-
-        if (!newLastnameError && !newFirstnameError && !newClassError && !newPasswordError && !newConfirmPasswordError && !newEmailError) {
+        if (validateFields()) {
             const user = {
-                email,
-                password,
-                firstname,
-                lastname,
-                classGroupId
+                email: fields.email.value,
+                password: fields.password.value,
+                firstname: fields.firstname.value,
+                lastname: fields.lastname.value,
+                classGroupId: Number(fields.classGroupId.value),
             };
-            onSubmit(user).catch((error: any) => {
-                if (error.response && error.response.status === 409) {
-                    setEmailError('Cet email est déjà utilisé.');
-                }
-            });
+            const response = await onSubmit(user);
+            handleErrors(response);
         }
     };
 
     return {
-        email,
-        lastname,
-        firstname,
-        classGroupId,
-        password,
-        confirmPassword,
-        emailError,
-        lastNameError,
-        firstNameError,
-        classError,
-        passwordError,
-        confirmPasswordError,
+        fields,
+        setFieldValue,
         handleSubmit,
-        setEmail,
-        setLastname,
-        setFirstname,
-        setClassGroupId,
-        setPassword,
-        setConfirmPassword,
-        setEmailError,
     };
 };
 

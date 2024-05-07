@@ -1,4 +1,4 @@
-// src/app/register/services/classgroupService.ts
+// src/app/register/services/registerService.ts
 
 import {apiRequest} from '../../api/apiService';
 
@@ -9,13 +9,14 @@ export async function register(user: {
     lastname: string;
     classGroupId: number,
 }) {
+    const userWithRole = {
+        ...user,
+        role: 'STUDENT' // Set default role to 'student'
+    };
     try {
-        const userWithRole = {
-            ...user,
-            role: 'STUDENT' // Set default role to 'student'
-        };
         return await apiRequest('users', 'POST', userWithRole);
-    } catch (error: any) {
-        return Promise.reject(error);
+    } catch (error) {
+        console.error('Error during registration:', error);
+        throw error;
     }
 }

@@ -1,5 +1,3 @@
-// src/app/register/form/RegisterForm.tsx
-
 import React, {useEffect, useState} from 'react';
 import InputField from '../../components/inputs';
 import Button from '../../components/buttons';
@@ -8,34 +6,10 @@ import useRegisterForm from '../hooks/useRegisterForm';
 import {getClassGroups} from '../services/classgroupService';
 import {Classgroup} from "@/app/models/classgroup";
 import {register} from "@/app/register/services/registerService";
-import {User} from "@/app/models/user";
 
-interface RegisterFormProps {
-    onSubmit: (data: User) => void;
-}
 
-const RegisterForm: React.FC<RegisterFormProps> = ({onSubmit}) => {
-    const {
-        email,
-        lastname,
-        firstname,
-        classGroupId,
-        password,
-        confirmPassword,
-        emailError,
-        lastNameError,
-        firstNameError,
-        classError,
-        passwordError,
-        confirmPasswordError,
-        setEmail,
-        setLastname,
-        setFirstname,
-        setClassGroupId,
-        setPassword,
-        setConfirmPassword,
-        handleSubmit,
-    } = useRegisterForm((user) => {
+const RegisterForm: React.FC = () => {
+    const {fields, setFieldValue, handleSubmit} = useRegisterForm((user) => {
         return register(user);
     });
 
@@ -44,7 +18,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({onSubmit}) => {
     useEffect(() => {
         const fetchClassGroups = async () => {
             const classGroups = await getClassGroups();
-            const classOptions = classGroups.reduce((options: { [key: string]: string }, group: Classgroup) => {
+            const classOptions = classGroups.data.reduce((options: { [key: string]: string }, group: Classgroup) => {
                 options[group.id.toString()] = group.name;
                 return options;
             }, {});
@@ -61,50 +35,50 @@ const RegisterForm: React.FC<RegisterFormProps> = ({onSubmit}) => {
 
             <InputField
                 type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
+                value={fields.email.value}
+                onChange={e => setFieldValue('email', e.target.value)}
                 placeholder="Email"
-                error={emailError}
+                error={fields.email.error}
             />
 
             <InputField
                 type="text"
-                value={lastname}
-                onChange={e => setLastname(e.target.value)}
+                value={fields.lastname.value}
+                onChange={e => setFieldValue('lastname', e.target.value)}
                 placeholder="Nom"
-                error={lastNameError}
+                error={fields.lastname.error}
             />
             <InputField
                 type="text"
-                value={firstname}
-                onChange={e => setFirstname(e.target.value)}
+                value={fields.firstname.value}
+                onChange={e => setFieldValue('firstname', e.target.value)}
                 placeholder="Prénom"
-                error={firstNameError}
+                error={fields.firstname.error}
             />
 
             <Select
                 options={classOptions}
-                value={classGroupId.toString()}
+                value={fields.classGroupId.value}
                 onChange={(value) => {
-                    setClassGroupId(Number(value));
+                    setFieldValue('classGroupId', value);
                 }}
                 placeholder="Sélectionnez une classe"
-                error={classError}
+                error={fields.classGroupId.error}
             />
 
             <InputField
                 type="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
+                value={fields.password.value}
+                onChange={e => setFieldValue('password', e.target.value)}
                 placeholder="Mot de passe"
-                error={passwordError}
+                error={fields.password.error}
             />
             <InputField
                 type="password"
-                value={confirmPassword}
-                onChange={e => setConfirmPassword(e.target.value)}
+                value={fields.confirmPassword.value}
+                onChange={e => setFieldValue('confirmPassword', e.target.value)}
                 placeholder="Confirmez le mot de passe"
-                error={confirmPasswordError}
+                error={fields.confirmPassword.error}
             />
 
             <Button type="submit"
