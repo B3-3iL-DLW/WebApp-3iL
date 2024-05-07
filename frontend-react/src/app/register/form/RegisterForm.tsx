@@ -3,7 +3,7 @@ import InputField from '../../components/inputs';
 import Button from '../../components/buttons';
 import Select from '../../components/selects';
 import useRegisterForm from '../hooks/useRegisterForm';
-import {getClassGroups} from '../services/classgroupService';
+import {getClassGroups} from '../../api/services/classgroupService';
 import {Classgroup} from "@/app/models/classgroup";
 import {ApiResponse} from "@/app/api/apiService";
 

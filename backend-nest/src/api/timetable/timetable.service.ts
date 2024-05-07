@@ -51,7 +51,6 @@ export class TimetableService {
     return this.prisma.event.findFirst({
       where: {
         classGroupId: data.classGroupId,
-        activite: data.activite,
         semaine: data.semaine,
         dateJour: data.dateJour,
         creneau: data.creneau,
