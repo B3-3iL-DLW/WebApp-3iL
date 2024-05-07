@@ -14,7 +14,10 @@ describe('ClassgroupsService', () => {
           provide: PrismaService,
           useValue: {
             classgroup: {
-              create: jest.fn().mockResolvedValue({}),
+              create: jest.fn().mockResolvedValue({
+                file: 'fileTest.xml',
+                name: 'fileTest',
+              }),
               createMany: jest.fn().mockResolvedValue({}),
               findMany: jest.fn().mockResolvedValue([]),
               findUnique: jest.fn().mockResolvedValue({}),
@@ -37,14 +40,15 @@ describe('ClassgroupsService', () => {
 
   describe('create', () => {
     it('create a new classgroup and return it', async () => {
-      const createClassgroupDto = {
-        file: 'file1.xml',
-        name: 'file1',
+      const newClassgroup = {
+        file: 'fileTest.xml',
+        name: 'fileTest',
       };
-      await service.create(createClassgroupDto);
-      expect(prisma.classgroup.create).toHaveBeenCalledWith({
-        data: createClassgroupDto,
-      });
+      const classgroup = await service.create(newClassgroup);
+      expect(classgroup).not.toBeNull();
+      expect(classgroup).not.toBeUndefined();
+      expect(classgroup.file).toEqual(newClassgroup.file);
+      expect(classgroup.name).toEqual(newClassgroup.name);
     });
   });
 
@@ -52,12 +56,12 @@ describe('ClassgroupsService', () => {
     it('create multuple new classgroups and return them', async () => {
       const createClassgroupDtos = [
         {
-          file: 'file2.xml',
-          name: 'file2',
-        },
-        {
           file: 'file3.xml',
           name: 'file3',
+        },
+        {
+          file: 'file4.xml',
+          name: 'file4',
         },
       ];
       await service.createMany(createClassgroupDtos);
@@ -95,12 +99,19 @@ describe('ClassgroupsService', () => {
   });
 
   describe('delete', () => {
-    it('delete an existing class', async () => {
-      const id = Math.floor(Math.random() * 100);
-      await service.delete(id);
-      expect(prisma.classgroup.delete).toHaveBeenCalledWith({
-        where: { id },
-      });
+    let existingClassgroup;
+
+    beforeEach(async () => {
+      existingClassgroup = await service.findOne(48);
+    });
+
+    it('delete an existing classgroup', async () => {
+      if (existingClassgroup) {
+        const deletedClassgroup = await service.delete(existingClassgroup.id);
+        expect(deletedClassgroup).toEqual(existingClassgroup);
+        const classgroup = await service.findOne(existingClassgroup.id);
+        expect(classgroup).toBeNull();
+      }
     });
   });
 
