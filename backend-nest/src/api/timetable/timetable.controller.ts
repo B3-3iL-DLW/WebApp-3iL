@@ -6,7 +6,6 @@ import { TimetableService } from './timetable.service';
  * Controller for handling timetable related requests.
  */
 @Controller('api/timetable')
-@UseGuards(AuthGuard)
 export class TimetableController {
   /**
    * @param {TimetableService} TimeTableService - The timetable service.
