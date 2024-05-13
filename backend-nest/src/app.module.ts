@@ -8,12 +8,16 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { ApiModule } from './api/api.module';
 import { AuthModule } from './api/auth/auth.module';
 import { TimetableModule } from './api/timetable/timetable.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
     UsersModule,
     ClassgroupsModule,
     ScheduleModule.forRoot(),
+    ConfigModule.forRoot({
+      envFilePath: '.env',
+    }),
     ApiModule,
     AuthModule,
     TimetableModule,
