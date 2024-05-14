@@ -1,8 +1,8 @@
-name: Execute Tests
+name: Execute Tests and Deploy
 on:
   push:
     branches: [ main, dev ]
-  pull request:
+  pull_request:
     branches: [ main, dev ]
 
 jobs:
@@ -22,3 +22,20 @@ jobs:
 
       - name: Run Tests
         run: npm test
+
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/dev'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install SSH key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_SSH_KEY }}
+
+      - name: Deploy to Dev Server
+        run: |
+          ssh julesartaud@julesartaud.alwaysdata.net 'cd /www/back-3il-web && git pull && npm ci && npm run build'
