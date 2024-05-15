@@ -32,10 +32,6 @@ jobs:
           cd backend-nest
           npm install
 
-      - name: Create new database
-        run: |
-          echo "CREATE DATABASE IF NOT EXISTS webapp3il_test;" | mysql -hlocalhost -uroot -ppassword
-
       - name: Initialize Database
         run: |
           cd backend-nest
