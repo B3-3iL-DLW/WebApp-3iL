@@ -35,7 +35,6 @@ jobs:
       - name: Initialize Database
         run: |
           cd backend-nest
-          npx prisma migrate status
           npx migrate deploy
           npx prisma migrate status
         env:
