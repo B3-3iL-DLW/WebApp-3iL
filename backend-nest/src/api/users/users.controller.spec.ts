@@ -45,6 +45,7 @@ describe('UsersController', () => {
         firstname: 'Test',
         lastname: 'User',
         role: 'STUDENT',
+        classGroupId: 1,
       };
       await controller.create(createUserDto);
       expect(service.create).toHaveBeenCalledWith(createUserDto);

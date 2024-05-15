@@ -17,17 +17,15 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Dependencies and Run Tests for Backend
+      - name: Install Dependencies
         run: |
           cd backend-nest
           npm install
-          npm test
 
-#      - name: Install Dependencies and Run Tests for Frontend
-#        run: |
-#          cd frontend-react
-#          npm install
-#          npm test
+      - name: Test Backend
+        run: |
+          cd backend-nest
+          npm test
 
   deploy:
     needs: test
@@ -45,7 +43,3 @@ jobs:
       - name: Deploy Backend to Dev Server
         run: |
           ssh julesartaud@julesartaud.alwaysdata.net 'cd /www/back-3il-web/backend-nest && git pull && npm ci && npm run build'
-
-#      - name: Deploy Frontend to Dev Server
-#        run: |
-#          ssh julesartaud@julesartaud.alwaysdata.net 'cd /www/back-3il-web/frontend-react && git pull && npm ci && npm run build'

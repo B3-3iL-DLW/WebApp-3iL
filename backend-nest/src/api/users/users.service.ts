@@ -5,7 +5,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
-import { Prisma, user } from '@prisma/client';
+import { $Enums, Prisma, user } from '@prisma/client';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
@@ -70,12 +70,23 @@ export class UsersService {
   }
 
   async create(data: CreateUserDto): Promise<user> {
-    const existingUser = await this.findOneByEmail(data.email);
+    let existingUser;
+    try {
+      existingUser = await this.findOneByEmail(data.email);
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        existingUser = null;
+      } else {
+        throw error;
+      }
+    }
+
     if (existingUser) {
       const errorMessage = 'An account with this email already exists';
       console.error(errorMessage);
       throw new ConflictException(errorMessage);
     }
+
     try {
       return await this.prisma.user.create({
         data,
@@ -87,28 +98,39 @@ export class UsersService {
   }
 
   async update(params: {
-    where: Prisma.userWhereUniqueInput;
+    where: { id: number };
     data: UpdateUserDto;
   }): Promise<user> {
-    const { where, data } = params;
-    const existingUser = await this.findOne(where);
-    if (!existingUser) {
-      throw new NotFoundException('User not found');
-    }
-    const userWithUpdatedEmail = await this.findOneByEmail(data.email);
-    if (userWithUpdatedEmail && userWithUpdatedEmail.id !== existingUser.id) {
-      throw new ConflictException('Email already in use');
-    }
+    let existingUser: {
+      id: number;
+      email: string;
+      password: string;
+      firstname: string;
+      lastname: string;
+      role: $Enums.user_role;
+      classGroupId: number;
+    };
     try {
-      return await this.prisma.user.update({
-        data,
-        where,
-      });
+      existingUser = await this.findOneByEmail(params.data.email);
     } catch (error) {
-      console.error("Erreur lors de la mise à jour de l'utilisateur :", error);
-      throw new InternalServerErrorException(
-        "Erreur lors de la mise à jour de l'utilisateur.",
-      );
+      if (error instanceof NotFoundException) {
+        existingUser = null;
+      } else {
+        throw error;
+      }
+    }
+
+    if (!existingUser) {
+      const errorMessage = 'No user found with this email';
+      console.error(errorMessage);
+      throw new NotFoundException(errorMessage);
+    }
+
+    try {
+      return await this.prisma.user.update(params);
+    } catch (error) {
+      console.error('Error when updating user :', error);
+      throw new InternalServerErrorException('Error when updating user :');
     }
   }
 

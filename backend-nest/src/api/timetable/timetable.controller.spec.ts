@@ -1,20 +1,32 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { TimetableController } from './timetable.controller';
-import { JwtService } from '@nestjs/jwt';
+import { TimetableService } from './timetable.service';
+import { PrismaService } from '../../prisma/prisma.service';
 
-describe('TimetableController', () => {
-  let controller: TimetableController;
+describe('TimetableService', () => {
+  let service: TimetableService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [TimetableController],
-      providers: [JwtService],
+      providers: [
+        TimetableService,
+        {
+          provide: PrismaService,
+          useValue: {
+            timetable: {
+              findMany: jest.fn(),
+              upsert: jest.fn(),
+              // add other methods as needed
+            },
+            // add other Prisma models as needed
+          },
+        },
+      ],
     }).compile();
 
-    controller = module.get<TimetableController>(TimetableController);
+    service = module.get<TimetableService>(TimetableService);
   });
 
   it('should be defined', () => {
-    expect(controller).toBeDefined();
+    expect(service).toBeDefined();
   });
 });

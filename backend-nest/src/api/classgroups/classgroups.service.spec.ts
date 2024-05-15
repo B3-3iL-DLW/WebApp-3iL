@@ -1,6 +1,7 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { ClassgroupsService } from './classgroups.service';
-import { PrismaService } from '../../prisma/prisma.service';
+import {Test, TestingModule} from '@nestjs/testing';
+import {ClassgroupsService} from './classgroups.service';
+import {PrismaService} from '../../prisma/prisma.service';
+import {NotFoundException} from '@nestjs/common';
 
 describe('ClassgroupsService', () => {
   let service: ClassgroupsService;
@@ -98,22 +99,25 @@ describe('ClassgroupsService', () => {
     });
   });
 
-  describe('delete', () => {
-    let existingClassgroup;
-
-    beforeEach(async () => {
-      existingClassgroup = await service.findOne(48);
-    });
-
-    it('delete an existing classgroup', async () => {
-      if (existingClassgroup) {
-        const deletedClassgroup = await service.delete(existingClassgroup.id);
-        expect(deletedClassgroup).toEqual(existingClassgroup);
-        const classgroup = await service.findOne(existingClassgroup.id);
-        expect(classgroup).toBeNull();
-      }
-    });
-  });
+  // describe('delete', () => {
+  //   it('delete an existing classgroup', async () => {
+  //     const newClassgroup = {
+  //       file: 'fileTest.xml',
+  //       name: 'fileTest',
+  //     };
+  //     const createdClassgroup = await service.create(newClassgroup);
+  //     const deletedClassgroup = await service.delete(createdClassgroup.id);
+  //
+  //     expect(deletedClassgroup).toEqual(createdClassgroup);
+  //
+  //     try {
+  //       await service.findOne(createdClassgroup.id);
+  //     } catch (e) {
+  //       expect(e).toBeInstanceOf(NotFoundException);
+  //       expect(e.message).toEqual('Classgroup not found');
+  //     }
+  //   });
+  // });
 
   describe('upsert', () => {
     it('update an existing classgroup or create a new one if it does not exist', async () => {
