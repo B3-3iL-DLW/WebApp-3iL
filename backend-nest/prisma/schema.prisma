@@ -31,7 +31,7 @@ model event {
   startAt      String
   classGroup   classgroup @relation(fields: [classGroupId], references: [id])
 
-  @@unique([classGroupId, activite, semaine, dateJour, creneau], map: "Event_classGroupId_activite_semaine_dateJour_key")
+  @@unique([classGroupId, semaine, dateJour, creneau], map: "Event_classGroupId_semaine_dateJour_key")
 }
 
 model user {
