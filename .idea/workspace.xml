@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment="mybad">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/classgroups/classgroups.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/classgroups/classgroups.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/persist/persist.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/persist/persist.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,38 +46,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Jest.AppController (e2e).executor": "Run",
-    "Jest.ClassgroupsController.executor": "Run",
-    "Jest.ClassgroupsService.delete.executor": "Run",
-    "Jest.ClassgroupsService.executor": "Run",
-    "Jest.TimetableService.executor": "Run",
-    "Jest.UsersController.executor": "Run",
-    "Jest.UsersService.create.executor": "Run",
-    "Jest.UsersService.delete.delete an existing user.executor": "Run",
-    "Jest.UsersService.delete.executor": "Run",
-    "Jest.UsersService.executor": "Run",
-    "Jest.UsersService.update.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "dev",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/jules/Documents/dev/backend-3il",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "C:/Users/jules/Documents/dev/backend-3il/backend-nest/node_modules/jest",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\jules\\Documents\\dev\\backend-3il\\backend-nest\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "C:\\Users\\jules\\Documents\\dev\\backend-3il\\backend-nest\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Jest.AppController (e2e).executor&quot;: &quot;Run&quot;,
+    &quot;Jest.ClassgroupsController.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.ClassgroupsService.delete.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.ClassgroupsService.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.TimetableService.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.UsersController.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.UsersService.create.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.UsersService.delete.delete an existing user.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.UsersService.delete.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.UsersService.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.UsersService.update.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jules/Documents/dev/backend-3il&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;C:/Users/jules/Documents/dev/backend-3il/backend-nest/node_modules/jest&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\jules\\Documents\\dev\\backend-3il\\backend-nest\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\jules\\Documents\\dev\\backend-3il\\backend-nest\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Projets\3IL\backend-3iL\backend-3il\backend-nest" />
