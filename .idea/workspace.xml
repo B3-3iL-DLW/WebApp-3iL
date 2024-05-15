@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment=":green_heart: trying to deploy#6">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/dev.yml" afterDir="false" />
-    </list>
+    <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment=":green_heart: trying to deploy#6" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -175,7 +173,7 @@
       <workItem from="1714391480182" duration="1270000" />
       <workItem from="1714392782255" duration="12000" />
       <workItem from="1715719810390" duration="10000" />
-      <workItem from="1715756603955" duration="15368000" />
+      <workItem from="1715756603955" duration="15513000" />
     </task>
     <task id="LOCAL-00001" summary=":bug: Authentication and linter">
       <option name="closed" value="true" />
@@ -265,7 +263,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715782034282</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary=":green_heart: trying to deploy#6">
+      <option name="closed" value="true" />
+      <created>1715782107259</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715782107259</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
