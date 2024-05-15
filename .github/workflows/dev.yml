@@ -32,16 +32,20 @@ jobs:
           cd backend-nest
           npm install
 
+      - name: Create new database
+        run: |
+          echo "CREATE DATABASE IF NOT EXISTS new_database;" | mysql -hlocalhost -uroot -ppassword
+
       - name: Initialize Database
         run: |
           cd backend-nest
           npx prisma migrate dev --name init
         env:
-          DATABASE_URL: mysql://root:password@localhost:3306/webapp3il_test
+          DATABASE_URL: mysql://root:password@localhost:3306/new_database
 
       - name: Test Backend
         run: |
           cd backend-nest
           npm test
         env:
-          DATABASE_URL: mysql://root:password@localhost:3306/webapp3il_test
+          DATABASE_URL: mysql://root:password@localhost:3306/new_database
