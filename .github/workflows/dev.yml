@@ -34,7 +34,8 @@ jobs:
 
       - name: Push Prisma Schema to Database
         run: |
-          cd backend-nest               
+          cd backend-nest
+          npx prisma migrate resolve --applied 20240408151658_
           npx prisma migrate deploy
           npx prisma db push
           npx npm run seed
