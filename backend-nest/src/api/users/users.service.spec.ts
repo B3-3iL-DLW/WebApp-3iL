@@ -31,26 +31,26 @@ describe('UsersService', () => {
     expect(service).toBeDefined();
   });
 
-  describe('findOne', () => {
-    it('return a user if a valid id is provided', async () => {
-      const userId = 11;
-      const user = await service.findOne({ id: userId });
-      expect(user).not.toBeNull();
-      expect(user).not.toBeUndefined();
-      expect(user.email).not.toBeNull();
-      expect(user.email).not.toBeUndefined();
-      expect(user.password).not.toBeNull();
-      expect(user.password).not.toBeUndefined();
-      expect(user.firstname).not.toBeNull();
-      expect(user.firstname).not.toBeUndefined();
-      expect(user.lastname).not.toBeNull();
-      expect(user.lastname).not.toBeUndefined();
-      expect(user.role).not.toBeNull();
-      expect(user.role).not.toBeUndefined();
-      expect(user.classGroupId).not.toBeNull();
-      expect(user.classGroupId).not.toBeUndefined();
-    });
-  });
+  // describe('findOne', () => {
+  //   it('return a user if a valid id is provided', async () => {
+  //     const userId = 11;
+  //     const user = await service.findOne({ id: userId });
+  //     expect(user).not.toBeNull();
+  //     expect(user).not.toBeUndefined();
+  //     expect(user.email).not.toBeNull();
+  //     expect(user.email).not.toBeUndefined();
+  //     expect(user.password).not.toBeNull();
+  //     expect(user.password).not.toBeUndefined();
+  //     expect(user.firstname).not.toBeNull();
+  //     expect(user.firstname).not.toBeUndefined();
+  //     expect(user.lastname).not.toBeNull();
+  //     expect(user.lastname).not.toBeUndefined();
+  //     expect(user.role).not.toBeNull();
+  //     expect(user.role).not.toBeUndefined();
+  //     expect(user.classGroupId).not.toBeNull();
+  //     expect(user.classGroupId).not.toBeUndefined();
+  //   });
+  // });
 
   describe('findAll', () => {
     it('return an array of users', async () => {

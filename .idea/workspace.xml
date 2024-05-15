@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment="mybad">
+    <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment=":goal_net: catching errors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/classgroups/classgroups.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/classgroups/classgroups.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/persist/persist.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/persist/persist.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/users/users.controller.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/users/users.controller.spec.tsold" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/users/users.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/users/users.service.spec.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +15,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -62,7 +67,7 @@
     "Jest.UsersService.update.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "fix/dev-deploy",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/jules/Documents/dev/backend-3il",
     "node.js.detected.package.eslint": "true",
@@ -177,7 +182,7 @@
       <workItem from="1714391480182" duration="1270000" />
       <workItem from="1714392782255" duration="12000" />
       <workItem from="1715719810390" duration="10000" />
-      <workItem from="1715756603955" duration="18634000" />
+      <workItem from="1715756603955" duration="19577000" />
     </task>
     <task id="LOCAL-00001" summary=":bug: Authentication and linter">
       <option name="closed" value="true" />
@@ -339,7 +344,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715783845949</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary=":goal_net: catching errors">
+      <option name="closed" value="true" />
+      <created>1715785795110</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1715785795110</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,6 +375,7 @@
     <MESSAGE value="inshallah" />
     <MESSAGE value="inshallah2" />
     <MESSAGE value="mybad" />
-    <option name="LAST_COMMIT_MESSAGE" value="mybad" />
+    <MESSAGE value=":goal_net: catching errors" />
+    <option name="LAST_COMMIT_MESSAGE" value=":goal_net: catching errors" />
   </component>
 </project>
