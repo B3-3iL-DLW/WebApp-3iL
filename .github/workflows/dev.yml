@@ -9,6 +9,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
     steps:
       - uses: actions/checkout@v4
 
@@ -26,20 +36,7 @@ jobs:
         run: |
           cd backend-nest
           npm test
+        env:
+          DATABASE_URL: mysql://root:password@localhost:3306/test
 
-  deploy:
-    needs: test
-    if: github.ref == 'refs/heads/dev'
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install SSH key
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.DEPLOY_SSH_KEY }}
-
-      - name: Deploy Backend to Dev Server
-        run: |
-          ssh julesartaud@julesartaud.alwaysdata.net 'cd /www/back-3il-web/backend-nest && git pull && npm ci && npm run build'
+  # ... rest of your workflow
