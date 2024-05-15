@@ -35,7 +35,7 @@ jobs:
       - name: Initialize Database
         run: |
           cd backend-nest
-          npx migrate deploy
+          npx prisma migrate deploy
           npx prisma migrate status
         env:
           DATABASE_URL: mysql://root:password@localhost:3306/webapp3il_test
