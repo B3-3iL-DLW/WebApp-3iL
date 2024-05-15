@@ -32,11 +32,16 @@ jobs:
           cd backend-nest
           npm install
 
+      - name: Push Prisma Schema to Database
+        run: |
+          cd backend-nest
+          npx prisma db push
+        env:
+          DATABASE_URL: mysql://root:password@localhost:3306/webapp3il_test
+
       - name: Test Backend
         run: |
           cd backend-nest
           npm test
         env:
           DATABASE_URL: mysql://root:password@localhost:3306/webapp3il_test
-
-  # ... rest of your workflow

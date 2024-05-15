@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment=":green_heart: trying to deploy#3">
+    <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment=":green_heart: trying to deploy#4">
       <change beforePath="$PROJECT_DIR$/.github/workflows/dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/classgroups/classgroups.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/classgroups/classgroups.service.spec.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +176,7 @@
       <workItem from="1714391480182" duration="1270000" />
       <workItem from="1714392782255" duration="12000" />
       <workItem from="1715719810390" duration="10000" />
-      <workItem from="1715756603955" duration="14876000" />
+      <workItem from="1715756603955" duration="15114000" />
     </task>
     <task id="LOCAL-00001" summary=":bug: Authentication and linter">
       <option name="closed" value="true" />
@@ -243,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715760682223</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary=":green_heart: trying to deploy#4">
+      <option name="closed" value="true" />
+      <created>1715781611851</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715781611851</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +265,7 @@
     <MESSAGE value=":green_heart: trying to deploy" />
     <MESSAGE value=":green_heart: trying to deploy#2" />
     <MESSAGE value=":green_heart: trying to deploy#3" />
-    <option name="LAST_COMMIT_MESSAGE" value=":green_heart: trying to deploy#3" />
+    <MESSAGE value=":green_heart: trying to deploy#4" />
+    <option name="LAST_COMMIT_MESSAGE" value=":green_heart: trying to deploy#4" />
   </component>
 </project>
