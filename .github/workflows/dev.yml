@@ -34,10 +34,10 @@ jobs:
 
       - name: Push Prisma Schema to Database
         run: |
-          cd backend-nest
-          npx prisma db push
+          cd backend-nest               
           npx prisma migrate reset --force
           npx prisma migrate dev
+          npx prisma db push
           npx npm run seed
         env:
           DATABASE_URL: mysql://root:password@localhost:3306/webapp3il_test
