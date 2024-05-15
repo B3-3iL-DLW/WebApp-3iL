@@ -7,25 +7,35 @@ import { Event } from '@/app/models/eventModel';
 import Card from "@/app/components/card";
 import {getWeek} from "@/app/utils/dateHelper";
 import Arrow from "@/app/components/arrows";
-import useCurrentUser from "@/app/auth/useCurrentUser";
+import {getUser, verifySession} from "@/app/lib/dal";
 import {getClassGroupById} from "@/app/api/services/classgroupService";
+import {User} from "@/app/models/user";
 
-export default function Page() {
+export default function Timetable() {
+
     const [events, setEvents] = useState<Event[]>([]);
     const [currentWeek, setCurrentWeek] = useState<number>(getWeek(new Date()));
     const fullYear = new Date().getFullYear(); // e.g., 2024
     const lastTwoDigits = fullYear % 100; // e.g., 24
     const [currentYear] = useState<number>(lastTwoDigits);
-    const user = useCurrentUser();
-    let className = "B3 Groupe 3 DLW-FA";
+    const [user, setUser] = useState<User | null>(null);
+
     useEffect(() => {
-
-
-        const fetchTimeTable  = async () => {
-            const events = await mapTimeTable(className);
-            setEvents(events);
-        };
-        fetchTimeTable().then(r => console.log(r));
+        verifySession().then(session => {
+            if (session) {
+                getUser().then(fetchedUser => {
+                    setUser(fetchedUser);
+                    const fetchTimeTable = () => {
+                        getClassGroupById(fetchedUser.classGroupId).then(className => {
+                            mapTimeTable(className.name).then(events => {
+                                setEvents(events);
+                            });
+                        });
+                    };
+                    fetchTimeTable();
+                });
+            }
+        });
     }, []);
 
     const getButtonClass = (week: number, currentWeek: number) => {
@@ -60,7 +70,7 @@ export default function Page() {
             </div>
             {currentWeek > firstWeek && (
                 <div className="col-span-1 flex items-center justify-center w-auto p-2">
-                    <Arrow onClick={() => setCurrentWeek(currentWeek - 1)}  direction={'left'}/>
+                    <Arrow onClick={() => setCurrentWeek(currentWeek - 1)} direction={'left'}/>
                 </div>
             )}
             {currentWeek > firstWeek ? null : <div className="col-span-1"></div>}

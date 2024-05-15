@@ -1,10 +1,22 @@
 // src/app/users/UserComponent.tsx
 "use client";
-import React from 'react';
-import useCurrentUser from "@/app/auth/useCurrentUser";
+import React, {useEffect, useState} from 'react';
+import {getUser, verifySession} from "@/app/lib/dal";
 
-const UserComponent = () => {
-    const user = useCurrentUser();
+import {User} from "@/app/models/user";
+
+
+export default function UserComponent() {
+    const [user, setUser] = useState<User | null>(null);
+    useEffect(() => {
+        verifySession().then(session => {
+            if (session) {
+                getUser().then(fetchedUser => {
+                    setUser(fetchedUser);
+                });
+            }
+        });
+    }, []);
 
     return (
         <div>
@@ -18,5 +30,3 @@ const UserComponent = () => {
         </div>
     );
 };
-
-export default UserComponent;

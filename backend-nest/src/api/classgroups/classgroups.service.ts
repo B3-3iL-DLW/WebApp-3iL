@@ -25,19 +25,19 @@ export class ClassgroupsService {
 
   async findOne(id: number) {
     return this.prisma.classgroup.findUnique({
-      where: { id },
+      where: { id: id },
     });
   }
 
   async findByFile(file: string) {
     return this.prisma.classgroup.findFirst({
-      where: { file },
+      where: { file: file },
     });
   }
 
   async delete(id: number) {
     return this.prisma.classgroup.delete({
-      where: { id },
+      where: { id: id },
     });
   }
 

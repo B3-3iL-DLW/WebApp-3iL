@@ -1,8 +1,18 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import { ClassgroupsService } from './classgroups.service';
 import { CreateClassgroupDto } from './dto/create-classgroup.dto';
+import { AuthGuard } from '../auth/auth.guard';
 
 @Controller('api/classgroups')
+@UseGuards(AuthGuard)
 export class ClassgroupsController {
   constructor(private readonly classgroupsService: ClassgroupsService) {}
 
