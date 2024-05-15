@@ -11,12 +11,12 @@ export class PersistService {
   constructor(
     private readonly apiService: ApiService,
     private readonly classGroupService: ClassgroupsService,
-    private readonly TimetableService: TimetableService,
+    private readonly timetableService: TimetableService,
   ) {}
   /**
    * Cron job to persist classes every 5 minutes.
    */
-  @Cron('*/2 * * * *')
+  @Cron('* * * * *')
   persistClasses() {
     this.apiService.getClasses().subscribe((response) => {
       response.data.forEach((item) => {
@@ -35,7 +35,7 @@ export class PersistService {
   /**
    * Cron job to persist events every 10 seconds.
    */
-  @Cron('*/2 * * * *')
+  @Cron('* * * * *')
   persistEvents() {
     this.classGroupService.findAll().then((classGroups) => {
       classGroups.forEach((classGroup: { name: string; id: any }) => {
@@ -122,7 +122,7 @@ export class PersistService {
           endAt: event.horaire.endAt,
           classGroupId: classGroup.id,
         };
-        this.TimetableService.upsert(data);
+        this.timetableService.upsert(data);
       },
     );
   }

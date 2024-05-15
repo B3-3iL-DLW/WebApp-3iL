@@ -67,7 +67,17 @@ export class ClassgroupsService {
     update: Omit<classgroup, 'id'>;
     where: { file: string };
   }) {
-    const isExisting = await this.findByFile(param.where.file);
+    let isExisting;
+    try {
+      isExisting = await this.findByFile(param.where.file);
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        isExisting = null;
+      } else {
+        throw error;
+      }
+    }
+
     if (isExisting) {
       return this.prisma.classgroup.update({
         where: { id: isExisting.id },
