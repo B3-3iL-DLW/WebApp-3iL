@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, OnModuleInit } from '@nestjs/common';
 import { ApiService } from '../api.service';
 import { ClassgroupsService } from '../classgroups/classgroups.service';
 import { TimetableService } from '../timetable/timetable.service';
@@ -7,16 +7,24 @@ import { AxiosResponse } from 'axios';
 import * as console from 'node:console';
 
 @Injectable()
-export class PersistService {
+export class PersistService implements OnModuleInit {
   constructor(
     private readonly apiService: ApiService,
     private readonly classGroupService: ClassgroupsService,
     private readonly TimetableService: TimetableService,
   ) {}
+
+  async onModuleInit() {
+    this.persistClasses();
+    setTimeout(() => {
+      this.persistEvents();
+    }, 120000);
+  }
+
   /**
-   * Cron job to persist classes every 5 minutes.
+   * Cron job to persist classes every 3 hours.
    */
-  @Cron('*/2 * * * *')
+  @Cron('0 */3 * * *')
   persistClasses() {
     this.apiService.getClasses().subscribe((response) => {
       response.data.forEach((item) => {
@@ -33,9 +41,9 @@ export class PersistService {
     });
   }
   /**
-   * Cron job to persist events every 10 seconds.
+   * Cron job to persist events every 1 hours.
    */
-  @Cron('*/2 * * * *')
+  @Cron('0 */1 * * *')
   persistEvents() {
     this.classGroupService.findAll().then((classGroups) => {
       classGroups.forEach((classGroup: { name: string; id: any }) => {
