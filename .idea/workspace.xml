@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment=":green_heart: trying to deploy#2">
+    <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment=":green_heart: trying to deploy#3">
       <change beforePath="$PROJECT_DIR$/.github/workflows/dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend-nest/src/api/classgroups/classgroups.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/backend-nest/src/api/classgroups/classgroups.service.spec.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +36,9 @@
     &quot;accountId&quot;: &quot;25f61140-290a-4f10-b589-0f8f69044136&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -45,6 +49,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Jest.AppController (e2e).executor": "Run",
     "Jest.ClassgroupsController.executor": "Run",
     "Jest.ClassgroupsService.delete.executor": "Run",
     "Jest.ClassgroupsService.executor": "Run",
@@ -68,6 +73,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs.jest.jest_package": "C:/Users/jules/Documents/dev/backend-3il/backend-nest/node_modules/jest",
     "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\jules\\Documents\\dev\\backend-3il\\backend-nest\\node_modules\\prettier",
     "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
     "ts.external.directory.path": "C:\\Users\\jules\\Documents\\dev\\backend-3il\\backend-nest\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
@@ -80,7 +86,19 @@
       <recent name="D:\Projets\3IL\backend-3iL\backend-3il\src\api" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.TimetableService">
+  <component name="RunManager" selected="Jest.AppController (e2e)">
+    <configuration name="AppController (e2e)" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/backend-nest/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/backend-nest" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/backend-nest/test/app.e2e-spec.ts" />
+      <test-names>
+        <test-name value="AppController (e2e)" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="ClassgroupsService" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/backend-nest/node_modules/jest" />
@@ -130,27 +148,13 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="UsersService.delete.delete an existing user" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/backend-nest/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/backend-nest" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/backend-nest/src/api/users/users.service.spec.ts" />
-      <test-names>
-        <test-name value="UsersService" />
-        <test-name value="delete" />
-        <test-name value="delete an existing user" />
-      </test-names>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.AppController (e2e)" />
         <item itemvalue="Jest.TimetableService" />
         <item itemvalue="Jest.ClassgroupsService" />
         <item itemvalue="Jest.UsersService" />
         <item itemvalue="Jest.UsersService.delete" />
-        <item itemvalue="Jest.UsersService.delete.delete an existing user" />
       </list>
     </recent_temporary>
   </component>
@@ -173,7 +177,7 @@
       <workItem from="1714391480182" duration="1270000" />
       <workItem from="1714392782255" duration="12000" />
       <workItem from="1715719810390" duration="10000" />
-      <workItem from="1715756603955" duration="3977000" />
+      <workItem from="1715756603955" duration="14876000" />
     </task>
     <task id="LOCAL-00001" summary=":bug: Authentication and linter">
       <option name="closed" value="true" />
@@ -231,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715760134932</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary=":green_heart: trying to deploy#3">
+      <option name="closed" value="true" />
+      <created>1715760682223</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715760682223</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,6 +257,7 @@
     <MESSAGE value=":card_file_box: Updated weekschedule schema.prisma" />
     <MESSAGE value=":green_heart: trying to deploy" />
     <MESSAGE value=":green_heart: trying to deploy#2" />
-    <option name="LAST_COMMIT_MESSAGE" value=":green_heart: trying to deploy#2" />
+    <MESSAGE value=":green_heart: trying to deploy#3" />
+    <option name="LAST_COMMIT_MESSAGE" value=":green_heart: trying to deploy#3" />
   </component>
 </project>

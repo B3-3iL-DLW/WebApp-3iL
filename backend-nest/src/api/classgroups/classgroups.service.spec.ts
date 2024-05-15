@@ -1,7 +1,6 @@
-import {Test, TestingModule} from '@nestjs/testing';
-import {ClassgroupsService} from './classgroups.service';
-import {PrismaService} from '../../prisma/prisma.service';
-import {NotFoundException} from '@nestjs/common';
+import { Test, TestingModule } from '@nestjs/testing';
+import { ClassgroupsService } from './classgroups.service';
+import { PrismaService } from '../../prisma/prisma.service';
 
 describe('ClassgroupsService', () => {
   let service: ClassgroupsService;
