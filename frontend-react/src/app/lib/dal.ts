@@ -7,7 +7,6 @@ import {cache} from 'react';
 import {apiRequest} from "@/app/api/apiService";
 
 export const verifySession = cache(async () => {
-
     const cookie = cookies().get('session')?.value
     const session = await decrypt(cookie)
 
@@ -15,7 +14,7 @@ export const verifySession = cache(async () => {
 
         redirect('/login')
     }
-
+    console.log('Session:', session);
     return { isAuth: true, userId: session.userId, session: cookie }
 })
 

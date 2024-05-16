@@ -9,15 +9,24 @@ export interface ApiResponse {
 
 }
 
+
 export async function apiRequest(endpoint: string, method: string, body?: any): Promise<ApiResponse> {
-    const session = await verifySession()
-    const bearer = session.session
+    let headers: { 'Content-Type': string; Authorization?: string } = {
+        'Content-Type': 'application/json',
+    };
+
+    if (endpoint !== 'auth/login') {
+        const session = await verifySession();
+        const bearer = session.session;
+        headers = {
+            ...headers,
+            Authorization: bearer ? `Bearer ${bearer}` : '',
+        };
+    }
+
     const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
         method,
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: bearer ? `Bearer ${bearer}` : '',
-        },
+        headers,
         body: body ? JSON.stringify(body) : null,
     });
 
@@ -45,3 +54,6 @@ export async function apiRequest(endpoint: string, method: string, body?: any): 
         data,
     };
 }
+
+
+

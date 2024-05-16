@@ -1,15 +1,15 @@
 // src/app/pages/UserPage.tsx
-
 import React from 'react';
 import dynamic from 'next/dynamic';
+import RootLayout from '../layout'; // Import the RootLayout component
 
-const UserComponent = dynamic(() => import('../users/userComponents'), { ssr: false });
+const UsersList = dynamic(() => import('../users/UserList'), { ssr: false });
 
 const UserPage = () => {
     return (
-        <div>
-            <UserComponent />
-        </div>
+        <RootLayout> {/* Use the RootLayout component to wrap your page content */}
+            <UsersList />
+        </RootLayout>
     );
 };
 

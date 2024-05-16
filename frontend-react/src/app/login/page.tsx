@@ -18,11 +18,12 @@ const LoginPage = () => {
 
     const handleLogin = async (credentials: Credentials) => {
         try {
+            console.log(credentials)
             const token = await login(credentials);
-            console.log(token);
+            console.log('Received token:', token);
 
             await createSession(token);
-
+            console.log('Session created');
 
             setToastMessage('Connexion réussie !');
             setToastType('success');

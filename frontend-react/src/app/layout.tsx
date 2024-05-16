@@ -2,22 +2,22 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
+import Navbar from './components/NavBar'; // Import your Navbar component
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "my3iL",
-  description: "Emploi du temps des classes de 3iL",
-};
 
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-    <body className={inter.className}>{children}</body>
-    </html>
+      <html lang="en">
+      <body>
+      <Navbar />
+      {children}
+      </body>
+      </html>
   );
 }
