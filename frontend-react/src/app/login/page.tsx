@@ -19,6 +19,7 @@ const LoginPage = () => {
     const handleLogin = async (credentials: Credentials) => {
         try {
             const token = await login(credentials);
+            console.log(token);
 
             await createSession(token);
 
@@ -62,7 +63,7 @@ const LoginPage = () => {
                 </div>
                 <div className="flex w-full lg:w-1/2 justify-center items-center bg-white space-y-8">
                     <div className="w-full px-8 md:px-32 lg:px-24">
-                        <LoginForm onSubmit={handleLogin} connectionError={connectionError}/> {/* Passer connectionError à LoginForm */}
+                        <LoginForm onSubmit={handleLogin} connectionError={connectionError}/>
                     </div>
                 </div>
             </div>
