@@ -6,6 +6,7 @@ import LoginForm from './form/LoginForm';
 import {Credentials, InvalidCredentialsError, login} from './services/loginService';
 import Toast from '../../app/components/toasts';
 import {useRouter} from 'next/navigation';
+import {createSession} from "@/app/lib/session";
 
 const LoginPage = () => {
     const router = useRouter();
@@ -19,7 +20,7 @@ const LoginPage = () => {
         try {
             const token = await login(credentials);
 
-            document.cookie = `jwt=${token}; path=/`;
+            await createSession(token);
 
 
             setToastMessage('Connexion réussie !');

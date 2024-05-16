@@ -11,8 +11,9 @@ export async function getClassGroups() {
     }
 }
 
-export async function getClassGroupById(id: number): Promise<Classgroup>{
+export async function getClassGroupById(id: number | undefined): Promise<Classgroup>{
     console.log(id);
+
     try {
         let response = await apiRequest(`classgroups/${id}`, 'GET');
         return response.data;

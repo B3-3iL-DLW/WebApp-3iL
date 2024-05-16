@@ -1,30 +1,37 @@
-import { Injectable } from '@nestjs/common';
-import { ApiService } from '../api.service';
-import { ClassgroupsService } from '../classgroups/classgroups.service';
-import { TimetableService } from '../timetable/timetable.service';
-import { Cron } from '@nestjs/schedule';
-import { AxiosResponse } from 'axios';
+import {Injectable, OnModuleInit} from '@nestjs/common';
+import {ApiService} from '../api.service';
+import {ClassgroupsService} from '../classgroups/classgroups.service';
+import {TimetableService} from '../timetable/timetable.service';
+import {Cron} from '@nestjs/schedule';
+import {AxiosResponse} from 'axios';
 import * as console from 'node:console';
 
 @Injectable()
-export class PersistService {
+export class PersistService implements OnModuleInit {
   constructor(
     private readonly apiService: ApiService,
     private readonly classGroupService: ClassgroupsService,
     private readonly timetableService: TimetableService,
   ) {}
+
+  async onModuleInit() {
+    this.persistClasses();
+    setTimeout(() => {
+      this.persistEvents();
+    }, 120000);
+  }
+
   /**
-   * Cron job to persist classes every 5 minutes.
+   * Cron job to persist classes every 3 hours.
    */
-  @Cron('* * * * *')
+  @Cron('0 */3 * * *')
   persistClasses() {
     this.apiService.getClasses().subscribe((response) => {
       response.data.forEach((item) => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { id, ...data } = item; // ignore id from response
+        const {id, ...data} = item;
         this.classGroupService
           .upsert({
-            where: { file: data.file }, // use a unique field to identify the record
+            where: {file: data.file},
             create: data, // data to create if the record does not exist
             update: data, // data to update if the record exists
           })
@@ -33,9 +40,9 @@ export class PersistService {
     });
   }
   /**
-   * Cron job to persist events every 10 seconds.
+   * Cron job to persist events every 1 hour.
    */
-  @Cron('* * * * *')
+  @Cron('0 */1 * * *')
   persistEvents() {
     this.classGroupService.findAll().then((classGroups) => {
       classGroups.forEach((classGroup: { name: string; id: any }) => {
@@ -122,7 +129,7 @@ export class PersistService {
           endAt: event.horaire.endAt,
           classGroupId: classGroup.id,
         };
-        this.timetableService.upsert(data);
+        this.timetableService.upsert(data).then((r) => console.log(r));
       },
     );
   }

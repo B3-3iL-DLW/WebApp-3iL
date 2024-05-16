@@ -1,5 +1,6 @@
 // src/app/api/apiService.ts
 import {API_BASE_URL} from './apiConfig';
+import {verifySession} from "@/app/lib/dal";
 
 export interface ApiResponse {
     ok: boolean;
@@ -8,11 +9,14 @@ export interface ApiResponse {
 
 }
 
-export async function apiRequest(endpoint: string, method: string, body?: any) {
+export async function apiRequest(endpoint: string, method: string, body?: any): Promise<ApiResponse> {
+    const session = await verifySession()
+    const bearer = session.session
     const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
         method,
         headers: {
             'Content-Type': 'application/json',
+            Authorization: bearer ? `Bearer ${bearer}` : '',
         },
         body: body ? JSON.stringify(body) : null,
     });

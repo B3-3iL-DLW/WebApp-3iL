@@ -37,7 +37,7 @@ export class ClassgroupsService {
       throw new NotFoundException('Classgroup not found');
     }
     return this.prisma.classgroup.findUnique({
-      where: { id },
+      where: { id: id },
     });
   }
 
@@ -49,7 +49,7 @@ export class ClassgroupsService {
       throw new NotFoundException('Classgroup not found');
     }
     return this.prisma.classgroup.findFirst({
-      where: { file },
+      where: { file: file },
     });
   }
 
@@ -58,7 +58,7 @@ export class ClassgroupsService {
       throw new Error('The class does not exist');
     }
     return this.prisma.classgroup.delete({
-      where: { id },
+      where: { id: id },
     });
   }
 
