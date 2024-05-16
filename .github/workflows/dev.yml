@@ -1,0 +1,55 @@
+name: Execute Tests and Deploy
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: webapp3il_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: |
+          cd backend-nest
+          npm install
+
+      - name: Initialize Database
+        run: |
+          cd backend-nest
+          npx prisma migrate deploy
+          npx prisma migrate status
+        env:
+          DATABASE_URL: mysql://root:password@localhost:3306/webapp3il_test
+
+      - name: Deploy Database
+        run: |
+          cd backend-nest
+          npx prisma migrate deploy
+        env:
+          DATABASE_URL: mysql://root:password@localhost:3306/webapp3il_test
+
+      - name: Test Backend
+        run: |
+          cd backend-nest
+          npm test
+        env:
+          DATABASE_URL: mysql://root:password@localhost:3306/webapp3il_test

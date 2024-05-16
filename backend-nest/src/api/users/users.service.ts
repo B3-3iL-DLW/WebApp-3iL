@@ -5,7 +5,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
-import { Prisma, user } from '@prisma/client';
+import { $Enums, Prisma, user } from '@prisma/client';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 
@@ -16,6 +16,12 @@ export class UsersService {
   async findOne(
     userWhereUniqueInput: Prisma.userWhereUniqueInput,
   ): Promise<user | null> {
+    const existingUser = await this.prisma.user.findUnique({
+      where: userWhereUniqueInput,
+    });
+    if (!existingUser) {
+      throw new NotFoundException('User not found');
+    }
     try {
       return await this.prisma.user.findUnique({
         where: userWhereUniqueInput,
@@ -27,10 +33,14 @@ export class UsersService {
   }
 
   async findOneByEmail(email: string): Promise<user | null> {
+    const existingUser = await this.prisma.user.findFirst({
+      where: { email },
+    });
+    if (!existingUser) {
+      throw new NotFoundException('User not found');
+    }
     try {
-      return await this.prisma.user.findFirst({
-        where: { email },
-      });
+      return existingUser;
     } catch (error) {
       console.error(error);
       throw new InternalServerErrorException('Error finding user by email');
@@ -60,7 +70,17 @@ export class UsersService {
   }
 
   async create(data: CreateUserDto): Promise<user> {
-    const existingUser = await this.findOneByEmail(data.email);
+    let existingUser;
+    try {
+      existingUser = await this.findOneByEmail(data.email);
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        existingUser = null;
+      } else {
+        throw error;
+      }
+    }
+
     if (existingUser) {
       const errorMessage = 'An account with this email already exists';
       console.error(errorMessage);
@@ -78,30 +98,39 @@ export class UsersService {
   }
 
   async update(params: {
-    where: Prisma.userWhereUniqueInput;
+    where: { id: number };
     data: UpdateUserDto;
   }): Promise<user> {
-    const { where, data } = params;
-    const existingUser = await this.findOne(where);
-    if (!existingUser) {
-      throw new NotFoundException('User not found');
+    let existingUser: {
+      id: number;
+      email: string;
+      password: string;
+      firstname: string;
+      lastname: string;
+      role: $Enums.user_role;
+      classGroupId: number;
+    };
+    try {
+      existingUser = await this.findOneByEmail(params.data.email);
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        existingUser = null;
+      } else {
+        throw error;
+      }
     }
 
-    const userWithUpdatedEmail = await this.findOneByEmail(data.email);
-    if (userWithUpdatedEmail && userWithUpdatedEmail.id !== existingUser.id) {
-      throw new ConflictException('Email already in use');
+    if (!existingUser) {
+      const errorMessage = 'No user found with this email';
+      console.error(errorMessage);
+      throw new NotFoundException(errorMessage);
     }
 
     try {
-      return await this.prisma.user.update({
-        data,
-        where,
-      });
+      return await this.prisma.user.update(params);
     } catch (error) {
-      console.error("Erreur lors de la mise à jour de l'utilisateur :", error);
-      throw new InternalServerErrorException(
-        "Erreur lors de la mise à jour de l'utilisateur.",
-      );
+      console.error('Error when updating user :', error);
+      throw new InternalServerErrorException('Error when updating user :');
     }
   }
 
@@ -110,7 +139,6 @@ export class UsersService {
     if (!existingUser) {
       throw new NotFoundException('User not found');
     }
-
     try {
       return await this.prisma.user.delete({
         where,
@@ -128,7 +156,6 @@ export class UsersService {
     if (!existingUser) {
       throw new NotFoundException('User not found');
     }
-
     try {
       return await this.prisma.user.update({
         where: { id: userId },

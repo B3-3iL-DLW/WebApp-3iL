@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment=":deploy: test">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/dev.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;PHPLukaas&quot;
+  }
+}</component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="master" />
+      </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/julesartd/backend-3il.git&quot;,
+    &quot;accountId&quot;: &quot;25f61140-290a-4f10-b589-0f8f69044136&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2flgnpveIHKO2KvIz3Hw9N7ToSo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Jest.AppController (e2e).executor&quot;: &quot;Run&quot;,
+    &quot;Jest.ClassgroupsController.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.ClassgroupsService.delete.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.ClassgroupsService.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.TimetableService.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.UsersController.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.UsersService.create.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.UsersService.delete.delete an existing user.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.UsersService.delete.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.UsersService.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.UsersService.update.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jules/Documents/dev/backend-3il&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;C:/Users/jules/Documents/dev/backend-3il/backend-nest/node_modules/jest&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\jules\\Documents\\dev\\backend-3il\\backend-nest\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\jules\\Documents\\dev\\backend-3il\\backend-nest\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projets\3IL\backend-3iL\backend-3il\backend-nest" />
+      <recent name="D:\Projets\3IL\backend-3iL\backend-3il" />
+      <recent name="D:\Projets\3IL\backend-3iL\backend-3il\src\api" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Jest.AppController (e2e)">
+    <configuration name="AppController (e2e)" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/backend-nest/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/backend-nest" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/backend-nest/test/app.e2e-spec.ts" />
+      <test-names>
+        <test-name value="AppController (e2e)" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="ClassgroupsService" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/backend-nest/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/backend-nest" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/backend-nest/src/api/classgroups/classgroups.service.spec.ts" />
+      <test-names>
+        <test-name value="ClassgroupsService" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="TimetableService" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/backend-nest/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/backend-nest" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/backend-nest/src/api/timetable/timetable.service.spec.ts" />
+      <test-names>
+        <test-name value="TimetableService" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UsersService" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/backend-nest/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/backend-nest" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/backend-nest/src/api/users/users.service.spec.ts" />
+      <test-names>
+        <test-name value="UsersService" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="UsersService.delete" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/backend-nest/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/backend-nest" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/backend-nest/src/api/users/users.service.spec.ts" />
+      <test-names>
+        <test-name value="UsersService" />
+        <test-name value="delete" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.AppController (e2e)" />
+        <item itemvalue="Jest.TimetableService" />
+        <item itemvalue="Jest.ClassgroupsService" />
+        <item itemvalue="Jest.UsersService" />
+        <item itemvalue="Jest.UsersService.delete" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c86ab5d8-3266-421f-8289-0352993ffe3d" name="Changes" comment="" />
+      <created>1714381247944</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714381247944</updated>
+      <workItem from="1714381249278" duration="4421000" />
+      <workItem from="1714391480182" duration="1270000" />
+      <workItem from="1714392782255" duration="12000" />
+      <workItem from="1715719810390" duration="10000" />
+      <workItem from="1715756603955" duration="18634000" />
+    </task>
+    <task id="LOCAL-00001" summary=":bug: Authentication and linter">
+      <option name="closed" value="true" />
+      <created>1714383095926</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714383095926</updated>
+    </task>
+    <task id="LOCAL-00002" summary=":rotating_light: Fix linter">
+      <option name="closed" value="true" />
+      <created>1714390552893</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714390552893</updated>
+    </task>
+    <task id="LOCAL-00003" summary=":recycle: Refactor of file names">
+      <option name="closed" value="true" />
+      <created>1714391447339</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714391447339</updated>
+    </task>
+    <task id="LOCAL-00004" summary=":heavy_plus_sign: Added sonarcloud config">
+      <option name="closed" value="true" />
+      <created>1714391634921</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714391634921</updated>
+    </task>
+    <task id="LOCAL-00005" summary=":card_file_box: Updated weekschedule schema.prisma">
+      <option name="closed" value="true" />
+      <created>1714391950407</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714391950407</updated>
+    </task>
+    <task id="LOCAL-00006" summary=":green_heart: trying to deploy">
+      <option name="closed" value="true" />
+      <created>1715756783027</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715756783027</updated>
+    </task>
+    <task id="LOCAL-00007" summary=":green_heart: trying to deploy#2">
+      <option name="closed" value="true" />
+      <created>1715760134932</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715760134932</updated>
+    </task>
+    <task id="LOCAL-00008" summary=":green_heart: trying to deploy#3">
+      <option name="closed" value="true" />
+      <created>1715760682223</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715760682223</updated>
+    </task>
+    <task id="LOCAL-00009" summary=":green_heart: trying to deploy#4">
+      <option name="closed" value="true" />
+      <created>1715781611851</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715781611851</updated>
+    </task>
+    <task id="LOCAL-00010" summary=":green_heart: trying to deploy#5">
+      <option name="closed" value="true" />
+      <created>1715781858817</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715781858817</updated>
+    </task>
+    <task id="LOCAL-00011" summary=":green_heart: trying to deploy#6">
+      <option name="closed" value="true" />
+      <created>1715782034282</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1715782034282</updated>
+    </task>
+    <task id="LOCAL-00012" summary=":green_heart: trying to deploy#6">
+      <option name="closed" value="true" />
+      <created>1715782107259</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715782107259</updated>
+    </task>
+    <task id="LOCAL-00013" summary=":rocket:">
+      <option name="closed" value="true" />
+      <created>1715782257949</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1715782257949</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix">
+      <option name="closed" value="true" />
+      <created>1715782845443</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1715782845443</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix">
+      <option name="closed" value="true" />
+      <created>1715783081137</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1715783081137</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix">
+      <option name="closed" value="true" />
+      <created>1715783168008</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1715783168008</updated>
+    </task>
+    <task id="LOCAL-00017" summary="inshallah">
+      <option name="closed" value="true" />
+      <created>1715783503550</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1715783503550</updated>
+    </task>
+    <task id="LOCAL-00018" summary="inshallah2">
+      <option name="closed" value="true" />
+      <created>1715783601831</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1715783601831</updated>
+    </task>
+    <task id="LOCAL-00019" summary="mybad">
+      <option name="closed" value="true" />
+      <created>1715783689478</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1715783689479</updated>
+    </task>
+    <task id="LOCAL-00020" summary="mybad">
+      <option name="closed" value="true" />
+      <created>1715783845949</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1715783845949</updated>
+    </task>
+    <task id="LOCAL-00021" summary=":deploy: trying to deploy">
+      <option name="closed" value="true" />
+      <created>1715787423919</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1715787423920</updated>
+    </task>
+    <task id="LOCAL-00022" summary=":deploy: trying to deploy#2">
+      <option name="closed" value="true" />
+      <created>1715787727233</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1715787727233</updated>
+    </task>
+    <task id="LOCAL-00023" summary=":deploy: trying to deploy#3">
+      <option name="closed" value="true" />
+      <created>1715788347627</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1715788347627</updated>
+    </task>
+    <task id="LOCAL-00024" summary=":deploy: trying to deploy#4 please">
+      <option name="closed" value="true" />
+      <created>1715788657606</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1715788657606</updated>
+    </task>
+    <task id="LOCAL-00025" summary=":deploy: trying to deploy#5 please">
+      <option name="closed" value="true" />
+      <created>1715788999503</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1715788999504</updated>
+    </task>
+    <task id="LOCAL-00026" summary=":deploy: trying to deploy#6 please">
+      <option name="closed" value="true" />
+      <created>1715789079216</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1715789079216</updated>
+    </task>
+    <task id="LOCAL-00027" summary=":deploy: test">
+      <option name="closed" value="true" />
+      <created>1715789459177</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1715789459177</updated>
+    </task>
+    <task id="LOCAL-00028" summary=":deploy: test">
+      <option name="closed" value="true" />
+      <created>1715789547556</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1715789547556</updated>
+    </task>
+    <task id="LOCAL-00029" summary=":deploy: test">
+      <option name="closed" value="true" />
+      <created>1715789620909</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1715789620909</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=":bug: Authentication and linter" />
+    <MESSAGE value=":rotating_light: Fix linter" />
+    <MESSAGE value=":recycle: Refactor of file names" />
+    <MESSAGE value=":heavy_plus_sign: Added sonarcloud config" />
+    <MESSAGE value=":card_file_box: Updated weekschedule schema.prisma" />
+    <MESSAGE value=":green_heart: trying to deploy" />
+    <MESSAGE value=":green_heart: trying to deploy#2" />
+    <MESSAGE value=":green_heart: trying to deploy#3" />
+    <MESSAGE value=":green_heart: trying to deploy#4" />
+    <MESSAGE value=":green_heart: trying to deploy#5" />
+    <MESSAGE value=":green_heart: trying to deploy#6" />
+    <MESSAGE value=":rocket:" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="inshallah" />
+    <MESSAGE value="inshallah2" />
+    <MESSAGE value="mybad" />
+    <MESSAGE value=":deploy: trying to deploy" />
+    <MESSAGE value=":deploy: trying to deploy#2" />
+    <MESSAGE value=":deploy: trying to deploy#3" />
+    <MESSAGE value=":deploy: trying to deploy#4 please" />
+    <MESSAGE value=":deploy: trying to deploy#5 please" />
+    <MESSAGE value=":deploy: trying to deploy#6 please" />
+    <MESSAGE value=":deploy: test" />
+    <option name="LAST_COMMIT_MESSAGE" value=":deploy: test" />
+  </component>
+</project>
