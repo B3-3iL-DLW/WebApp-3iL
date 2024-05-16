@@ -1,9 +1,9 @@
-import { Injectable, OnModuleInit } from '@nestjs/common';
-import { ApiService } from '../api.service';
-import { ClassgroupsService } from '../classgroups/classgroups.service';
-import { TimetableService } from '../timetable/timetable.service';
-import { Cron } from '@nestjs/schedule';
-import { AxiosResponse } from 'axios';
+import {Injectable, OnModuleInit} from '@nestjs/common';
+import {ApiService} from '../api.service';
+import {ClassgroupsService} from '../classgroups/classgroups.service';
+import {TimetableService} from '../timetable/timetable.service';
+import {Cron} from '@nestjs/schedule';
+import {AxiosResponse} from 'axios';
 import * as console from 'node:console';
 
 @Injectable()
@@ -11,7 +11,7 @@ export class PersistService implements OnModuleInit {
   constructor(
     private readonly apiService: ApiService,
     private readonly classGroupService: ClassgroupsService,
-    private readonly TimetableService: TimetableService,
+    private readonly timetableService: TimetableService,
   ) {}
 
   async onModuleInit() {
@@ -28,11 +28,10 @@ export class PersistService implements OnModuleInit {
   persistClasses() {
     this.apiService.getClasses().subscribe((response) => {
       response.data.forEach((item) => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { id, ...data } = item; // ignore id from response
+        const {id, ...data} = item;
         this.classGroupService
           .upsert({
-            where: { file: data.file }, // use a unique field to identify the record
+            where: {file: data.file},
             create: data, // data to create if the record does not exist
             update: data, // data to update if the record exists
           })
@@ -41,7 +40,7 @@ export class PersistService implements OnModuleInit {
     });
   }
   /**
-   * Cron job to persist events every 1 hours.
+   * Cron job to persist events every 1 hour.
    */
   @Cron('0 */1 * * *')
   persistEvents() {
@@ -130,7 +129,7 @@ export class PersistService implements OnModuleInit {
           endAt: event.horaire.endAt,
           classGroupId: classGroup.id,
         };
-        this.TimetableService.upsert(data);
+        this.timetableService.upsert(data).then((r) => console.log(r));
       },
     );
   }
