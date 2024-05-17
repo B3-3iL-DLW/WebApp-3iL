@@ -130,7 +130,7 @@ export class PersistService implements OnModuleInit {
           endAt: event.horaire.endAt,
           classGroupId: classGroup.id,
         };
-        this.timetableService.upsert(data).then((r) => console.log(r));
+        this.timetableService.upsert(data);
       },
     );
   }
