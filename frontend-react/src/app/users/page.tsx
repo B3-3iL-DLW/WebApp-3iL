@@ -3,8 +3,8 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import {getUser} from '../lib/dal';
+import UserTable from "@/app/users/userTable";
 
-const UsersList = dynamic(() => import('../users/UserList'), { ssr: false });
 const UserComponent = dynamic(() => import('../users/userComponents'), { ssr: false });
 
 // This is a new client component that fetches the user's role
@@ -22,7 +22,7 @@ const UserRoleComponent = () => {
 
     return (
         <>
-            {role === 'ADMIN' ? <UsersList /> : <UserComponent />}
+            {role === 'ADMIN' ? <UserTable /> : <UserComponent />}
         </>
     );
 };

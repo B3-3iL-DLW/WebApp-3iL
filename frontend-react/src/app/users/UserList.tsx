@@ -25,7 +25,7 @@ export default function UsersList() {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen">
+        <div className="flex min-h-screen">
             <Table aria-label="Example static collection table" className="mx-auto">
                 <TableHeader>
                     <TableColumn>First Name</TableColumn>
