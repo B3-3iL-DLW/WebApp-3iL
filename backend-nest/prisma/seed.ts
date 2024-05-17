@@ -1,4 +1,4 @@
-import { PrismaClient, user_role } from '@prisma/client';
+import {PrismaClient, user_role} from '@prisma/client';
 
 const prisma = new PrismaClient();
 
@@ -12,6 +12,7 @@ async function main() {
       firstname: 'Alice',
       lastname: 'Doe',
       role: user_role.STUDENT,
+      classGroupId: 1,
     },
   });
 
@@ -24,6 +25,7 @@ async function main() {
       firstname: 'Bob',
       lastname: 'Smith',
       role: user_role.ADMIN,
+      classGroupId: 1,
     },
   });
 
