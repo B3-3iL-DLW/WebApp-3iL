@@ -1,9 +1,29 @@
-import React from "react";
+"use client"
+import React, {useEffect, useState} from "react";
 import {Button, Link, Navbar, NavbarBrand, NavbarContent, NavbarItem} from "@nextui-org/react";
-
+import {getUser, verifySession} from "@/app/lib/dal";
+import {User} from "@/app/models/user";
 
 export default function AppNavbar() {
-    const isLoggedIn = true; // Replace this with actual authentication status
+    const [user, setUser] = useState<User | null>(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        verifySession().then(session => {
+            if (session) {
+                getUser().then(fetchedUser => {
+                    setUser(fetchedUser);
+                    setLoading(false);
+                });
+            } else {
+                setLoading(false);
+            }
+        });
+    }, []);
+
+    if (loading) {
+        return null; // or a loading indicator
+    }
 
     return (
         <Navbar position="static" className="py-2">
@@ -16,29 +36,20 @@ export default function AppNavbar() {
                         Emploi du temps
                     </Link>
                 </NavbarItem>
-                <NavbarItem>
-                    <Link color="foreground" href="/users">
-                        Utilisateurs
-                    </Link>
-                </NavbarItem>
-            </NavbarContent>
-            <NavbarContent justify="end">
-                {isLoggedIn ? (
+                {user && (
                     <NavbarItem>
-                        <Button as={Link} color="primary" href="/logout" variant="flat">
-                            Déconnexion
-                        </Button>
-                    </NavbarItem>
-                ) : (
-                    <NavbarItem>
-                        <Button as={Link} color="primary" href="/login" variant="flat">
-                            Connexion
-                        </Button>
-                        <Button as={Link} color="primary" href="/register" variant="flat">
-                            Inscription
-                        </Button>
+                        <Link color="foreground" href="/users">
+                            {user.role === 'ADMIN' ? 'Utilisateurs' : 'Profile'}
+                        </Link>
                     </NavbarItem>
                 )}
+            </NavbarContent>
+            <NavbarContent justify="end">
+                <NavbarItem>
+                    <Button as={Link} color="primary" href="/logout" variant="flat">
+                        Déconnexion
+                    </Button>
+                </NavbarItem>
             </NavbarContent>
         </Navbar>
     );

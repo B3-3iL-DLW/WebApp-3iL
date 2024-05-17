@@ -21,7 +21,7 @@ export default function UserComponent() {
     return (
         <div>
             {user && (
-                <div>
+                <div className="flex items-center justify-center min-h-screen">
                     <h1>{user.firstname} {user.lastname}</h1>
                     <p>{user.email}</p>
                     <p>{user.classGroupId}</p>
