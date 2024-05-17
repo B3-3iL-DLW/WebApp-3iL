@@ -61,7 +61,6 @@ export class PersistService implements OnModuleInit {
         this.processResponse(response, classGroup);
       },
       error: (error) => console.log(error),
-      complete: () => console.info('complete'),
     });
   }
   /**
