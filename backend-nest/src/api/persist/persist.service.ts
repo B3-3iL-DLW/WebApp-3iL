@@ -1,9 +1,9 @@
-import {Injectable, OnModuleInit} from '@nestjs/common';
-import {ApiService} from '../api.service';
-import {ClassgroupsService} from '../classgroups/classgroups.service';
-import {TimetableService} from '../timetable/timetable.service';
-import {Cron} from '@nestjs/schedule';
-import {AxiosResponse} from 'axios';
+import { Injectable, OnModuleInit } from '@nestjs/common';
+import { ApiService } from '../api.service';
+import { ClassgroupsService } from '../classgroups/classgroups.service';
+import { TimetableService } from '../timetable/timetable.service';
+import { Cron } from '@nestjs/schedule';
+import { AxiosResponse } from 'axios';
 import * as console from 'node:console';
 
 @Injectable()
@@ -28,16 +28,16 @@ export class PersistService implements OnModuleInit {
   persistClasses() {
     this.apiService.getClasses().subscribe((response) => {
       response.data.forEach((item) => {
-        const {id, ...data} = item;
-        this.classGroupService
-          .upsert({
-            where: {file: data.file},
-            create: data, // data to create if the record does not exist
-            update: data, // data to update if the record exists
-          })
-          .then((r) => console.log(r));
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { id, ...data } = item;
+        this.classGroupService.upsert({
+          where: { file: data.file },
+          create: data,
+          update: data,
+        });
       });
     });
+    console.info('Classes persisted');
   }
   /**
    * Cron job to persist events every 1 hour.
@@ -49,6 +49,7 @@ export class PersistService implements OnModuleInit {
         this.processClassGroup(classGroup);
       });
     });
+    console.info('Events persisted');
   }
   /**
    * Process a class group.
