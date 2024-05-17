@@ -26,19 +26,19 @@ export default function AppNavbar() {
     }
 
     return (
-        <Navbar position="static" className="py-2">
+        <Navbar position="static" className="py-2 bg-white">
             <NavbarBrand>
-                <p className="px-4 font-bold text-2xl text-inherit">My3il</p>
+                <img src="/3il_logos_groupe.png" alt="3iL logo" width={200} height={50}/>
             </NavbarBrand>
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 <NavbarItem>
-                    <Link color="foreground" href="/timetable">
+                    <Link  href="/timetable" color={"secondary"}>
                         Emploi du temps
                     </Link>
                 </NavbarItem>
                 {user && (
                     <NavbarItem>
-                        <Link color="foreground" href="/users">
+                        <Link color={"secondary"} href="/users">
                             {user.role === 'ADMIN' ? 'Utilisateurs' : 'Profile'}
                         </Link>
                     </NavbarItem>
@@ -46,7 +46,7 @@ export default function AppNavbar() {
             </NavbarContent>
             <NavbarContent justify="end">
                 <NavbarItem>
-                    <Button as={Link} color="primary" href="/logout" variant="flat">
+                    <Button as={Link} color="secondary" href="/logout" variant="flat">
                         Déconnexion
                     </Button>
                 </NavbarItem>

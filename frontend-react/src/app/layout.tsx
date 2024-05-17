@@ -3,7 +3,7 @@
 import "./globals.css";
 import React from "react";
 import Navbar from './components/NavBar'; // Import your Navbar component
-import { usePathname } from 'next/navigation'
+import {usePathname} from 'next/navigation'
 
 export default function RootLayout({
                                        children,
@@ -17,7 +17,7 @@ export default function RootLayout({
         <html lang="en">
         <body className="flex flex-col min-h-screen">
         {showNavbar && <Navbar/>}
-        <div className="flex-grow h-full">
+        <div className="flex-grow h-full bg-gray-200">
             {children}
         </div>
         </body>
