@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
-import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Tooltip} from "@nextui-org/react";
+// src/app/users/userTable.tsx
+import React, {useEffect, useState} from "react";
+import {Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, Tooltip} from "@nextui-org/react";
 import {EditIcon} from "./EditIcon";
 import {DeleteIcon} from "./DeleteIcon";
-import { apiRequest } from '../api/apiService';
+import {apiRequest} from '../api/apiService';
+import {User} from "@/app/models/user";
 
 const columns = [
     {name: "ID", uid: "id"},
@@ -15,7 +17,7 @@ const columns = [
 ];
 
 export default function UserTable() {
-    const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState<User[]>([]);
 
     useEffect(() => {
         apiRequest('users', 'GET').then(response => {
@@ -25,8 +27,19 @@ export default function UserTable() {
         });
     }, []);
 
-    const renderCell = React.useCallback((user: { [x: string]: any; }, columnKey: string | number) => {
-        const cellValue = user[columnKey];
+    const handleDelete = async (id: number) => {
+        await apiRequest(`users/${id}`, 'DELETE');
+        setUsers(users.filter(user => user.id !== id));
+    };
+
+    const handleKeyDown = (event: React.KeyboardEvent, id: number) => {
+        if (event.key === 'Enter') {
+            handleDelete(id).then(r => r);
+        }
+    };
+
+    const renderCell = React.useCallback((user: User, columnKey: string | number) => {
+        const cellValue = user[columnKey as keyof User];
 
         switch (columnKey) {
             case "firstname":
@@ -39,24 +52,26 @@ export default function UserTable() {
                 return (
                     <div className="relative flex items-center gap-2">
                         <Tooltip content="Edit user">
-                            <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                                <EditIcon />
-                            </span>
+                            <button className="text-lg text-default-400 cursor-pointer active:opacity-50">
+                                <EditIcon/>
+                            </button>
                         </Tooltip>
                         <Tooltip color="danger" content="Delete user">
-                            <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                                <DeleteIcon />
-                            </span>
+                            <button className="text-lg text-danger cursor-pointer active:opacity-50"
+                                    onClick={() => handleDelete(user.id)}
+                                    onKeyDown={(event) => handleKeyDown(event, user.id)}>
+                                <DeleteIcon/>
+                            </button>
                         </Tooltip>
                     </div>
                 );
             default:
                 return cellValue;
         }
-    }, []);
+    }, [users]);
 
     return (
-        <div style={{ padding: '20px', color: 'black' }}>
+        <div style={{padding: '20px', color: 'black'}}>
             <Table aria-label="Example table with custom cells">
                 <TableHeader columns={columns}>
                     {(column) => (
@@ -66,7 +81,7 @@ export default function UserTable() {
                     )}
                 </TableHeader>
                 <TableBody items={users}>
-                    {(item) => (
+                    {(item: User) => (
                         <TableRow key={item.id}>
                             {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
                         </TableRow>

@@ -16,15 +16,13 @@ export class UsersService {
 
   async findOne(id: number): Promise<user | null> {
     const existingUser = await this.prisma.user.findUnique({
-      where: { id: id },
+      where: { id: Number(id) },
     });
     if (!existingUser) {
       throw new NotFoundException('User not found');
     }
     try {
-      return await this.prisma.user.findUnique({
-        where: { id: id },
-      });
+      return existingUser
     } catch (error) {
       console.error(error);
       throw new InternalServerErrorException('Error finding user');
