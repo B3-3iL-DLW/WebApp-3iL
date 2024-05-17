@@ -3,8 +3,8 @@ import {decrypt} from '@/app/lib/session'
 import {cookies} from 'next/headers'
 
 
-const protectedRoutes = ['/timetable', '/users']
-const publicRoutes = ['/login', '/register', '/']
+const protectedRoutes = ['/timetable', '/users', '/']
+const publicRoutes = ['/login', '/register']
 
 export default async function middleware(req: NextRequest) {
 
@@ -22,12 +22,12 @@ export default async function middleware(req: NextRequest) {
     }
 
 
-    if (
-        isPublicRoute &&
-        session?.userId &&
-        !req.nextUrl.pathname.startsWith('/timetable')
-    ) {
-        return NextResponse.redirect(new URL('/timetable', req.nextUrl))
+    if (isPublicRoute && session?.userId) {
+        if (req.nextUrl.pathname === '/') {
+            return NextResponse.redirect(new URL('/users', req.nextUrl))
+        } else if (!req.nextUrl.pathname.startsWith('/timetable')) {
+            return NextResponse.redirect(new URL('/timetable', req.nextUrl))
+        }
     }
 
     return NextResponse.next()

@@ -2,7 +2,6 @@
 
 import {cookies} from 'next/headers'
 import {decrypt} from '@/app/lib/session'
-import {redirect} from "next/navigation";
 import {cache} from 'react';
 import {apiRequest} from "@/app/api/apiService";
 
@@ -13,7 +12,7 @@ export const verifySession = cache(async () => {
 
     if (!session?.userId) {
 
-        redirect('/login')
+        return null;
     }
 
     return { isAuth: true, userId: session.userId, session: cookie }

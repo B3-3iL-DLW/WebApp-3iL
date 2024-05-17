@@ -1,12 +1,13 @@
 // src/app/login/page.tsx
 
 "use client";
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import LoginForm from './form/LoginForm';
 import {Credentials, InvalidCredentialsError, login} from './services/loginService';
 import Toast from '../../app/components/toasts';
 import {useRouter} from 'next/navigation';
 import {createSession} from "@/app/lib/session";
+import {verifySession} from "@/app/lib/dal";
 
 const LoginPage = () => {
     const router = useRouter();
@@ -15,6 +16,17 @@ const LoginPage = () => {
     const [toastMessage, setToastMessage] = useState<string>('');
     const [toastType, setToastType] = useState<'success' | 'error'>('success');
     const [connectionError, setConnectionError] = useState<boolean>(false);
+
+    // Vérifiez la session dès que le composant est monté
+    useEffect(() => {
+        const checkSession = async () => {
+            const session = await verifySession();
+            if (session) {
+                router.push('/users');
+            }
+        };
+        checkSession().then(r => r);
+    }, [router]);
 
     const handleLogin = async (credentials: Credentials) => {
         try {

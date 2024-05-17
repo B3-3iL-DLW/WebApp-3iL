@@ -11,13 +11,19 @@ export interface ApiResponse {
 
 export async function apiRequest(endpoint: string, method: string, body?: any): Promise<ApiResponse> {
     const session = await verifySession()
-    const bearer = session.session
+    const bearer = session?.session
+
+    let headers: Record<string, string> = {
+        'Content-Type': 'application/json'
+    };
+
+    if (bearer) {
+        headers['Authorization'] = `Bearer ${bearer}`;
+    }
+
     const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
         method,
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: bearer ? `Bearer ${bearer}` : '',
-        },
+        headers,
         body: body ? JSON.stringify(body) : null,
     });
 
