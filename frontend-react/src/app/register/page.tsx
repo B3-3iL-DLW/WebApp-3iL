@@ -1,12 +1,13 @@
 // src/app/register/page.tsx
 
 "use client";
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import RegisterForm from './form/RegisterForm';
 import {useRouter} from 'next/navigation';
 import Toast from "@/app/components/toasts";
 import {register} from "@/app/register/services/registerService";
 import {ApiResponse} from "@/app/api/apiService";
+import {verifySession} from "@/app/lib/dal";
 
 const RegisterPage = () => {
     const router = useRouter();
@@ -15,6 +16,15 @@ const RegisterPage = () => {
     const [toastMessage, setToastMessage] = useState<string>('');
     const [toastType, setToastType] = useState<'success' | 'error'>('success');
 
+    useEffect(() => {
+        const checkSession = async () => {
+            const session = await verifySession();
+            if (session) {
+                router.push('/users');
+            }
+        };
+        checkSession().then(r => r);
+    }, [router]);
 
     const handleRegister = async (user: {
         email: string,

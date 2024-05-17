@@ -17,7 +17,6 @@ const LoginPage = () => {
     const [toastType, setToastType] = useState<'success' | 'error'>('success');
     const [connectionError, setConnectionError] = useState<boolean>(false);
 
-    // Vérifiez la session dès que le composant est monté
     useEffect(() => {
         const checkSession = async () => {
             const session = await verifySession();
