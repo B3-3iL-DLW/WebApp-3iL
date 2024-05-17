@@ -60,6 +60,7 @@ describe('UsersService', () => {
   describe('findOne', () => {
     it('return a user if a valid id is provided', async () => {
       const { id, ...user } = await service.findOne({ email: testUser.email });
+      expect(id).toEqual(testUserId);
       expect(user).toEqual(testUser);
     });
   });
@@ -67,13 +68,17 @@ describe('UsersService', () => {
   describe('findAll', () => {
     it('return an array of users', async () => {
       const users = await service.findAll({});
-      expect(users.map(({ id, ...user }) => user)).toEqual([testUser]);
+      users.forEach(({ id, ...user }) => {
+        expect(id).toBeDefined();
+        expect(user).toEqual(testUser);
+      });
     });
   });
 
   describe('findOneByEmail', () => {
     it('return a user if a valid email is provided', async () => {
       const { id, ...user } = await service.findOneByEmail(testUser.email);
+      expect(id).toEqual(testUserId);
       expect(user).toEqual(testUser);
     });
   });
@@ -89,13 +94,17 @@ describe('UsersService', () => {
         classGroupId: 55,
       };
       const { id, ...user } = await service.create(newUser);
+      expect(id).toBeDefined();
       expect(user).toEqual(newUser);
     });
   });
 
   describe('delete', () => {
     it('delete an existing user', async () => {
-      const { id, ...deletedUser } = await service.delete({ email: testUser.email });
+      const { id, ...deletedUser } = await service.delete({
+        email: testUser.email,
+      });
+      expect(id).toEqual(testUserId);
       expect(deletedUser).toEqual(testUser);
     });
   });
@@ -113,6 +122,7 @@ describe('UsersService', () => {
         where: { id: testUserId },
         data: { ...data, email: testUser.email },
       });
+      expect(id).toEqual(testUserId);
       expect(user).toEqual({ ...testUser, ...data, email: testUser.email });
     });
   });
@@ -120,7 +130,11 @@ describe('UsersService', () => {
   describe('updateClassGroup', () => {
     it('update the class of a user', async () => {
       const newClassGroupId = 60;
-      const { id, ...user } = await service.updateClassGroup(testUserId, newClassGroupId);
+      const { id, ...user } = await service.updateClassGroup(
+        testUserId,
+        newClassGroupId,
+      );
+      expect(id).toEqual(testUserId);
       expect(user).toEqual({ ...testUser, classGroupId: newClassGroupId });
     });
   });
