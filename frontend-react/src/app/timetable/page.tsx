@@ -10,6 +10,7 @@ import Arrow from "@/app/components/arrows";
 import {getUser, verifySession} from "@/app/lib/dal";
 import {getClassGroupById} from "@/app/api/services/classgroupService";
 import {User} from "@/app/models/user";
+import {router} from "next/client";
 
 export default function Timetable() {
 
@@ -18,22 +19,22 @@ export default function Timetable() {
     const fullYear = new Date().getFullYear(); // e.g., 2024
     const lastTwoDigits = fullYear % 100; // e.g., 24
     const [currentYear] = useState<number>(lastTwoDigits);
-    const [user, setUser] = useState<User | null>(null);
 
+    const fetchTimeTable = (fetchedUser: User) => {
+        getClassGroupById(fetchedUser.classGroupId).then(className => {
+            mapTimeTable(className.name).then(events => {
+                setEvents(events);
+            });
+        });
+    };
     useEffect(() => {
         verifySession().then(session => {
             if (session) {
                 getUser().then(fetchedUser => {
-                    setUser(fetchedUser);
-                    const fetchTimeTable = () => {
-                        getClassGroupById(fetchedUser.classGroupId).then(className => {
-                            mapTimeTable(className.name).then(events => {
-                                setEvents(events);
-                            });
-                        });
-                    };
-                    fetchTimeTable();
+                    fetchTimeTable(fetchedUser);
                 });
+            } else {
+                router.push('/login').then(r => r);
             }
         });
     }, []);
@@ -56,7 +57,7 @@ export default function Timetable() {
     const lastWeek = Math.max(...events.map(event => Number(event.semaine.split('/')[1])));
     const uniqueWeeks = Array.from(new Set(events.map(event => Number(event.semaine.split('/')[1])))).sort((a, b) => (a - b));
     return (
-        <div className="grid grid-cols-12 gap-4 p-4 pt-8 bg-white text-black">
+        <div className="grid grid-cols-12 gap-4 p-4 pt-8">
             <div className="col-span-12 flex items-center justify-center w-auto p-2 space-x-2 overflow-x-auto">
                 {uniqueWeeks.map(week => (
                     <button

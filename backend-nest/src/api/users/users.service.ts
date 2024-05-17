@@ -8,24 +8,21 @@ import { PrismaService } from '../../prisma/prisma.service';
 import { $Enums, Prisma, user } from '@prisma/client';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
-  async findOne(
-    userWhereUniqueInput: Prisma.userWhereUniqueInput,
-  ): Promise<user | null> {
+  async findOne(id: number): Promise<user | null> {
     const existingUser = await this.prisma.user.findUnique({
-      where: userWhereUniqueInput,
+      where: { id: Number(id) },
     });
     if (!existingUser) {
       throw new NotFoundException('User not found');
     }
     try {
-      return await this.prisma.user.findUnique({
-        where: userWhereUniqueInput,
-      });
+      return existingUser
     } catch (error) {
       console.error(error);
       throw new InternalServerErrorException('Error finding user');
@@ -70,7 +67,15 @@ export class UsersService {
   }
 
   async create(data: CreateUserDto): Promise<user> {
-    let existingUser;
+    let existingUser: {
+      id: number;
+      email: string;
+      password: string;
+      firstname: string;
+      lastname: string;
+      role: $Enums.user_role;
+      classGroupId: number;
+    };
     try {
       existingUser = await this.findOneByEmail(data.email);
     } catch (error) {
@@ -86,6 +91,10 @@ export class UsersService {
       console.error(errorMessage);
       throw new ConflictException(errorMessage);
     }
+
+    // Hash the password
+    const salt = await bcrypt.genSalt();
+    data.password = await bcrypt.hash(data.password, salt);
 
     try {
       return await this.prisma.user.create({
@@ -111,7 +120,7 @@ export class UsersService {
       classGroupId: number;
     };
     try {
-      existingUser = await this.findOneByEmail(params.data.email);
+      existingUser = await this.findOne(params.data.id);
     } catch (error) {
       if (error instanceof NotFoundException) {
         existingUser = null;
@@ -126,6 +135,13 @@ export class UsersService {
       throw new NotFoundException(errorMessage);
     }
 
+    const emailExists = await this.emailExists(params.data.email);
+    if (emailExists && params.data.email !== existingUser.email) {
+      const errorMessage = 'An account with this email already exists';
+      console.error(errorMessage);
+      throw new ConflictException(errorMessage);
+    }
+
     try {
       return await this.prisma.user.update(params);
     } catch (error) {
@@ -135,7 +151,7 @@ export class UsersService {
   }
 
   async delete(where: Prisma.userWhereUniqueInput): Promise<user> {
-    const existingUser = await this.findOne(where);
+    const existingUser = await this.findOne(where.id);
     if (!existingUser) {
       throw new NotFoundException('User not found');
     }
@@ -152,7 +168,7 @@ export class UsersService {
   }
 
   async updateClassGroup(userId: number, classGroupId: number): Promise<user> {
-    const existingUser = await this.findOne({ id: userId });
+    const existingUser = await this.findOne(userId);
     if (!existingUser) {
       throw new NotFoundException('User not found');
     }
@@ -169,6 +185,19 @@ export class UsersService {
       throw new InternalServerErrorException(
         "Erreur lors de la mise à jour du groupe de classe de l'utilisateur.",
       );
+    }
+  }
+
+  async emailExists(email: string): Promise<boolean> {
+    try {
+      const existingUser = await this.findOneByEmail(email);
+      return !!existingUser;
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        return false;
+      } else {
+        throw error;
+      }
     }
   }
 }

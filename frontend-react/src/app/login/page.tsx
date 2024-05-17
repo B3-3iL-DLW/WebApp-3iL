@@ -1,12 +1,13 @@
 // src/app/login/page.tsx
 
 "use client";
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import LoginForm from './form/LoginForm';
 import {Credentials, InvalidCredentialsError, login} from './services/loginService';
 import Toast from '../../app/components/toasts';
 import {useRouter} from 'next/navigation';
 import {createSession} from "@/app/lib/session";
+import {verifySession} from "@/app/lib/dal";
 
 const LoginPage = () => {
     const router = useRouter();
@@ -16,13 +17,24 @@ const LoginPage = () => {
     const [toastType, setToastType] = useState<'success' | 'error'>('success');
     const [connectionError, setConnectionError] = useState<boolean>(false);
 
+    useEffect(() => {
+        const checkSession = async () => {
+            const session = await verifySession();
+            if (session) {
+                router.push('/users');
+            }
+        };
+        checkSession().then(r => r);
+    }, [router]);
+
     const handleLogin = async (credentials: Credentials) => {
         try {
+            console.log(credentials)
             const token = await login(credentials);
-            console.log(token);
+            console.log('Received token:', token);
 
             await createSession(token);
-
+            console.log('Session created');
 
             setToastMessage('Connexion réussie !');
             setToastType('success');

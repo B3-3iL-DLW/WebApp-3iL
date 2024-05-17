@@ -29,8 +29,8 @@ export class UsersController {
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return this.usersService.findOne({ id: Number(id) });
+  async findOne(@Param('id') id: number) {
+    return this.usersService.findOne(id);
   }
 
   @Post(':email')

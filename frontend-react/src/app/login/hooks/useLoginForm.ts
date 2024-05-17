@@ -12,6 +12,8 @@ const useLoginForm = (onSubmit: (credentials: { email: string; password: string 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
 
+        console.log('email', email);
+
         const newEmailError = validateEmail(email);
         const newPasswordError = validateRequired(password);
 
