@@ -8,6 +8,7 @@ import { PrismaService } from '../../prisma/prisma.service';
 import { $Enums, Prisma, user } from '@prisma/client';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
@@ -92,6 +93,10 @@ export class UsersService {
       console.error(errorMessage);
       throw new ConflictException(errorMessage);
     }
+
+    // Hash the password
+    const salt = await bcrypt.genSalt();
+    data.password = await bcrypt.hash(data.password, salt);
 
     try {
       return await this.prisma.user.create({
