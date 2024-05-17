@@ -6,9 +6,9 @@ export default function AppNavbar() {
     const isLoggedIn = true; // Replace this with actual authentication status
 
     return (
-        <Navbar position="static">
+        <Navbar position="static" className="py-2">
             <NavbarBrand>
-                <p className="font-bold text-inherit">My3il</p>
+                <p className="px-4 font-bold text-2xl text-inherit">My3il</p>
             </NavbarBrand>
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 <NavbarItem>

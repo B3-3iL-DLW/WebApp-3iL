@@ -16,7 +16,7 @@ const Arrow = ({ direction, onClick }: ArrowProps) => {
                 height='20'
                 viewBox='0 0 24 24'
                 fill='none'
-                stroke='#000000'
+                stroke='#ffffff' // Change this to the desired color
                 strokeWidth='2'
                 strokeLinecap='round'
                 strokeLinejoin='round'
