@@ -59,7 +59,7 @@ describe('UsersService', () => {
 
   describe('findOne', () => {
     it('return a user if a valid id is provided', async () => {
-      const { id, ...user } = await service.findOne({ email: testUser.email });
+      const { id, ...user } = await service.findOne(testUserId);
       expect(id).toEqual(testUserId);
       expect(user).toEqual(testUser);
     });

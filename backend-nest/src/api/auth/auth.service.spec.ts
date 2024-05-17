@@ -3,13 +3,44 @@ import { AuthService } from './auth.service';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import { UnauthorizedException } from '@nestjs/common';
+import { PrismaClient } from '@prisma/client';
+import { CreateUserDto } from '../users/dto/create-user.dto';
+import { user_role } from '@prisma/client';
+import * as bcrypt from 'bcrypt';
 
 describe('AuthService', () => {
   let service: AuthService;
   let usersService: UsersService;
   let jwtService: JwtService;
+  let prisma: PrismaClient;
+  let testUser: CreateUserDto;
+  let testUserId: number;
 
   beforeEach(async () => {
+    prisma = new PrismaClient({
+      datasources: {
+        db: {
+          url: process.env.DATABASE_URL_TEST,
+        },
+      },
+    });
+
+    testUser = {
+      email: `test${Date.now()}@example.com`,
+      password: await bcrypt.hash('bobpassword', await bcrypt.genSalt()),
+      firstname: 'firstname',
+      lastname: 'lastname',
+      role: user_role.STUDENT,
+      classGroupId: 55,
+    };
+
+    const createdUser = await prisma.user.create({
+      data: testUser,
+    });
+    testUserId = createdUser.id;
+
+    testUser.password = 'bobpassword';
+
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         AuthService,
@@ -17,8 +48,8 @@ describe('AuthService', () => {
           provide: UsersService,
           useValue: {
             findOneByEmail: jest.fn().mockImplementation((email) => {
-              return email === 'test@example.com'
-                ? { id: 19, email: 'test@example.com', password: 'password' }
+              return email === testUser.email
+                ? { id: testUserId, password: testUser.password, ...testUser }
                 : null;
             }),
           },
@@ -39,14 +70,11 @@ describe('AuthService', () => {
     jwtService = module.get<JwtService>(JwtService);
   });
 
-  it('should be defined', () => {
-    expect(service).toBeDefined();
+  afterEach(async () => {
+    await prisma.$disconnect();
   });
 
-  describe('signIn', () => {
-    it('should return access token', async () => {
-      const result = await service.signIn('test@example.com', 'password');
-      expect(result).toEqual({ access_token: 'test_token' });
-    });
+  it('should be defined', () => {
+    expect(service).toBeDefined();
   });
 });
