@@ -1,9 +1,10 @@
 "use client";
 import { useEffect } from 'react';
 import { verifySession } from '@/app/lib/dal';
-import {redirect} from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
+    const router = useRouter();
 
     useEffect(() => {
         const checkSession = async () => {
@@ -11,11 +12,11 @@ export default function HomePage() {
             if (!session) {
                 console.log('No session');
             } else {
-                redirect('/users')
+                router.push('/users')
             }
         };
         checkSession().then(r => r);
-    }, []);
+    });
 
     return <div>Loading...</div>;
 }
