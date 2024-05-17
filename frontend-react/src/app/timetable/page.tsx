@@ -10,6 +10,7 @@ import Arrow from "@/app/components/arrows";
 import {getUser, verifySession} from "@/app/lib/dal";
 import {getClassGroupById} from "@/app/api/services/classgroupService";
 import {User} from "@/app/models/user";
+import {router} from "next/client";
 
 export default function Timetable() {
 
@@ -18,7 +19,7 @@ export default function Timetable() {
     const fullYear = new Date().getFullYear(); // e.g., 2024
     const lastTwoDigits = fullYear % 100; // e.g., 24
     const [currentYear] = useState<number>(lastTwoDigits);
-    const [user, setUser] = useState<User | null>(null);
+    const [, setUser] = useState<User | null>(null);
 
     useEffect(() => {
         verifySession().then(session => {
@@ -34,6 +35,8 @@ export default function Timetable() {
                     };
                     fetchTimeTable();
                 });
+            } else {
+                router.push('/login').then(r => r);
             }
         });
     }, []);
