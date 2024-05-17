@@ -9,7 +9,7 @@ export interface ApiResponse {
 
 }
 
-export async function apiRequest(endpoint: string, method: string, body?: any): Promise<ApiResponse> {
+export async function   apiRequest(endpoint: string, method: string, body?: any): Promise<ApiResponse> {
     const session = await verifySession()
     const bearer = session?.session
 

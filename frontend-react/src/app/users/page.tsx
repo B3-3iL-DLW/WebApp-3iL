@@ -7,7 +7,6 @@ import UserTable from "@/app/users/userTable";
 
 const UserComponent = dynamic(() => import('../users/userComponents'), { ssr: false });
 
-// This is a new client component that fetches the user's role
 const UserRoleComponent = () => {
     const [role, setRole] = React.useState<string | null>(null);
 
