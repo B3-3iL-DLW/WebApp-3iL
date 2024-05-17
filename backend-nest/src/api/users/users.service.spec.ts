@@ -27,7 +27,7 @@ describe('UsersService', () => {
       firstname: 'firstname',
       lastname: 'lastname',
       role: user_role.STUDENT,
-      classGroupId: 10,
+      classGroupId: 55,
     };
     await prisma.user.deleteMany();
 
@@ -86,7 +86,7 @@ describe('UsersService', () => {
         firstname: 'newfirstname',
         lastname: 'newlastname',
         role: user_role.STUDENT,
-        classGroupId: 11,
+        classGroupId: 55,
       };
       const { id, ...user } = await service.create(newUser);
       expect(user).toEqual(newUser);
@@ -119,7 +119,7 @@ describe('UsersService', () => {
 
   describe('updateClassGroup', () => {
     it('update the class of a user', async () => {
-      const newClassGroupId = 12;
+      const newClassGroupId = 60;
       const { id, ...user } = await service.updateClassGroup(testUserId, newClassGroupId);
       expect(user).toEqual({ ...testUser, classGroupId: newClassGroupId });
     });
