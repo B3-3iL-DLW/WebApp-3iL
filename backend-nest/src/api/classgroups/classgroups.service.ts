@@ -54,7 +54,11 @@ export class ClassgroupsService {
   }
 
   async delete(id: number) {
-    if (!id) {
+    const classgroup = await this.prisma.classgroup.findUnique({
+      where: { id: id },
+    });
+
+    if (!classgroup) {
       throw new Error('The class does not exist');
     }
     return this.prisma.classgroup.delete({

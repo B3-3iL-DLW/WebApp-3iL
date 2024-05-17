@@ -3,28 +3,54 @@ import { UsersService } from './users.service';
 import { PrismaService } from '../../prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { PrismaClient } from '@prisma/client';
 import { user_role } from '@prisma/client';
-
-function createNewUser(): CreateUserDto {
-  return {
-    email: `create${Math.random()}@example.com`,
-    password: 'createpassword',
-    firstname: 'createfirstname',
-    lastname: 'cretelastname',
-    role: user_role.STUDENT,
-    classGroupId: 1,
-  };
-}
 
 describe('UsersService', () => {
   let service: UsersService;
+  let prisma: PrismaClient;
+  let testUser: CreateUserDto;
+  let testUserId: number;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      providers: [UsersService, PrismaService],
-    }).compile();
+    prisma = new PrismaClient({
+      datasources: {
+        db: {
+          url: process.env.DATABASE_URL_TEST,
+        },
+      },
+    });
 
+    testUser = {
+      email: `test${Date.now()}@example.com`,
+      password: 'password',
+      firstname: 'firstname',
+      lastname: 'lastname',
+      role: user_role.STUDENT,
+      classGroupId: 55,
+    };
+    await prisma.user.deleteMany();
+
+    testUser.email = `test${Date.now()}@example.com`;
+    const createdUser = await prisma.user.create({
+      data: testUser,
+    });
+    testUserId = createdUser.id;
+
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [
+        UsersService,
+        {
+          provide: PrismaService,
+          useValue: prisma,
+        },
+      ],
+    }).compile();
     service = module.get<UsersService>(UsersService);
+  });
+
+  afterEach(async () => {
+    await prisma.$disconnect();
   });
 
   it('should be defined', () => {
@@ -33,119 +59,83 @@ describe('UsersService', () => {
 
   describe('findOne', () => {
     it('return a user if a valid id is provided', async () => {
-      const userId = 11;
-      const user = await service.findOne({ id: userId });
-      expect(user).not.toBeNull();
-      expect(user).not.toBeUndefined();
-      expect(user.email).not.toBeNull();
-      expect(user.email).not.toBeUndefined();
-      expect(user.password).not.toBeNull();
-      expect(user.password).not.toBeUndefined();
-      expect(user.firstname).not.toBeNull();
-      expect(user.firstname).not.toBeUndefined();
-      expect(user.lastname).not.toBeNull();
-      expect(user.lastname).not.toBeUndefined();
-      expect(user.role).not.toBeNull();
-      expect(user.role).not.toBeUndefined();
-      expect(user.classGroupId).not.toBeNull();
-      expect(user.classGroupId).not.toBeUndefined();
+      const { id, ...user } = await service.findOne(testUserId);
+      expect(id).toEqual(testUserId);
+      expect(user).toEqual(testUser);
     });
   });
 
   describe('findAll', () => {
     it('return an array of users', async () => {
       const users = await service.findAll({});
-      expect(users).not.toBeNull();
-      expect(users).not.toBeUndefined();
-      expect(users.length).toBeGreaterThan(0);
-      users.forEach((user) => {
-        expect(user).toHaveProperty('email');
-        expect(user).toHaveProperty('password');
-        expect(user).toHaveProperty('firstname');
-        expect(user).toHaveProperty('lastname');
-        expect(user).toHaveProperty('role');
-        expect(user).toHaveProperty('classGroupId');
+      users.forEach(({ id, ...user }) => {
+        expect(id).toBeDefined();
+        expect(user).toEqual(testUser);
       });
     });
   });
 
   describe('findOneByEmail', () => {
     it('return a user if a valid email is provided', async () => {
-      const users = await service.findAll({});
-      for (const user of users) {
-        const foundUser = await service.findOneByEmail(user.email);
-        expect(foundUser).not.toBeNull();
-        expect(foundUser).not.toBeUndefined();
-        expect(foundUser.email).not.toBeNull();
-      }
+      const { id, ...user } = await service.findOneByEmail(testUser.email);
+      expect(id).toEqual(testUserId);
+      expect(user).toEqual(testUser);
     });
   });
 
   describe('create', () => {
     it('create a new user', async () => {
-      const newUser = createNewUser();
-      const user = await service.create(newUser);
-      expect(user).not.toBeNull();
-      expect(user).not.toBeUndefined();
-      expect(user.email).toBe(newUser.email);
-      expect(user.password).toBe(newUser.password);
-      expect(user.firstname).toBe(newUser.firstname);
-      expect(user.lastname).toBe(newUser.lastname);
-      expect(user.role).toBe(newUser.role);
+      const newUser: CreateUserDto = {
+        email: `new${Date.now()}@example.com`,
+        password: 'newpassword',
+        firstname: 'newfirstname',
+        lastname: 'newlastname',
+        role: user_role.STUDENT,
+        classGroupId: 55,
+      };
+      const { id, ...user } = await service.create(newUser);
+      expect(id).toBeDefined();
+      expect(user).toEqual(newUser);
+    });
+  });
+
+  describe('delete', () => {
+    it('delete an existing user', async () => {
+      const { id, ...deletedUser } = await service.delete({
+        email: testUser.email,
+      });
+      expect(id).toEqual(testUserId);
+      expect(deletedUser).toEqual(testUser);
     });
   });
 
   describe('update', () => {
-    let existingUser;
-
-    beforeEach(async () => {
-      const newUser = createNewUser();
-      existingUser = await service.create(newUser);
-    });
-
     it('update a user', async () => {
       const data: UpdateUserDto = {
-        email: existingUser.email, // Use the existing user's email
+        email: `updated${Date.now()}@example.com`,
         password: 'updatedpassword',
         firstname: 'updatedfirstname',
         lastname: 'updatedlastname',
         role: user_role.STUDENT,
       };
-      const user = await service.update({
-        where: { id: existingUser.id },
-        data,
+      const { id, ...user } = await service.update({
+        where: { id: testUserId },
+        data: { ...data, email: testUser.email },
       });
-      expect(user).not.toBeNull();
-      expect(user).toHaveProperty('email', data.email);
-      expect(user).toHaveProperty('password', data.password);
-      expect(user).toHaveProperty('firstname', data.firstname);
-      expect(user).toHaveProperty('lastname', data.lastname);
-      expect(user).toHaveProperty('role', data.role);
-    });
-  });
-
-  describe('delete', () => {
-    let existingUser;
-
-    beforeEach(async () => {
-      const newUser = createNewUser();
-      existingUser = await service.create(newUser);
-    });
-
-    it('delete an existing user', async () => {
-      const deletedUser = await service.delete({ id: existingUser.id });
-      expect(deletedUser).toEqual(existingUser);
+      expect(id).toEqual(testUserId);
+      expect(user).toEqual({ ...testUser, ...data, email: testUser.email });
     });
   });
 
   describe('updateClassGroup', () => {
     it('update the class of a user', async () => {
-      const userId = 11;
-      const classGroupId = 11;
-      const user = await service.updateClassGroup(userId, classGroupId);
-      expect(user).not.toBeNull();
-      expect(user).not.toBeUndefined();
-      expect(user.classGroupId).toBe(classGroupId);
+      const newClassGroupId = 60;
+      const { id, ...user } = await service.updateClassGroup(
+        testUserId,
+        newClassGroupId,
+      );
+      expect(id).toEqual(testUserId);
+      expect(user).toEqual({ ...testUser, classGroupId: newClassGroupId });
     });
   });
 });
