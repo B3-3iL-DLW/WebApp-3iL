@@ -19,6 +19,11 @@ export default function UsersList() {
         });
     }, []);
 
+    const handleDelete = async (id: number) => {
+        await apiRequest(`users/${id}`, 'DELETE');
+
+    };
+
     return (
         <div className="flex items-center justify-center min-h-screen">
             <Table aria-label="Example static collection table" className="mx-auto">
@@ -41,7 +46,8 @@ export default function UsersList() {
                                 <button className="p-1 rounded-md bg-blue-500 text-white">
                                     <FontAwesomeIcon icon={faEdit} />
                                 </button>
-                                <button className="p-1 rounded-md bg-red-500 text-white ml-2">
+                                <button className="p-1 rounded-md bg-red-500 text-white ml-2"
+                                        onClick={() => handleDelete(user.id)}>
                                     <FontAwesomeIcon icon={faTrash} />
                                 </button>
                             </TableCell>
