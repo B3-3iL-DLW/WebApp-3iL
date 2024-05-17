@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ClassgroupsService } from './classgroups.service';
 import { PrismaService } from '../../prisma/prisma.service';
+import { NotFoundException } from '@nestjs/common';
 
 describe('ClassgroupsService', () => {
   let service: ClassgroupsService;
@@ -22,7 +23,13 @@ describe('ClassgroupsService', () => {
               findMany: jest.fn().mockResolvedValue([]),
               findUnique: jest.fn().mockResolvedValue({}),
               findFirst: jest.fn().mockResolvedValue({}),
-              delete: jest.fn().mockResolvedValue({}),
+              delete: jest.fn().mockImplementation((input) => {
+                return {
+                  id: input.where.id,
+                  file: 'fileTest.xml',
+                  name: 'fileTest',
+                };
+              }),
               update: jest.fn().mockResolvedValue({}),
             },
           },
@@ -98,25 +105,25 @@ describe('ClassgroupsService', () => {
     });
   });
 
-  // describe('delete', () => {
-  //   it('delete an existing classgroup', async () => {
-  //     const newClassgroup = {
-  //       file: 'fileTest.xml',
-  //       name: 'fileTest',
-  //     };
-  //     const createdClassgroup = await service.create(newClassgroup);
-  //     const deletedClassgroup = await service.delete(createdClassgroup.id);
-  //
-  //     expect(deletedClassgroup).toEqual(createdClassgroup);
-  //
-  //     try {
-  //       await service.findOne(createdClassgroup.id);
-  //     } catch (e) {
-  //       expect(e).toBeInstanceOf(NotFoundException);
-  //       expect(e.message).toEqual('Classgroup not found');
-  //     }
-  //   });
-  // });
+  describe('delete', () => {
+    it('delete an existing classgroup', async () => {
+      const newClassgroup = {
+        file: 'fileTest.xml',
+        name: 'fileTest',
+      };
+      const createdClassgroup = await service.create(newClassgroup);
+      const deletedClassgroup = await service.delete(createdClassgroup.id);
+
+      expect(deletedClassgroup).toEqual(createdClassgroup);
+
+      try {
+        await service.findOne(createdClassgroup.id);
+      } catch (e) {
+        expect(e).toBeInstanceOf(NotFoundException);
+        expect(e.message).toEqual('Classgroup not found');
+      }
+    });
+  });
 
   describe('upsert', () => {
     it('update an existing classgroup or create a new one if it does not exist', async () => {
